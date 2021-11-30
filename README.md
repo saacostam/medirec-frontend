@@ -1,5 +1,3 @@
-# se-ii-frontend
-
 ## Project setup
 ```
 npm install
