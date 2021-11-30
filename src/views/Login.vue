@@ -59,6 +59,8 @@
     </div>
   </div>
 </template>
+
+
 <script>
     import axios from 'axios';
     import {setAuthenticationToken} from '@/dataStorage';
@@ -77,9 +79,11 @@
         methods: {
             login( event ){
                 axios
-                .post( this.$store.state.backURL + path, // URL
-                    { email: this.email,
-                      password: this.password }, // Body
+                .post( this.$store.state.backURL + path, // URL: localhost:8080 + /login
+                    {
+                      email: this.email,
+                      password: this.password,
+                      role: "PATIENT" }, // Body
                     {
                         headers: {
                           'Content-Type': 'application/json'
@@ -105,6 +109,9 @@
         }
     }
 </script>
+
+
+
 
 <style scoped>
 .form-control::placeholder{

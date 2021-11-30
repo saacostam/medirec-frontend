@@ -9,6 +9,10 @@ import Profile from "./components/Profile";
 import Courses from '@/views/Courses';
 import Roles from "@/components/Roles";
 
+import SignUpPatient1 from "@/components/signup/patient1";
+import SignUpPatient2 from "@/components/signup/patient2";
+import SignUpPatient3 from "@/components/signup/patient3";
+
 Vue.use(Router);
 
 export default new Router({
@@ -23,7 +27,24 @@ export default new Router({
     {
       path: "/registro/paciente",
       name: "signup-paciente",
-      component: SignUpPatient
+      component: SignUpPatient,
+      children: [
+        {
+          path: "1",
+          name: "signuppatient1",
+          component: SignUpPatient1
+        },
+        {
+          path: "2",
+          name: "signuppatient2",
+          component: SignUpPatient2
+        },
+        {
+          path: "3",
+          name: "signuppatient3",
+          component: SignUpPatient3
+        }
+      ]
     },
     {
       path: "/",
