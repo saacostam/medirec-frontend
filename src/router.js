@@ -1,17 +1,26 @@
 import Vue from 'vue';
 import Router from 'vue-router';
+
 import SignUpPick from './views/SignUpPick'
 import SignUpPatient from "./views/SignUpPatient";
-import Login from "./views/Login";
-import App from "./views/App";
-import AddRole from "./components/AddRole";
-import Profile from "./components/Profile";
-import Courses from '@/views/Courses';
-import Roles from "@/components/Roles";
+import SignUpDoctor from "./views/SignUpDoctor";
 
 import SignUpPatient1 from "@/components/signup/patient1";
 import SignUpPatient2 from "@/components/signup/patient2";
 import SignUpPatient3 from "@/components/signup/patient3";
+
+import SignUpDoctor1 from "@/components/signup/doctor1";
+import SignUpDoctor2 from "@/components/signup/doctor2";
+import SignUpDoctor3 from "@/components/signup/doctor3";
+
+import Login from "./views/Login";
+import App from "./views/App";
+
+import Profile from "./components/app/Profile";
+import Home from "./components/app/Home";
+import DataUpdate from "./components/app/DataUpdate";
+import myMedRecord from "./components/app/MyMedRecord"
+import createMedRecord from "./components/app/CreateMedRecord"
 
 Vue.use(Router);
 
@@ -47,15 +56,32 @@ export default new Router({
       ]
     },
     {
+      path: "/registro/doctor",
+      name: "signup-doctor",
+      component: SignUpDoctor,
+      children: [
+        {
+          path: "1",
+          name: "signupdoctor1",
+          component: SignUpDoctor1
+        },
+        {
+          path: "2",
+          name: "signupdoctor2",
+          component: SignUpDoctor2
+        },
+        {
+          path: "3",
+          name: "signupdoctor3",
+          component: SignUpDoctor3
+        }
+      ]
+    },
+    {
       path: "/",
       alias: "/iniciar-sesion",
       name: "login",
       component: Login
-    },
-    {
-      path: '/mis-cursos',
-      name: 'courses',
-      component: Courses
     },
     {
       path: "/app",
@@ -63,19 +89,29 @@ export default new Router({
       component: App,
       children: [
         {
-          path: "profile",
+          path: "/home",
+          name: "home",
+          component: Home,
+        },
+        {
+          path: "/perfil",
           name: "profile",
           component: Profile,
         },
         {
-          path: "nuevo-rol",
-          name: "add-role",
-          component: AddRole
+          path: "/actualiza-datos",
+          name: "dataUpdate",
+          component: DataUpdate,
         },
         {
-          path: "roles",
-          name: "roles",
-          component: Roles
+          path: "/mi-historia-clinica",
+          name: "myMedRecord",
+          component: myMedRecord
+        },
+        {
+          path: "/mi-historia-clinica/create",
+          name: "createMedRecord",
+          component: createMedRecord
         }
       ]
     }

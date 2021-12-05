@@ -10,7 +10,7 @@
     <div class="container-fluid h-100">
       <div class="row h-100">
         <!-- Mitad Izquierda -->
-        <div class="col-md-6" id="img-patients">
+        <div class="col-md-6" id="img-doctors">
         </div>
 
         <!-- Mitad Derecha -->
@@ -26,10 +26,10 @@
 
   import axios from 'axios'
 
-  const path = '/register/patient';
+  const path = '/register/doctor';
 
   export default {
-    name: "SignUpPatient",
+    name: "SignUpDoctor",
     data( ){
       return{}
     },
@@ -92,9 +92,9 @@ a{
 	color: #418ef2;
 }
 
-#img-patients{
-	background-image: url("../../public/static/img/registro-paciente.jpg");
-	background-position: center;
+#img-doctors{
+	background-image: url("../../public/static/img/registro-doctor.png");
+	background-position: top center;
 	background-size:cover;
 }
 

@@ -24,21 +24,21 @@
                     <div class="form-group mb-4">
                         <div class="input-group">
                         <div class="input-group-prepend">
-                            <div class="input-group-text bg-color-secondary-dark border-0">
+                            <div class="input-group-text bg-color-main-dark border-0">
                             <img src="../../../public/static/svg/shield-lock.svg" class="password" width="16" height="16" viewBox="0 0 16 16">
                             </div>
                         </div>
-                        <input v-model="password" type="password" class="form-control bg-color-secondary-light border-0" placeholder="Contraseña" required>
+                        <input v-model="password" type="password" class="form-control bg-color-main-lighter border-0" placeholder="Contraseña" required>
                         </div>
                     </div>
                     <div class="form-group mb-4">
                         <div class="input-group">
                         <div class="input-group-prepend">
-                            <div class="input-group-text bg-color-secondary-dark border-0 text-light">
+                            <div class="input-group-text bg-color-main-dark border-0 text-light">
                             <img src="../../../public/static/svg/check-circle.svg" class="password" width="16" height="16" viewBox="0 0 16 16">
                             </div>
                         </div>
-                        <input class="form-control bg-color-secondary-light border-0" type="password"
+                        <input class="form-control bg-color-main-lighter border-0" type="password"
                             placeholder="Confirmar Contraseña" v-model="cPassword" required
                             :class="{ 'is-invalid': cPassword !== '' && cPassword !== password,
                                         'is-valid': cPassword !== '' && cPassword === password }"/>
@@ -94,7 +94,7 @@
   import axios from 'axios'
   import {setPaciente, getPaciente, deletePaciente} from '@/dataStorage';
 
-  const path = '/register/patient';
+  const path = '/register/doctor';
 
   export default {
     name: "SignUpPatient",
@@ -103,11 +103,11 @@
         if ( getPaciente()){
             userObject = getPaciente();
             if (userObject.source !== 1){
-                this.$router.push( {name: 'signuppatient1'} );
+                this.$router.push( {name: 'signupdoctor1'} );
             }
             deletePaciente();
         }else{
-            this.$router.push( {name: 'signuppatient1'} );
+            this.$router.push( {name: 'signupdoctor1'} );
         }
 
         const retorno = {
@@ -116,7 +116,8 @@
             docType: userObject.docType,
             doc: userObject.doc,
             email: userObject.email,
-            eps:userObject.eps,
+            specialization:userObject.specialization,
+            professionalCard: userObject.professionalCard,
             password: '',
             cPassword: ''
         }
@@ -139,18 +140,19 @@
               doc: this.doc.trim(),
               email: this.email.trim(),
               password: this.password.trim(),
-              eps: this.eps.trim()
+              specialization: this.specialization.trim(),
+              professionalCard: this.professionalCard.trim()
             }
           ).then( response => {
             if( response.status !== 200 ){
-              this.myAlert("Error en el registro del usuario");
+              this.myAlert( "Error en el registro del usuario" )
             }else{
               setPaciente({source:2});
-              this.$router.push( {name: 'signuppatient3'} );
+              this.$router.push( {name: 'signupdoctor3'} );
             }
           }).catch( error =>{
             if( error.response.status === 400 ){
-              this.myAlert("Parece que ya existe un usuario con el correo \"" + this.email + "\"");
+              this.myAlert( "Parece que ya existe un usuario con el correo \"" + this.email + "\"" );
             }else{
               this.myAlert( "Error en la aplicación" );
             }
@@ -167,9 +169,10 @@
             doc: this.doc.trim(),
             email: this.email.trim(),
             password: this.password.trim(),
-            eps: this.eps.trim()
+            specialization: this.specialization.trim(),
+            professionalCard: this.professionalCard.trim()
         })
-        this.$router.push( {name: 'signuppatient1'} );
+        this.$router.push( {name: 'signupdoctor1'} );
       },
       myAlert(text){
         document.getElementById('my-message').innerText = text;
@@ -180,7 +183,7 @@
 
 <style scoped>
     .circle{
-        border: solid 2px #FB7837;
+        border: solid 2px #1F4567;
         background-color: white;
         width: 50px;
         height: 50px;
@@ -192,7 +195,7 @@
     }
 
     .circle-active{
-        background-color: #FB7837;
+        background-color: #1F4567;
         color: white;
     }
 
@@ -205,8 +208,8 @@
         width: 65%;
         margin-left: 13%;
         margin-right: 13%;
-        color: #FB7837;
-        border: solid 5px #FB7837;
+        color: #1F4567;
+        border: solid 5px #1F4567;
     }
 
     .form-control::placeholder{
@@ -232,6 +235,10 @@
 
     .border-color-main-dark{
         border-color: #1F4567;
+    }
+
+    .bg-color-main-lighter{
+        background-color: rgb(218, 225, 230);
     }
 
     .bg-color-main-light{

@@ -24,63 +24,75 @@
                   <div class="form-group mb-4">
                       <div class="input-group">
                         <div class="input-group-prepend">
-                          <div class="input-group-text bg-color-secondary-dark border-0 text-white">
+                          <div class="input-group-text bg-color-main-dark border-0 text-white">
                             <img src="../../../public/static/svg/person-circle.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
                           </div>
                         </div>
-                        <input v-model="firstName" type="text" class="form-control bg-color-secondary-light border-0" placeholder="Nombres" required>
+                        <input v-model="firstName" type="text" class="form-control bg-color-main-lighter border-0" placeholder="Nombres" required>
                       </div>
                   </div>
 
                   <div class="form-group mb-4">
                       <div class="input-group">
                         <div class="input-group-prepend">
-                          <div class="input-group-text bg-color-secondary-dark border-0 text-white">
+                          <div class="input-group-text bg-color-main-dark border-0 text-white">
                             <img src="../../../public/static/svg/person-circle.svg" class="password" width="16" height="16" viewBox="0 0 16 16">
                           </div>
                         </div>
-                        <input v-model="lastName" type="text" class="form-control bg-color-secondary-light border-0" placeholder="Apellidos" required>
+                        <input v-model="lastName" type="text" class="form-control bg-color-main-lighter border-0" placeholder="Apellidos" required>
                       </div>
                   </div>
 
                   <div class="form-group mb-4">
                       <div class="input-group">
                       <div class="input-group-prepend">
-                          <div class="input-group-text bg-color-secondary-dark border-0 text-white">
+                          <div class="input-group-text bg-color-main-dark border-0 text-white">
                           <img src="../../../public/static/svg/envelope.svg" class="password" width="16" height="16" viewBox="0 0 16 16">
                           </div>
                       </div>
-                      <input v-model="email" type="email" class="form-control bg-color-secondary-light border-0" placeholder="Correo Electronico" required>
+                      <input v-model="email" type="email" class="form-control bg-color-main-lighter border-0" placeholder="Correo Electronico" required>
                       </div>
                   </div>
 
                   <div class="form-group mb-4">
                       <div class="input-group">
                         <div class="input-group-prepend">
-                          <div class="input-group-text bg-color-secondary-dark border-0 text-white">
+                          <div class="input-group-text bg-color-main-dark border-0 text-white">
                             <img src="../../../public/static/svg/person-badge.svg" class="password" width="16" height="16" viewBox="0 0 16 16">
                           </div>
                         </div>
-                        <input v-model="doc" type="number" class="form-control bg-color-secondary-light border-0" placeholder="Documento" required>
+                        <input v-model="doc" type="number" class="form-control bg-color-main-lighter border-0" placeholder="Documento" required>
                         <div class="input-group-append">
-                          <select v-model="docType" class="form-control bg-color-secondary-light border-0" required>
+                          <select v-model="docType" class="form-control bg-color-main-lighter border-0" required>
                             <option value="CC">CC</option>
-                            <option value="TI">TI</option>
+                            <!-- <option value="TI">TI</option> -->
                           </select>
                         </div>
+                      </div>
+                  </div>
+
+                  <div class="form-group mb-4">
+                      <div class="input-group">
+                          <div class="input-group-prepend">
+                              <div class="input-group-text bg-color-main-dark border-0 text-white">
+                              <img src="../../../public/static/svg/bandaid.svg" class="password" width="16" height="16" viewBox="0 0 16 16">
+                              </div>
+                          </div>
+                          <input v-model="specialization" type="text" class="form-control bg-color-main-lighter border-0" placeholder="Especialidad" required>
                       </div>
                   </div>
 
                   <div class="form-group">
                       <div class="input-group">
                           <div class="input-group-prepend">
-                              <div class="input-group-text bg-color-secondary-dark border-0 text-white">
-                              <img src="../../../public/static/svg/bandaid.svg" class="password" width="16" height="16" viewBox="0 0 16 16">
+                              <div class="input-group-text bg-color-main-dark border-0 text-white">
+                              <img src="../../../public/static/svg/card-list.svg" class="password" width="16" height="16" viewBox="0 0 16 16">
                               </div>
                           </div>
-                          <input v-model="eps" type="text" class="form-control bg-color-secondary-light border-0" placeholder="EPS" required>
+                          <input v-model="professionalCard" type="number" class="form-control bg-color-main-lighter border-0" placeholder="Tarjeta Profesional" required>
                       </div>
                   </div>
+
                 </div>
             </div>
             <div class="d-flex justify-content-center m-4">
@@ -94,18 +106,19 @@
   import axios from 'axios'
   import {setPaciente, getPaciente, deletePaciente} from '@/dataStorage';
 
-  const path = '/register/patient';
+  const path = '/register/doctor';
 
   export default {
-    name: "SignUpPatient",
+    name: "SignUpDoctor",
     data(){
         let userObject = {
         firstName: '',
         lastName: '',
-        docType:"CC",
+        docType: 'CC',
         doc: '',
         email: '',
-        eps: ''
+        specialization: '',
+        professionalCard: ''
         };
         
         if ( getPaciente()){
@@ -116,7 +129,8 @@
               userObject.docType = userData.docType,
               userObject.doc = userData.doc,
               userObject.email = userData.email,
-              userObject.eps = userData.eps
+              userObject.specialization = userData.specialization,
+              userObject.professionalCard = userData.professionalCard
             }
             deletePaciente(); 
         }
@@ -127,7 +141,8 @@
             docType: userObject.docType,
             doc: userObject.doc,
             email: userObject.email,
-            eps:userObject.eps
+            specialization:userObject.specialization,
+            professionalCard:userObject.professionalCard
         }
 
         return retorno;
@@ -141,8 +156,9 @@
                       docType: this.docType,
                       doc: this.doc,
                       email: this.email, 
-                      eps: this.eps} );
-        this.$router.push( {name: 'signuppatient2'} );
+                      specialization: this.specialization,
+                      professionalCard: this.professionalCard} );
+        this.$router.push( {name: 'signupdoctor2'} );
         event.preventDefault( );
         return true;
       },
@@ -155,7 +171,7 @@
 
 <style scoped>
     .circle{
-        border: solid 2px #FB7837;
+        border: solid 2px #1F4567;
         background-color: white;
         width: 50px;
         height: 50px;
@@ -167,7 +183,7 @@
     }
 
     .circle-active{
-        background-color: #FB7837;
+        background-color: #1F4567;
         color: white;
     }
 
@@ -180,8 +196,8 @@
         width: 65%;
         margin-left: 13%;
         margin-right: 13%;
-        color: #FB7837;
-        border: solid 5px #FB7837;
+        color: #1F4567;
+        border: solid 5px #1F4567;
     }
 
     .form-control::placeholder{
@@ -207,6 +223,10 @@
 
     .border-color-main-dark{
         border-color: #1F4567;
+    }
+
+    .bg-color-main-lighter{
+        background-color: rgb(218, 225, 230);
     }
 
     .bg-color-main-light{

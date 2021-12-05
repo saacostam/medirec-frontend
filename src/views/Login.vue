@@ -1,10 +1,10 @@
 <template>
   <div class="login h-100"> 
-    <svg class="fixed-bottom z-back" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 300">
-      <path fill="#FB7837" fill-opacity="0.5" d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+    <svg class="fixed-bottom z-back" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 160">
+      <path fill="#FB7837" fill-opacity="0.5" d="M0,192L21.8,170.7C43.6,149,87,107,131,101.3C174.5,96,218,128,262,144C305.5,160,349,160,393,138.7C436.4,117,480,75,524,85.3C567.3,96,611,160,655,154.7C698.2,149,742,75,785,53.3C829.1,32,873,64,916,106.7C960,149,1004,203,1047,234.7C1090.9,267,1135,277,1178,256C1221.8,235,1265,181,1309,154.7C1352.7,128,1396,128,1418,128L1440,128L1440,320L1418.2,320C1396.4,320,1353,320,1309,320C1265.5,320,1222,320,1178,320C1134.5,320,1091,320,1047,320C1003.6,320,960,320,916,320C872.7,320,829,320,785,320C741.8,320,698,320,655,320C610.9,320,567,320,524,320C480,320,436,320,393,320C349.1,320,305,320,262,320C218.2,320,175,320,131,320C87.3,320,44,320,22,320L0,320Z"></path>
     </svg>
-    <svg class="fixed-bottom z-back" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 300">
-      <path fill="#418EF2" fill-opacity="0.5" d="M0,96L40,133.3C80,171,160,245,240,261.3C320,277,400,235,480,208C560,181,640,171,720,154.7C800,139,880,117,960,133.3C1040,149,1120,203,1200,208C1280,213,1360,171,1400,149.3L1440,128L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"></path>
+    <svg class="fixed-bottom z-back" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+      <path fill="#418EF2" fill-opacity="0.5" d="M0,320L21.8,277.3C43.6,235,87,149,131,117.3C174.5,85,218,107,262,133.3C305.5,160,349,192,393,176C436.4,160,480,96,524,101.3C567.3,107,611,181,655,197.3C698.2,213,742,171,785,181.3C829.1,192,873,256,916,282.7C960,309,1004,299,1047,282.7C1090.9,267,1135,245,1178,234.7C1221.8,224,1265,224,1309,229.3C1352.7,235,1396,245,1418,250.7L1440,256L1440,320L1418.2,320C1396.4,320,1353,320,1309,320C1265.5,320,1222,320,1178,320C1134.5,320,1091,320,1047,320C1003.6,320,960,320,916,320C872.7,320,829,320,785,320C741.8,320,698,320,655,320C610.9,320,567,320,524,320C480,320,436,320,393,320C349.1,320,305,320,262,320C218.2,320,175,320,131,320C87.3,320,44,320,22,320L0,320Z"></path>
     </svg>
 
     <div class="container-fluid h-100">
@@ -18,7 +18,7 @@
           <div class="col-8 col-sm-8 col-md-10 col-lg-8">
             <div class="logo text-center d-flex align-items-center justify-content-center mb-3">
               <img src="../../public/static/img/heart-rate.png" alt="logo" width="96" height="96" viewBox="0 0 96 96">
-              <h1 class="text-color-main-light d-inline ml-2">MediRec</h1>
+              <h1 class="text-color-main-light d-inline ml-2 font-weight-bold">MediRec</h1>
             </div>
 
             <form @submit="login" class="bg-color-main-light pt-4 pb-4 pl-4 pr-4 input-color form-group">
@@ -43,6 +43,24 @@
                   <input v-model="password" type="password" class="form-control bg-color-main-dark border-0 text-white" placeholder="Contraseña" required>
                 </div>
               </div>
+              <div class="form-group mb-4">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text bg-color-main-dark border-0 text-white">
+                      <img src="../../public/static/svg/person-badge.svg" class="password" width="16" height="16" viewBox="0 0 16 16">
+                    </div>
+                  </div>
+                  <select v-model="role" class="form-control bg-color-main-dark border-0 text-white" required>
+                    <option value="PATIENT">Paciente</option>
+                    <option value="DOCTOR">Doctor</option>
+                  </select>
+                </div>
+              </div>
+              <!---->
+              <div class="mb-4 p-0 border-0 text-center alert alert-danger  " role="alert">
+                <small id="my-message" class=""></small>
+              </div>
+              <!---->
               <div class="d-flex justify-content-center mb-0">
                 <button type="submit" class="btn bg-color-secondary-dark text-white">Ingresar</button>
               </div>
@@ -73,7 +91,8 @@
         data(){
             return {
                 email: '',
-                password: ''
+                password: '',
+                role: 'PATIENT'
             }
         },
         methods: {
@@ -83,7 +102,7 @@
                     {
                       email: this.email,
                       password: this.password,
-                      role: "PATIENT" }, // Body
+                      role: this.role }, // Body
                     {
                         headers: {
                           'Content-Type': 'application/json'
@@ -91,20 +110,24 @@
                     }
                 ).then( response => {
                     if( response.status !== 200 ){
-                        alert( "Error en la autenticación" );
+                        this.myAlert('Error en la autenticación');
                     }else{
                         setAuthenticationToken( response.data );
-                        this.$router.push( {name: 'profile'} );
+                        
+                        this.$router.push( {name: 'home'} );
                     }
                 } ).catch( error => {
                     if( error.response.status === 400 ){
-                      alert( "Credenciales incorrectas" );
+                      this.myAlert('Credenciales Incorrectas');
                     }else{
-                      alert( "¡Parece que hubo un error de comunicación con el servidor!" );
+                      this.myAlert('¡Parece que hubo un error de comunicación con el servidor!');
                     }
                 } );
 
                 event.preventDefault();
+            },
+            myAlert(text){
+              document.getElementById('my-message').innerText = text;
             }
         }
     }
