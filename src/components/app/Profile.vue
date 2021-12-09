@@ -1,7 +1,7 @@
 <template>
   <div class="profile h-100 d-flex flex-column p-0 pt-3">
     <div class="inform d-flex flex-column align-items-center flex-fill ml-5 mr-5">
-      <div class="title text-white pl-5 pr-5">Información</div>
+      <div class="title text-white pl-5 pr-5">Mi Perfil</div>
       <div class="flex-fill media p-0 row d-flex flex-row w-100 mb-3">
         <div class="container">
           <div class="row">

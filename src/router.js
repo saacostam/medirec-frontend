@@ -14,13 +14,19 @@ import SignUpDoctor2 from "@/components/signup/doctor2";
 import SignUpDoctor3 from "@/components/signup/doctor3";
 
 import Login from "./views/Login";
+import Blank from "./views/Blank";
+import PasswordRecovery from "./components/passwordRecovery/PasswordRecovery"
+import PatientPassword from "./components/passwordRecovery/PatientPassword"
+import DoctorPassword from "./components/passwordRecovery/DoctorPassword"
 import App from "./views/App";
 
 import Profile from "./components/app/Profile";
 import Home from "./components/app/Home";
 import DataUpdate from "./components/app/DataUpdate";
-import myMedRecord from "./components/app/MyMedRecord"
-import createMedRecord from "./components/app/CreateMedRecord"
+import MyMedRecord from "./components/medRecord/MyMedRecord"
+import CreateMedRecord from "./components/medRecord/CreateMedRecord"
+import ViewMedRecord from "./components/medRecord/ViewMedRecord"
+import UploadMedRecordFile from "./components/medRecord/UploadMedRecordFile"
 
 Vue.use(Router);
 
@@ -84,6 +90,28 @@ export default new Router({
       component: Login
     },
     {
+      path: "/recuperacion-contrasena",
+      name: "blank-recu",
+      component: Blank,
+      children:[
+        {
+          path: "email",
+          name: "passwordRecovery",
+          component: PasswordRecovery
+        },
+        {
+          path: "paciente",
+          name:"patientPassword",
+          component: PatientPassword
+        },
+        {
+          path: "doctor",
+          name:"doctorPassword",
+          component: DoctorPassword
+        }
+      ]
+    },
+    {
       path: "/app",
       name: "app",
       component: App,
@@ -105,13 +133,30 @@ export default new Router({
         },
         {
           path: "/mi-historia-clinica",
-          name: "myMedRecord",
-          component: myMedRecord
-        },
-        {
-          path: "/mi-historia-clinica/create",
-          name: "createMedRecord",
-          component: createMedRecord
+          name: "blank-myMed",
+          component: Blank,
+          children:[
+            {
+              path: "nav",
+              name: "myMedRecord",
+              component: MyMedRecord
+            },
+            {
+              path: "create",
+              name: "createMedRecord",
+              component: CreateMedRecord
+            },
+            {
+              path: "upload-file",
+              name: "uploadMedRecordFile",
+              component: UploadMedRecordFile
+            },
+            {
+              path: 'view',
+              name: 'viewMedRecord',
+              component: ViewMedRecord
+            }
+          ]
         }
       ]
     }

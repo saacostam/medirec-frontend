@@ -69,7 +69,7 @@
               <p class="text-color-main-dark text-center mb-0 font-weight-half">¿No tienes cuenta? <router-link to="/registro">Registrate</router-link></p>
             </div>
             <div>
-              <p class="text-color-main-dark text-center font-weight-half"><router-link to="/"> ¿Olvidaste tu Contraseña?</router-link></p>
+              <p class="text-color-main-dark text-center font-weight-half"><router-link :to="{ name: 'passwordRecovery'}"> ¿Olvidaste tu Contraseña?</router-link></p>
             </div>
           </div>
         </div>

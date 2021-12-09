@@ -2,6 +2,9 @@
   <div class="profile h-100 d-flex p-0">
     <div class="container flex-fill">
         <div class="row p-0 h-100">
+            <button class="btn btn-back p-0 m-4" @click="toMedRecord">
+                <img src="../../../public/static/svg/arrow-left-circle.svg">
+            </button>
             <div class="col-lg-7 d-flex flex-column" v-if="this.step===1">
                 <div class="text-center"><h1 class="font-weight-bold text-color-green m-3">Historia Clinica</h1></div>
                 <div class="d-flex m-2">
@@ -366,7 +369,7 @@
                         </div>
                     </div>
                     <div class="d-flex justify-content-center">
-                        <button @click="toProfile" class="btn bg-color-main-light text-white">Volver</button>
+                        <button @click="toMedRecord" class="btn bg-color-main-light text-white">Volver</button>
                     </div>
                 </div>
             </div>
@@ -506,14 +509,28 @@ export default {
       removePersonalRecord(){this.personalRecords.pop()},
       addFamilyBackground(){this.familyBackgrounds.push( {familyMember:'', description:''} );},
       removeFamilyBackground(){this.familyBackgrounds.pop()},
-      toProfile(){
-          this.$router.push( {name: 'profile'} );
+      toMedRecord(){
+        this.$router.push( {name: 'myMedRecord'} );
       }
   }
 }
 </script>
 
 <style scoped>
+    .btn-back{
+      width: 44px;
+      height: 44px;
+
+      border-radius: 22px;
+      position: absolute;
+
+      z-index: 100;
+    }
+
+    .btn-back:focus {
+      box-shadow:unset;
+    }
+
     #add-button{
         background-color: rgb(166, 203, 38);
         font-size: 14px;
