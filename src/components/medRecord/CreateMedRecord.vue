@@ -28,7 +28,7 @@
                 <form @submit="next" class="pl-5 pr-5 form-group flex-fill d-flex flex-column">
                     <!---->
                     <div class="flex-fill">
-                        <div class="card" v-if="this.allergies.length===0">
+                        <div class="card message" v-if="this.allergies.length===0">
                             <div class="card-body offset-lg-2 col-lg-8">
                                 <h5 class="card-title text-center">Ha seleccionado <b class="text-color-green">0</b> alergias</h5>
                                 <p class="card-text mb-2 text-center">Si quiere añadir una entrada presione <span id="add-button">+</span><br> o <span id="next-button">Siguiente</span> en caso contrario.</p>
@@ -41,7 +41,7 @@
                                         <img src="../../../public/static/svg/health.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
                                     </div>
                                 </div>
-                                <input v-model="allergy.allergen" type="text" class="form-control border-0 bg-color-secondary-light" placeholder="Alergia" required>
+                                <input v-model="allergy.allergen" type="text" class="form-control border-0 bg-color-secondary-light mr-3" placeholder="Alergia" required>
                             </div>
                             <div class="input-group m-2">
                                 <div class="input-group-prepend">
@@ -49,7 +49,7 @@
                                         <img src="../../../public/static/svg/123.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
                                     </div>
                                 </div>
-                                <input v-model="allergy.type" type="number" class="form-control border-0 bg-color-secondary-light" placeholder="Tipo de Alergia" required min="1" max="4">
+                                <input v-model="allergy.type" type="number" class="form-control border-0 bg-color-secondary-light mr-3" placeholder="Tipo de Alergia" required min="1" max="4">
                             </div>
                         </div>
                     </div>
@@ -92,7 +92,7 @@
                 <form @submit="next" class="pl-5 pr-5 form-group flex-fill d-flex flex-column">
                     <!---->
                     <div class="flex-fill">
-                        <div class="card" v-if="this.illnesses.length===0">
+                        <div class="card message" v-if="this.illnesses.length===0">
                             <div class="card-body offset-lg-2 col-lg-8">
                                 <h5 class="card-title text-center">Ha seleccionado <b class="text-color-green">0</b> enfermedades</h5>
                                 <p class="card-text mb-2 text-center">Si quiere añadir una entrada presione <span id="add-button">+</span><br> o <span id="next-button">Siguiente</span> en caso contrario.</p>
@@ -105,7 +105,7 @@
                                         <img src="../../../public/static/svg/health.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
                                     </div>
                                 </div>
-                                <input v-model="illness.illnessName" type="text" class="form-control border-0 bg-color-secondary-light" placeholder="Enfermedad" required>
+                                <input v-model="illness.illnessName" type="text" class="form-control border-0 bg-color-secondary-light mr-3" placeholder="Enfermedad" required>
                             </div>
                             <div class="input-group m-2">
                                 <div class="input-group-prepend">
@@ -113,7 +113,7 @@
                                         <img src="../../../public/static/svg/calendar-check.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
                                     </div>
                                 </div>
-                                <input v-model="illness.detectionDate" type="date" class="form-control border-0 bg-color-secondary-light" placeholder="Fecha de Descubrimiento" required v-bind:max="new Date().toISOString().split('T')[0]">
+                                <input v-model="illness.detectionDate" type="date" class="form-control border-0 bg-color-secondary-light mr-3" placeholder="Fecha de Descubrimiento" required v-bind:max="new Date().toISOString().split('T')[0]">
                             </div>
                             <div class="input-group m-2">
                                 <div class="input-group-prepend">
@@ -121,7 +121,7 @@
                                         <img src="../../../public/static/svg/body-text.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
                                     </div>
                                 </div>
-                                <textarea v-model="illness.illnessDescription" type="long" class="form-control border-0 bg-color-secondary-light" placeholder="Descripción" required></textarea>
+                                <textarea v-model="illness.illnessDescription" type="long" class="form-control border-0 bg-color-secondary-light mr-3" placeholder="Descripción" required></textarea>
                             </div>
                         </div>
                     </div>
@@ -163,7 +163,7 @@
                 <form @submit="next" class="pl-5 pr-5 form-group flex-fill d-flex flex-column">
                     <!---->
                     <div class="flex-fill">
-                        <div class="card" v-if="this.personalRecords.length===0">
+                        <div class="card message" v-if="this.personalRecords.length===0">
                             <div class="card-body">
                                 <h5 class="card-title text-center">Ha seleccionado <b class="text-color-green">0</b> antecedentes personales</h5>
                                 <p class="card-text mb-2 text-center">Si quiere añadir una entrada presione <span id="add-button">+</span><br> o <span id="next-button">Siguiente</span> en caso contrario.</p>
@@ -176,7 +176,7 @@
                                         <img src="../../../public/static/svg/calendar-check.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
                                     </div>
                                 </div>
-                                <input v-model="personalRecord.date" type="date" class="form-control border-0 bg-color-secondary-light" placeholder="Fecha de Descubrimiento" required v-bind:max="new Date().toISOString().split('T')[0]">
+                                <input v-model="personalRecord.date" type="date" class="form-control border-0 bg-color-secondary-light mr-3" placeholder="Fecha de Descubrimiento" required v-bind:max="new Date().toISOString().split('T')[0]">
                             </div>
                             <div class="input-group m-2">
                                 <div class="input-group-prepend">
@@ -184,7 +184,7 @@
                                         <img src="../../../public/static/svg/body-text.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
                                     </div>
                                 </div>
-                                <textarea v-model="personalRecord.description" type="long" class="form-control border-0 bg-color-secondary-light" placeholder="Descripción" required></textarea>
+                                <textarea v-model="personalRecord.description" type="long" class="form-control border-0 bg-color-secondary-light mr-3" placeholder="Descripción" required></textarea>
                             </div>
                         </div>
                     </div>
@@ -226,7 +226,7 @@
                 <form @submit="next" class="pl-5 pr-5 form-group flex-fill d-flex flex-column">
                     <!---->
                     <div class="flex-fill">
-                        <div class="card" v-if="this.familyBackgrounds.length===0">
+                        <div class="card message" v-if="this.familyBackgrounds.length===0">
                             <div class="card-body offset-lg-2 col-lg-8">
                                 <h5 class="card-title text-center">Ha seleccionado <b class="text-color-green">0</b> antecedentes familiares</h5>
                                 <p class="card-text mb-2 text-center">Si quiere añadir una entrada presione <span id="add-button">+</span><br> o <span id="next-button">Siguiente</span> en caso contrario.</p>
@@ -239,7 +239,7 @@
                                         <img src="../../../public/static/svg/person-circle.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
                                     </div>
                                 </div>
-                                <input v-model="familyBackground.familyMember" type="text" class="form-control border-0 bg-color-secondary-light" placeholder="Familiar" required>
+                                <input v-model="familyBackground.familyMember" type="text" class="form-control border-0 bg-color-secondary-light mr-3" placeholder="Familiar" required>
                             </div>
                             <div class="input-group m-2">
                                 <div class="input-group-prepend">
@@ -247,7 +247,7 @@
                                         <img src="../../../public/static/svg/body-text.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
                                     </div>
                                 </div>
-                                <textarea v-model="familyBackground.description" type="long" class="form-control border-0 bg-color-secondary-light" placeholder="Descripción" required></textarea>
+                                <textarea v-model="familyBackground.description" type="long" class="form-control border-0 bg-color-secondary-light mr-3" placeholder="Descripción" required></textarea>
                             </div>
                         </div>
                     </div>
@@ -405,43 +405,8 @@ export default {
 
     if (dataObject.authority === "DOCTOR"){
         this.$router.push( {name: 'home'} );
-        return dataObject;
     }
-
-    const requestPath = "/patient/medicalHistory/"
-
-    axios.get( this.$store.state.backURL + requestPath + session.userId, { params: { sessionToken: session.token } } )
-        .then( response => {
-          if( response.status !== 200 ){
-            alert( 'Error Obteniendo la Historia Medica' );
-          }else{
-            const data = response.data.data;
-            
-            // Get Registered Entries
-            if (data.allergies !== []){dataObject.allergies = data.allergies;}
-            if (data.illnesses !== []){dataObject.illnesses = data.illnesses;}
-            if (data.personalRecords !== []){dataObject.personalRecords = data.personalRecords;}
-            if (data.familyBackgrounds !== []){dataObject.familyBackgrounds = data.familyBackgrounds;}
-
-            // Format Time
-            for(let i=0; i<dataObject.illnesses.length; i++){
-                dataObject.illnesses[i].detectionDate = dataObject.illnesses[i].detectionDate.split('T')[0];
-            }
-
-            // Format Time and Manage BackEnd Name Changes
-            for(let i=0; i<dataObject.personalRecords.length; i++){
-                dataObject.personalRecords[i].date = dataObject.personalRecords[i].date.split('T')[0];
-                dataObject.personalRecords[i].description = dataObject.personalRecords[i].prDescription;
-            }
-
-            // console.log(data);
-          }
-        } ).catch( error => {
-          alert( 'Error en la petición' );
-          console.log( error );
-        } );
-
-    return dataObject
+    return dataObject;
   },
   beforeCreate(){
   },
@@ -517,6 +482,10 @@ export default {
 </script>
 
 <style scoped>
+    .message{
+        border-radius: 20px;
+    }
+
     .btn-back{
       width: 44px;
       height: 44px;

@@ -1,10 +1,7 @@
 <template>
     <div class="view-medRecord container-fluid">
         <div class="row">
-            <div class="col-md-8">
-                <h3>Mi Historia Clinica</h3>
-            </div>
-            <div class="col-md-4">
+            <div class="col-12">
                 <h3>Mis Archivos</h3>
                 <div class="pdf-files">
                     <a class="d-block" href="#" v-for="file in this.files" @click="downloadPDF(file)">{{file.documentName}}</a>

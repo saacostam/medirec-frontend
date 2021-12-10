@@ -1,132 +1,36 @@
 <template>
     <div class="flex-fill myMedRecord container p-4 d-flex flex-column">
-        <div class="main-title title text-white">Mi Historia Clínica</div>
-        <div class="flex-fill border d-flex">
-            <div class="flex-fill d-flex flex-column">
-                <div class="flex-fill container">
-                    <div class="row">
-                        <div class="col-lg-4 d-flex flex-column p-3">
-                            <div class="flex-fill d-flex align-items-center justify-content-center div-select flex-column m-3 media" id="view-button" v-if="this.hasData" @click="toView">
-                                <h3 class="">Visualizar</h3>
-                                <p>Historia Clínica</p>
-                                <!-- <img src="../../../public/static/svg/eye.svg"> -->
-                            </div>
-                            <div class="flex-fill d-flex align-items-center justify-content-center div-select flex-column m-3 media" id="create-button" v-else @click="toCreate">
-                                <h3 class="">Crear</h3>
-                                <p>Historia Clínica</p>
-                                <!-- <img src="../../../public/static/svg/plus-square.svg"> -->
-                            </div>
-                            <div class="flex-fill d-flex align-items-center justify-content-center div-select flex-column m-3 media" id="update-button" v-bind:class="this.hasDataClass">
-                                <h3 class="">Actualizar</h3>
-                                <p>Historia Clínica</p>
-                                <!-- <img src="../../../public/static/svg/pencil-square.svg"> -->
-                            </div>
-                            <div class="flex-fill d-flex align-items-center justify-content-center div-select flex-column m-3 media" id="upload-button" v-bind:class="this.hasDataClass" @click="toUpload">
-                                <h3 class="">Subir</h3>
-                                <p>Documentos</p>
-                                <!-- <img src="../../../public/static/svg/file-earmark-arrow-up.svg"> -->
+        <div class="flex-fill d-flex flex-column">
+            <div class="flex-fill container">
+                <div class="row h-100">
+                    <div class="col-lg-7 col-md-4 img-med-record">
+                        <img src="../../../public/static/img/clinicalHistoryIcon.jpg" alt="" class="img-med-record img-fluid">
+                    </div>
+                    <div class="col-lg-5 col-md-8 flex-fill d-flex flex-column p-3" v-if="this.hasData">
+                        <div class="flex-fill d-flex flex-row p-3 align-items-center">
+                            <img src="../../../public/static/img/viewMedicalHistoryIcon.png" width="125px" height="125px" @click="toView" class="img-button">
+                            <div class="body flex-fill d-flex justify-content-center align-content-center ml-4 p-2 border bg-color-main-light text-white text-center div-button" @click="toView">
+                                <h4>Consultar Historia Clínica</h4>
                             </div>
                         </div>
-                        <div class="col-lg-4 p-3" v-if="this.hasData">
-                            <div class="">
-                                <div class="title text-center text-white mt-3">ALERGIAS</div>
-                                <table class="table table-sm border mb-4">
-                                    <thead class="bg-color-secondary-dark text-white">
-                                        <tr>
-                                            <th scope="col">Alergia</th>
-                                            <th scope="col">Tipo</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody v-for="allergy in this.allergies.slice(0,2)">
-                                        <tr>
-                                            <th scope="row">{{allergy.allergen}}</th>
-                                            <td>{{allergy.type}}</td>
-                                        </tr>
-                                    </tbody>
-                                    <tbody>
-                                        <tr>
-                                            <th scope="row">...</th>
-                                            <td>...</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-
-                                <div class="title text-center text-white mt-3">ENFERMEDADES</div>
-                                <table class="table table-sm border">
-                                    <thead class="bg-color-secondary-dark text-white">
-                                        <tr>
-                                            <th scope="col">Nombre</th>
-                                            <th scope="col">Fecha</th>
-                                            <th scope="col">Descripción</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody v-for="illness in this.illnesses.slice(0,2)">
-                                        <tr>
-                                            <th scope="row">{{illness.illnessName}}</th>
-                                            <td>{{illness.detectionDate}}</td>
-                                            <td>{{illness.illnessDescription.slice(0,10)}}...</td>
-                                        </tr>
-                                    </tbody>
-                                    <tbody>
-                                        <tr>
-                                            <th scope="row">...</th>
-                                            <td>...</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                        <div class="flex-fill d-flex flex-row p-3 align-items-center">
+                            <img src="../../../public/static/img/updateMedicalHistoryIcon.png" width="125px" height="125px" @click="toUpdate" class="img-button">
+                            <div class="body flex-fill d-flex justify-content-center align-content-center ml-4 p-2 border bg-color-main-light text-white text-center div-button" @click="toUpdate">
+                                <h4>Actualizar Historia Clínica</h4>
                             </div>
                         </div>
-                        <div class="col-lg-4 p-3" v-if="this.hasData">
-                            <div class="">
-                                <div class="title text-center text-white mt-3">ANTECEDENTES PERSONALES</div>
-                                <table class="table table-sm border mb-4">
-                                    <thead class="bg-color-secondary-dark text-white">
-                                        <tr>
-                                            <th scope="col">Fecha</th>
-                                            <th scope="col">Descripción</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody v-for="personalRecord in this.personalRecords.slice(0,2)">
-                                        <tr>
-                                            <th scope="row">{{personalRecord.date}}</th>
-                                            <td>{{personalRecord.description.slice(0,20)}}...</td>
-                                        </tr>
-                                    </tbody>
-                                    <tbody>
-                                        <tr>
-                                            <th scope="row">...</th>
-                                            <td>...</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-
-                                <div class="title text-center text-white mt-3">ANTECEDENTES FAMILIARES</div>
-                                <table class="table table-sm border">
-                                    <thead class="bg-color-secondary-dark text-white">
-                                        <tr>
-                                            <th scope="col">Familiar</th>
-                                            <th scope="col">Descripción</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody v-for="familyBackground in this.familyBackgrounds.slice(0,2)">
-                                        <tr>
-                                            <th scope="row">{{familyBackground.familyMember}}</th>
-                                            <td>{{familyBackground.description.slice(0,20)}}...</td>
-                                        </tr>
-                                    </tbody>
-                                    <tbody>
-                                        <tr>
-                                            <th scope="row">...</th>
-                                            <td>...</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                        <div class="flex-fill d-flex flex-row p-3 align-items-center">
+                            <img src="../../../public/static/img/uploadMedicalHistoryIcon.png" width="125px" height="125px" @click="toUpload" class="img-button">
+                            <div class="body flex-fill d-flex justify-content-center align-content-center ml-4 p-2 border bg-color-main-light text-white text-center div-button" @click="toUpload">
+                                <h4>Subir archivos de su Historia Clínica</h4>
                             </div>
                         </div>
-                        <div class="col-lg-8 p-3 text-center" v-else>
-                            <h3 class="text-color-main-dark mt-3">¡No se ha encontrado ninguna <b class="text-color-main-light">Historia Clínica</b>!</h3>
-                            <div class="ml-5 mr-5 p-3">
-                                <p class="ml-5 mr-5 p-3" id="empty-message">Presione <b id="create-sym">Crear</b> para construir la Historia Clinica.</p>
+                    </div>
+                    <div class="col-lg-5 col-md-8 flex-fill d-flex flex-column p-3" v-else>
+                        <div class="flex-fill d-flex flex-column p-3 align-items-center justify-content-center">
+                            <img src="../../../public/static/img/createMedicalHistoryIcon.png" width="125px" height="125px" @click="toCreate" class="img-button mb-4">
+                            <div class="body justify-content-center align-content-center p-2 pl-5 pr-5 mt-2 border bg-color-main-light text-white text-center div-button" @click="toCreate">
+                                <h4>Agregar Historia <br> Clínica</h4>
                             </div>
                         </div>
                     </div>
@@ -147,7 +51,6 @@ export default {
       authority: '',
       userId: '',
       hasData: false,
-      hasDataClass:'',
       allergies: [],
       illnesses: [],
       personalRecords: [],
@@ -175,9 +78,11 @@ export default {
             // Check if data is empty
             if (data.allergies.length===0 && data.illnesses.length===0 && data.personalRecords.length===0 && data.familyBackgrounds.length===0){
                 this.hasData=false;
-                this.hasDataClass="no-data-div";
+                console.log("no data")
                 return
             }
+
+            console.log(data);
 
             this.hasData = true;
 
@@ -233,12 +138,13 @@ export default {
         this.$router.push( {name: 'createMedRecord'} );
     },
     toUpload(){
-        if (this.hasData){
-            this.$router.push({name: 'uploadMedRecordFile'})
-        }
+        this.$router.push({name: 'uploadMedRecordFile'})
     },
     toView(){
         this.$router.push({name:'viewMedRecord'})
+    },
+    toUpdate(){
+        console.log("toUpdate");
     }
   }
 }
@@ -323,23 +229,19 @@ export default {
         margin: 0 auto;
     }
 
-    div .no-data-div, div .no-data-div:hover, div .no-data-div:active{
-        opacity: 50%;
-        filter:drop-shadow(0px 0px 0px black);
-        background-color: #418ef2;
+    .div-button{
+        border-radius: 20px;
     }
 
-    #create-sym{
-        background-color: #418ef2;
-        color: white;
-        padding: 2px;
-        padding-left: 5px;
-        padding-right: 5px;
-        border-radius: 5px;
+    .div-button:hover{
+        cursor: pointer;
     }
 
-    #empty-message{
-        border: 2px dotted #dee2e6!important;
-        border-radius: 25px;
+    .div-button>h4{
+        font-size: 22px;
+    }
+
+    .img-button:hover{
+        cursor: pointer;
     }
 </style>

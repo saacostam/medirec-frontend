@@ -5,7 +5,8 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    backURL: 'http://localhost:8080'
+    //backURL: 'http://localhost:8080'
+    backURL: 'https://appmedirec.herokuapp.com'
   },
   mutations: {
 

@@ -25,8 +25,14 @@ import Home from "./components/app/Home";
 import DataUpdate from "./components/app/DataUpdate";
 import MyMedRecord from "./components/medRecord/MyMedRecord"
 import CreateMedRecord from "./components/medRecord/CreateMedRecord"
-import ViewMedRecord from "./components/medRecord/ViewMedRecord"
 import UploadMedRecordFile from "./components/medRecord/UploadMedRecordFile"
+
+import ViewMedRecord from "./components/medRecord/viewMedRecord/ViewMedRecord"
+import ViewAllergies from "./components/medRecord/viewMedRecord/ViewAllergies"
+import ViewIllnesses from "./components/medRecord/viewMedRecord/ViewIllnesses"
+import ViewPersonalRecords from "./components/medRecord/viewMedRecord/ViewPersonalRecords"
+import ViewFamilyBackgrounds from "./components/medRecord/viewMedRecord/ViewFamilyBackgrounds"
+import ViewFiles from "./components/medRecord/viewMedRecord/ViewFiles"
 
 Vue.use(Router);
 
@@ -153,8 +159,40 @@ export default new Router({
             },
             {
               path: 'view',
-              name: 'viewMedRecord',
-              component: ViewMedRecord
+              name: 'blank-viewMyMed',
+              component: Blank,
+              children: [
+                {
+                  path: 'nav',
+                  name: 'viewMedRecord',
+                  component: ViewMedRecord
+                },
+                {
+                  path: 'alergias',
+                  name: 'viewAllergies',
+                  component: ViewAllergies
+                },
+                {
+                  path: 'enfermedades',
+                  name: 'viewIllnesses',
+                  component: ViewIllnesses
+                },
+                {
+                  path: 'antecedentes',
+                  name: 'viewPersonalRecords',
+                  component: ViewPersonalRecords
+                },
+                {
+                  path: 'antecedentes-familiares',
+                  name: 'viewFamilyBackgrounds',
+                  component: ViewFamilyBackgrounds
+                },
+                {
+                  path: 'archivos',
+                  name: 'viewFiles',
+                  component: ViewFiles
+                }
+              ]
             }
           ]
         }
