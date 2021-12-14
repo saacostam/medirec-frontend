@@ -47,90 +47,16 @@ import {getAuthenticationToken} from '@/dataStorage';
 export default {
   name: 'Roles',
   data( ){
-    let dataObject = {
-      authority: '',
-      userId: '',
-      hasData: false,
-      allergies: [],
-      illnesses: [],
-      personalRecords: [],
-      familyBackgrounds: []
-    };
-    const session = getAuthenticationToken( )
+    let dataObject = this.$store.state.medRecord;
 
-    dataObject.authority = session.authorities[0].authority;
-    dataObject.userId = session.userId;
-
-    if (dataObject.authority === "DOCTOR"){
-        this.$router.push( {name: 'home'} );
-        return dataObject;
-    }
-
-    const requestPath = "/patient/medicalHistory/"
-
-    axios.get( this.$store.state.backURL + requestPath + session.userId, { params: { sessionToken: session.token } } )
-        .then( response => {
-          if( response.status !== 200 ){
-            alert( 'Error Obteniendo la Historia Medica' );
-          }else{
-            const data = response.data.data;
-            
-            // Check if data is empty
-            if (data.allergies.length===0 && data.illnesses.length===0 && data.personalRecords.length===0 && data.familyBackgrounds.length===0){
-                this.hasData=false;
-                console.log("no data")
-                return
-            }
-
-            console.log(data);
-
-            this.hasData = true;
-
-            // Get Registered Entries
-            if (data.allergies !== []){dataObject.allergies = data.allergies;}
-            if (data.illnesses !== []){dataObject.illnesses = data.illnesses;}
-            if (data.personalRecords !== []){dataObject.personalRecords = data.personalRecords;}
-            if (data.familyBackgrounds !== []){dataObject.familyBackgrounds = data.familyBackgrounds;}
-
-            // Format Time
-            for(let i=0; i<dataObject.illnesses.length; i++){
-                dataObject.illnesses[i].detectionDate = dataObject.illnesses[i].detectionDate.split('T')[0];
-            }
-
-            // Format Time and Manage BackEnd Name Changes
-            for(let i=0; i<dataObject.personalRecords.length; i++){
-                dataObject.personalRecords[i].date = dataObject.personalRecords[i].date.split('T')[0];
-                dataObject.personalRecords[i].description = dataObject.personalRecords[i].prDescription;
-            }
-          }
-        } ).catch( error => {
-          alert( 'Error en la petición' );
-          console.log( error );
-        } );
-
-    return dataObject
+    if (dataObject.allergies.length===0 && dataObject.allergies.length===0 && dataObject.personalRecords.length===0 && dataObject.familyBackgrounds.length===0){
+        dataObject.hasData = false;
+    }else{ dataObject.hasData = true}
+    return dataObject;
   },
   beforeCreate(){
   },
   methods:{
-    next(event){
-        this.step += 1;
-        event.preventDefault();
-    },
-    back(){
-        this.step -= 1;
-    },
-    myAlert(text){
-        document.getElementById('my-message').innerText = text;
-    },
-    addAllergy(){this.allergies.push( {allergen:'', type:''} );},
-    removeAllergy(){this.allergies.pop()},
-    addIlness(){this.illnesses.push( {illnessName:'', detectionDate:'', illnessDescription:''} );},
-    removeIlness(){this.illnesses.pop()},
-    addPersonalRecord(){this.personalRecords.push( {date:'', description:''} );},
-    removePersonalRecord(){this.personalRecords.pop()},
-    addFamilyBackground(){this.familyBackgrounds.push( {familyMember:'', description:''} );},
-    removeFamilyBackground(){this.familyBackgrounds.pop()},
     toProfile(){
         this.$router.push( {name: 'profile'} );
     },
@@ -144,7 +70,7 @@ export default {
         this.$router.push({name:'viewMedRecord'})
     },
     toUpdate(){
-        console.log("toUpdate");
+        this.$router.push({name:'updateMedRecord'})
     }
   }
 }

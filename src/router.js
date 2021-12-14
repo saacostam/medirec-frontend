@@ -23,16 +23,29 @@ import App from "./views/App";
 import Profile from "./components/app/Profile";
 import Home from "./components/app/Home";
 import DataUpdate from "./components/app/DataUpdate";
-import MyMedRecord from "./components/medRecord/MyMedRecord"
-import CreateMedRecord from "./components/medRecord/CreateMedRecord"
-import UploadMedRecordFile from "./components/medRecord/UploadMedRecordFile"
 
+import MyMedRecord from "./components/medRecord/MyMedRecord"
+import BlankMedRecord from "./components/medRecord/BlankMedRecord"
+import CreateMedRecord from "./components/medRecord/CreateMedRecord"
+import UpdateMedRecord from "./components/medRecord/UpdateMedRecord"
+import UploadMedRecordFile from "./components/medRecord/UploadMedRecordFile"
 import ViewMedRecord from "./components/medRecord/viewMedRecord/ViewMedRecord"
 import ViewAllergies from "./components/medRecord/viewMedRecord/ViewAllergies"
 import ViewIllnesses from "./components/medRecord/viewMedRecord/ViewIllnesses"
 import ViewPersonalRecords from "./components/medRecord/viewMedRecord/ViewPersonalRecords"
 import ViewFamilyBackgrounds from "./components/medRecord/viewMedRecord/ViewFamilyBackgrounds"
 import ViewFiles from "./components/medRecord/viewMedRecord/ViewFiles"
+
+import BlankMyDoctor from "./components/myDoctors/BlankMyDoctors"
+import MyDoctors from "./components/myDoctors/MyDoctors"
+import SearchDoctors from "./components/myDoctors/SearchDoctors"
+import ViewDoctorProfile from "./components/myDoctors/ViewProfile"
+
+import MyRequests from "./components/myRequests/MyRequests"
+
+import BlankMyPatient from "./components/myPatients/BlankMyPatients"
+import MyPatients from "./components/myPatients/MyPatients"
+import SearchPatients from "./components/myPatients/SearchPatients"
 
 Vue.use(Router);
 
@@ -140,7 +153,7 @@ export default new Router({
         {
           path: "/mi-historia-clinica",
           name: "blank-myMed",
-          component: Blank,
+          component: BlankMedRecord,
           children:[
             {
               path: "nav",
@@ -148,12 +161,17 @@ export default new Router({
               component: MyMedRecord
             },
             {
-              path: "create",
+              path: "crear",
               name: "createMedRecord",
               component: CreateMedRecord
             },
             {
-              path: "upload-file",
+              path: 'actualizar',
+              name: 'updateMedRecord',
+              component: UpdateMedRecord
+            },
+            {
+              path: "subir-archivo",
               name: "uploadMedRecordFile",
               component: UploadMedRecordFile
             },
@@ -195,7 +213,51 @@ export default new Router({
               ]
             }
           ]
-        }
+        },
+        {
+          path: '/mis-doctores',
+          name: 'blank-myDoc',
+          component: BlankMyDoctor,
+          children : [
+            {
+              path: 'nav',
+              name: 'myDoctors',
+              component: MyDoctors
+            },
+            {
+              path: 'buscar',
+              name: 'searchDoctors',
+              component: SearchDoctors
+            },
+            {
+              path: 'perfil/:id',
+              name: 'viewProfile',
+              component: ViewDoctorProfile
+            }
+          ]
+        },
+        {
+          path: '/mis-pacientes',
+          name: 'blank-myPat',
+          component: BlankMyPatient,
+          children : [
+            {
+              path: 'nav',
+              name: 'myPatients',
+              component: MyPatients
+            },
+            {
+              path: 'buscar',
+              name: 'searchPatients',
+              component: SearchPatients
+            }
+          ]
+        },
+        {
+          path: "/mis-solicitudes",
+          name: "myRequests",
+          component: MyRequests
+        },
       ]
     }
   ]

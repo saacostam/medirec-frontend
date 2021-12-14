@@ -22,22 +22,22 @@
                                 </div>
                             </div>
                             <div class="flex-fill d-flex flex-column align-items-center">
-                                <img src="../../../../public/static/img/antecedentesPersonalesIcon.png" width="125px" height="125px" @click="toCreate" class="img-button mb-4">
-                                <div class="body justify-content-center align-content-center border bg-color-main-light text-white text-center div-button" @click="toCreate">
+                                <img src="../../../../public/static/img/antecedentesPersonalesIcon.png" width="125px" height="125px" @click="toPersonalRecords" class="img-button mb-4">
+                                <div class="body justify-content-center align-content-center border bg-color-main-light text-white text-center div-button" @click="toPersonalRecords">
                                     <h4>Antecedentes</h4>
                                 </div>
                             </div>
                         </div>
                         <div class="offset-2 col-8 d-flex flex-row justify-content-around mb-3">
                             <div class="d-flex flex-column align-items-center">
-                                <img src="../../../../public/static/img/antecedentesFamiliaresIcon.png" width="125px" height="125px" @click="toCreate" class="img-button mb-4">
-                                <div class="body justify-content-center align-content-center border bg-color-main-light text-white text-center div-button" @click="toCreate">
+                                <img src="../../../../public/static/img/antecedentesFamiliaresIcon.png" width="125px" height="125px" @click="toFamilyBackgrounds" class="img-button mb-4">
+                                <div class="body justify-content-center align-content-center border bg-color-main-light text-white text-center div-button" @click="toFamilyBackgrounds">
                                     <h4>Antecedentes<br>Familiares</h4>
                                 </div>
                             </div>
                             <div class="d-flex flex-column align-items-center">
-                                <img src="../../../../public/static/img/archivosIcon.png" width="125px" height="125px" @click="toCreate" class="img-button mb-4">
-                                <div class="body justify-content-center align-content-center border bg-color-main-light text-white text-center div-button" @click="toCreate">
+                                <img src="../../../../public/static/img/archivosIcon.png" width="125px" height="125px" @click="toFiles" class="img-button mb-4">
+                                <div class="body justify-content-center align-content-center border bg-color-main-light text-white text-center div-button" @click="toFiles">
                                     <h4>Archivos<br></h4>
                                 </div>
                             </div>
@@ -59,14 +59,23 @@ export default {
     },
     methods: {
         toAllergies(){
-            this.$router.push( {name: 'viewAllergies'} )
+            this.$router.push( {name: 'viewAllergies'} );
         },
         toIllnesses(){
-            this.$router.push( {name: 'viewIllnesses'} )
+            this.$router.push( {name: 'viewIllnesses'} );
+        },
+        toPersonalRecords(){
+            this.$router.push( {name: 'viewPersonalRecords'} );
+        },
+        toFamilyBackgrounds(){
+            this.$router.push( {name: 'viewFamilyBackgrounds'} );
+        },
+        toFiles(){
+            this.$router.push( {name: 'viewFiles'} );
         },
         back(){
             this.$router.push( {name: 'myMedRecord'} );
-        }
+        },
     }
 }
 </script>
@@ -144,7 +153,9 @@ export default {
       height: 44px;
 
       border-radius: 22px;
-      position: absolute;     
+      position: absolute;   
+      
+      z-index: 200;
     }
 
     .btn-back:focus {

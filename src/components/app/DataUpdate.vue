@@ -24,6 +24,7 @@
                             </div>
                         </div>
                         <select v-model="userGender" type="date" class="form-control border-0" placeholder="Genero" required v-bind:class="this.bgFormClass">
+                            <option disabled value="sel">Seleccione su Género</option>
                             <option value="Hombre">Hombre</option>
                             <option value="Mujer">Mujer</option>
                         </select>
@@ -50,7 +51,7 @@
                             </div>
                         </div>
                         <select v-model="patientMaritalStatus" type="text" class="form-control border-0" placeholder="Estado Civil" required v-bind:class="this.bgFormClass">
-                            <option value="Estado Civil" disabled selected hidden>Estado Civil</option>
+                            <option disabled value="sel">Selecciona su Estado Civil</option>
                             <option value="Soltero/a">Soltero/a</option>
                             <option value="Casado/a">Casado/a</option>
                             <option value="Unión Libre">Unión Libre</option>
@@ -180,7 +181,7 @@ export default {
       showBirthDay: true,
       userGender: '', 
       userAddress:'', 
-      patientMaritalStatus: '',
+      patientMaritalStatus: 'sel',
       doctorConsultory: '',
       doctorExperience: '',
       doctorUniversity: '',
@@ -215,9 +216,9 @@ export default {
                 dataObject.showBirthDay = false;
                 dataObject.userBirthDay = data.userBirthDay.split('T')[0];
             }
-            dataObject.userGender = ( data.userGender) ?  data.userGender : 'Hombre';
+            dataObject.userGender = ( data.userGender) ?  data.userGender : 'sel';
             dataObject.userAddress = data.userAddress;
-            dataObject.patientMaritalStatus = ( data.patientMaritalStatus) ?  data.patientMaritalStatus : 'Soltero';
+            dataObject.patientMaritalStatus = ( data.patientMaritalStatus) ?  data.patientMaritalStatus : 'sel';
             dataObject.doctorConsultory = data.doctorConsultory;
             dataObject.doctorExperience = data.doctorExperience;
 
@@ -226,8 +227,8 @@ export default {
             // console.log(data);
           }
         } ).catch( error => {
-          alert( 'Error en la petición' );
-          console.log( error );
+            this.$store.state.testToken();
+            alert( 'Error en la petición' );
         } );
     return dataObject
   },

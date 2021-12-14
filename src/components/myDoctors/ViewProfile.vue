@@ -95,7 +95,7 @@ export default {
   name: 'Roles',
   data( ){
     let dataObject = {
-      authority: '',
+      authority: 'DOCTOR',
       userFirstName:'',
       userLastName:'',
       userDocType:'',
@@ -114,18 +114,9 @@ export default {
       };
     const session = getAuthenticationToken( )
 
-    let requestPath;
+    let requestPath = '/doctor';
 
-    if (session.authorities){
-      if (session.authorities[0].authority==='DOCTOR'){
-        requestPath = '/doctor';
-      }else{
-        requestPath = '/patient';
-      }
-      dataObject.authority = session.authorities[0].authority;
-    }
-
-    axios.get( this.$store.state.backURL + requestPath + '/' + session.userId, { params: { sessionToken: session.token } } )
+    axios.get( this.$store.state.backURL + requestPath + '/' + this.$route.params.id, { params: { sessionToken: session.token } } )
         .then( response => {
           if( response.status !== 200 ){
             alert( 'Error Obteniendo los datos de perfil' );

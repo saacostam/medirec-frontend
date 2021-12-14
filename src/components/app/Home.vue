@@ -3,14 +3,29 @@
     <div class="message text-center mt-4 text-color-main-dark">
       <h1>¡Estamos construyendo una mejor aplicación para ti, espéranos!!!</h1>
     </div>
-    <div class="img flex-fill d-flex justify-content-center align-items-end m-0 p-0">
+    <div class="flex-fill d-flex justify-content-center align-items-end m-0 p-0" v-bind:class="this.class">
     </div>
   </div>
 </template>
 
 <script>
-export default {
+import {getAuthenticationToken} from '@/dataStorage';
 
+export default {
+  data(){
+    const session = getAuthenticationToken();
+    let tempClass;
+
+    if (session.authorities[0].authority==='DOCTOR'){
+      tempClass = 'img-doc';
+    }else{
+      tempClass = 'img-pat';
+    }
+
+    return {
+      class: tempClass
+    }
+  }
 }
 </script>
 
@@ -18,11 +33,14 @@ export default {
 .img{
   opacity: 0.9;
 }
-.img{
+.img-pat{
   background-image: url("../../../public/static/img/patientDashboard.jpeg");
   background-size: cover;
 }
-
+.img-doc{
+  background-image: url("../../../public/static/img/doctorDashboard.jpg");
+  background-size: cover;
+}
 .menu{
   width: 250px;
   background-color: #FB7837;

@@ -4,12 +4,12 @@
             <form @submit="submit" class="offset-md-3 col-md-6" v-if="!this.sent">
                 <div class="form-group">
                     <label for="email">Correo Electronico</label>
-                    <input type="email" class="form-control" id="email" v-model="email">
+                    <input type="email" class="form-control" id="email" v-model="email" required>
                 </div>
 
                 <div class="form-group">
                     <label for="role">Rol</label>
-                    <select name="role" class="form-control" id="role" v-model="role">
+                    <select name="role" class="form-control" id="role" v-model="role" required>
                         <option value="PATIENT">Paciente</option>
                         <option value="DOCTOR">Doctor</option>
                     </select>

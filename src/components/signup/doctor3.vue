@@ -37,7 +37,7 @@
     name: "SignUpPatient",
     data(){
       if ( getPaciente()){
-        userObject = getPaciente();
+        let userObject = getPaciente();
         if (userObject.source !== 2){
           this.$router.push( {name: 'signupdoctor1'} );
         }
