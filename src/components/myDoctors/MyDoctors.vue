@@ -3,12 +3,12 @@
         <div class="row h-100">
             <div class="col-lg-6 nav h-100">
                 <div class="h-100 w-100 d-flex flex-column align-items-center justify-content-center">
-                    <img src="https://via.placeholder.com/200" width="200px" height="200px" class="mb-5">
+                    <img src="../../../public/static/svg/searchDoctorIcon.svg" width="200px" height="200px" class="mb-5">
                     <button class="btn btn-primary bg-color-main-light btn-search" @click="toSearch">Busqueda<br>Doctores</button>
                 </div>
             </div>
             <div class="col-lg-6 img">
-
+                <img src="../../../public/static/img/searchDoctorView.jpg" alt="" class="img-fluid">
             </div>
         </div>
     </div>
@@ -64,5 +64,6 @@ export default {
     padding: 10px 70px;
     font-weight: 600;
     font-size: 18px;
+    border-radius: 25px;
 }
 </style>

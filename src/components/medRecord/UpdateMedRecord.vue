@@ -7,7 +7,7 @@
             </button>
             <div class="container">
                 <div class="row  p-2 mt-3">
-                    <div class="col-lg-8 p-5">
+                    <div class="col-lg-7 p-3 pt-5">
                         <div class="alergia mb-4">
                             <h4 class="text-center text-color-main-dark" style="font-weight: 600">Alergia</h4>
                             <form class="d-flex flex-row" @submit="sendAllergy"> 
@@ -132,8 +132,8 @@
                             </form>
                         </div>
                     </div>
-                    <div class="col-lg-4 p-5">
-
+                    <div class="col-lg-5">
+                        <img src="../../../public/static/img/updateClinicHistoryIcon.jpg" class="mt-5 img-fluid">
                     </div>
                 </div>
             </div>

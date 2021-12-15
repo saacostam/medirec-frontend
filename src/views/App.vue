@@ -44,7 +44,7 @@
         <hr class="bg-white m-0" v-if="this.authority==='PATIENT'">
         <!---->
         <div class="menu-options p-3 d-flex align-items-center" v-if="this.authority==='PATIENT'">
-          <router-link :to="{name: 'myDoctors'}"><img src="../../public/static/svg/myDoctorsIcon.svg" width="40px" height="40px" class="mr-2"> Mis Doctores</router-link>
+          <router-link :to="{name: 'myDoctors'}"><img src="../../public/static/svg/myDoctorsIcon.svg" width="40px" height="40px" class="mr-2"> Busqueda de Doctores</router-link>
         </div>
         <hr class="bg-white m-0" v-if="this.authority==='PATIENT'">
         <div class="menu-options p-3 d-flex align-items-center" v-if="this.authority==='PATIENT'">
@@ -53,7 +53,7 @@
         <hr class="bg-white m-0" v-if="this.authority==='PATIENT'">
         <!---->
         <div class="menu-options p-3 d-flex align-items-center" v-if="this.authority==='DOCTOR'">
-          <router-link :to="{name: 'myPatients'}"><img src="../../public/static/img/myPatientsIcon.png" width="40px" height="40px" class="mr-2"> Mis Pacientes</router-link>
+          <router-link :to="{name: 'myPatients'}"><img src="../../public/static/img/myPatientsIcon.png" width="40px" height="40px" class="mr-2"> Busqueda de Pacientes</router-link>
         </div>
         <hr class="bg-white m-0" v-if="this.authority==='DOCTOR'">
         <div class="menu-options p-3 d-flex align-items-center" v-if="this.authority==='DOCTOR'">

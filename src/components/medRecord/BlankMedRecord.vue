@@ -2,7 +2,7 @@
     <div class="medRecordValidation">
         <router-view v-if="this.done"></router-view>
         <div class="loading d-flex flex-column align-items-center m-5" v-else>
-            <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
                 <span class="sr-only" color="#1F4567">Loading...</span>
             </div>
         </div>

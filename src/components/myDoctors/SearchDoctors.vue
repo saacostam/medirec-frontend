@@ -6,7 +6,7 @@
             </button>
             <div class="col-lg-6 h-100" id="form-div">
                 <div class="p-4 d-flex h-100 w-100 align-items-center flex-column">
-                    <img src="https://via.placeholder.com/200" width="200px" height="200px" class="mb-5 mt-5">
+                    <img src="../../../public/static/svg/searchDoctorFilterIcon.svg" width="200px" height="200px" class="mb-5 mt-5">
                     <form @submit="submit"  class="form w-100 p-4 border-form d-flex flex-column">
                         <div class="form-group mb-4 flex-fill">
                             <div class="input-group">
@@ -29,9 +29,9 @@
 
             <div class="col-lg-6">
                 <div class="search-results p-5" v-if="this.searchResults !== null">
-                    <div class="result p-3 doctor-border d-flex flex-column" v-for="result in this.searchResults" :key="result.name"> 
+                    <div class="mb-4 result p-3 doctor-border d-flex flex-row" v-for="result in this.searchResults" :key="result.name"> 
                         <div class="data flex-fill d-flex flex-row">
-                            <img src="https://via.placeholder.com/100" width="100px" height="100px">
+                            <img src="../../../public/static/svg/doctorIconSearching.svg" width="100px" height="100px">
                             <div class="text pl-3">
                                 <b class="text-color-main-light doctor-name">{{result.userFirstName+' '+result.userLastName}}</b><br>
                                 <span>{{result.doctorSpecialization}}</span><br>
@@ -39,7 +39,14 @@
                             </div>
                         </div>
                         <div class="button d-flex justify-content-end p-0 m-0">
-                            <button class="btn btn-primary bg-color-main-light profile-button" @click="toProfile(result.userId)">Perfil</button>
+                            <button class="btn btn-primary bg-color-main-light profile-button align-self-end" @click="toProfile(result.userId)">Perfil</button>
+                        </div>
+                    </div>
+                    <div class="else" v-if="this.searchResults.length===0">
+                        <div class="empty text-center border-nice p-3">
+                            <h3 class="text-color-main-dark h4" style="font-weight: 600">No se han encontrado resultados.</h3>
+                            <img src="../../../public/static/svg/searchDoctorIcon.svg" width="150px" height="150px" class="m-3 img-search">
+                            <p>Prueba cambiando los valores de búsqueda.</p>
                         </div>
                     </div>
                 </div>
@@ -90,6 +97,7 @@ export default {
                 const data = response.data.data;
                 this.searchResults = data;
                 console.log(data);
+                 this.gotData = true;
             }
             } ).catch( error => {
                 this.$store.state.testToken();
@@ -187,6 +195,8 @@ export default {
 .profile-button{
     border-radius: 20px;
     padding: 5px 25px;
+    width: fit-content;
+    height: fit-content;
 }
 
 .doctor-name{
@@ -196,5 +206,14 @@ export default {
 .doctor-border{
     border: solid 2px #418ef2;
     border-radius: 25px;
+}
+
+.border-nice{
+    border: solid 2px #418ef2;
+    border-radius: 25px;
+}
+
+.img-search{
+    opacity: 70%;
 }
 </style>
