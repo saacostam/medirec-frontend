@@ -4,8 +4,7 @@
       <img src="../../public/static/svg/arrow-left-circle.svg">
     </button>
     <div class="title text-center m-3 align-items-center justify-content-center">
-      <img src="../../public/static/img/heart-rate.png" alt="logo" width="96" height="96" viewBox="0 0 96 96">
-      <h1 class="text-color-main-light d-inline ml-2 font-weight-bold">MediRec</h1>
+      <img src="../../public/static/svg/MedirecLogo.svg" alt="logo" width="auto" height="96" viewBox="0 0 96 96">
     </div>
     <div class="options flex-fill d-flex flex-row">
       <div @click="pickPaciente()" class="pick-option bg-color-secondary-dark flex-fill text-center text-white d-flex flex-column">

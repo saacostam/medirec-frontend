@@ -17,8 +17,7 @@
         <div class="col-md-6 d-flex align-items-center justify-content-center">
           <div class="col-8 col-sm-8 col-md-10 col-lg-8">
             <div class="logo text-center d-flex align-items-center justify-content-center mb-3">
-              <img src="../../public/static/img/heart-rate.png" alt="logo" width="96" height="96" viewBox="0 0 96 96">
-              <h1 class="text-color-main-light d-inline ml-2 font-weight-bold">MediRec</h1>
+              <img src="../../public/static/svg/MedirecLogo.svg" alt="logo" width="auto" height="96" viewBox="0 0 96 96">
             </div>
 
             <form @submit="login" class="bg-color-main-light pt-4 pb-4 pl-4 pr-4 input-color form-group">

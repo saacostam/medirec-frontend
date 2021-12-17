@@ -1,6 +1,6 @@
 <template>
     <div class="flex-fill patient-3 d-flex flex-column">
-        <h1 class="text-center text-color-main-light m-4 font-weight-bold">MediRec</h1>
+        <img src="../../../public/static/svg/MedirecLogo.svg" alt="logo" width="auto" height="65" viewBox="0 0 65 65" class="m-3">
         <div class="d-flex">
             <hr>
             <div class="col-4 text-center">

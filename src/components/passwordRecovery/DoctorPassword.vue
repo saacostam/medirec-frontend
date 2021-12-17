@@ -11,7 +11,7 @@
                     <button class="btn btn-back p-0 m-4" @click="back">
                         <img src="../../../public/static/svg/arrow-left-circle.svg">
                     </button>
-                    <div class="text-center"><h1 class="font-weight-bold text-color-main-light m-3">MediRec</h1></div>
+                    <div class="text-center"><img src="../../../public/static/svg/MedirecLogo.svg" alt="logo" width="auto" height="80" viewBox="0 0 65 65" class="m-4"></div>
                     <div class="d-flex m-2 pl-5 pr-5">
                         <hr>
                         <div class="col-6 text-center">
@@ -115,7 +115,7 @@
                     <button class="btn btn-back p-0 m-4" @click="back">
                         <img src="../../../public/static/svg/arrow-left-circle.svg">
                     </button>
-                    <div class="text-center"><h1 class="font-weight-bold text-color-main-light m-3">MediRec</h1></div>
+                    <div class="text-center"><img src="../../../public/static/svg/MedirecLogo.svg" alt="logo" width="auto" height="80" viewBox="0 0 65 65" class="m-4"></div>
                     <div class="d-flex m-2 pl-5 pr-5">
                         <hr>
                         <div class="col-6 text-center">

@@ -46,6 +46,7 @@ import MyRequests from "./components/myRequests/MyRequests"
 import BlankMyPatient from "./components/myPatients/BlankMyPatients"
 import MyPatients from "./components/myPatients/MyPatients"
 import SearchPatients from "./components/myPatients/SearchPatients"
+import ViewPatientProfile from "./components/myPatients/ViewProfile"
 
 Vue.use(Router);
 
@@ -231,7 +232,7 @@ export default new Router({
             },
             {
               path: 'perfil/:id',
-              name: 'viewProfile',
+              name: 'viewDoctorProfile',
               component: ViewDoctorProfile
             }
           ]
@@ -250,6 +251,11 @@ export default new Router({
               path: 'buscar',
               name: 'searchPatients',
               component: SearchPatients
+            },
+            {
+              path: 'perfil/:id',
+              name: 'viewPatientProfile',
+              component: ViewPatientProfile
             }
           ]
         },

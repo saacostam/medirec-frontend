@@ -1,7 +1,7 @@
 <template>
-  <div class="profile h-100 d-flex flex-column p-0 pt-3" v-if="this.loaded">
+  <div class="profile h-100 d-flex flex-column p-0 pt-3">
     <div class="inform d-flex flex-column align-items-center flex-fill ml-5 mr-5">
-      <div class="title text-white pl-5 pr-5">Mi Perfil</div>
+      <div class="title text-white pl-5 pr-5">Perfil</div>
       <div class="flex-fill media p-0 row d-flex flex-row w-100 mb-3">
         <div class="container">
           <div class="row">
@@ -9,7 +9,7 @@
               <div class="col-12 profile-picture mt-3 mb-3">
                 <div class="offset-xl-3 col-xl-6 offset-lg-2 col-lg-8 offset-md-2 col-md-8 offset-sm-1 col-sm-10">
                   <img src="..\..\..\public\static\img\patientIcon.jpg" class="img-fluid rounded-circle" v-if="this.authority==='PATIENT'">
-                  <img src="..\..\..\public\static\img\doctorProfileIcon.jpg" class="img-fluid rounded-circle" v-else>
+                  <img src="..\..\..\public\static\img\profileDoctorIcon.png" class="img-fluid rounded-circle" v-else>
                 </div>
               </div>
               <div class="col-12">
@@ -24,36 +24,15 @@
                       <td>{{capitalize(this.userLastName)}}</td>
                     </tr>
                     <tr>
-                      <th scope="row">Documento</th>
-                      <td>{{this.userDocType}} {{this.userDoc}}</td>
-                    </tr>
-                    <tr>
                       <th scope="row">Email</th>
                       <td>{{this.userEmail}}</td>
                     </tr>
                     <!---->
                     <tr v-if="this.authority==='DOCTOR'">
-                      <th scope="row">Tarjeta Profesional</th>
-                      <td>{{this.doctorProfessionalCard}}</td>
-                    </tr>
-                    <tr v-if="this.authority==='DOCTOR'">
                       <th scope="row">Especialidad</th>
                       <td>{{this.doctorSpecialization}}</td>
                     </tr>
-
-                    <tr v-if="this.authority==='PATIENT'">
-                      <th scope="row">EPS</th>
-                      <td>{{capitalize(this.patientEps)}}</td>
-                    </tr>
                     <!---->
-                    <tr v-if="this.userBirthDay!==null">
-                      <th scope="row">Fecha de Nacimiento</th>
-                      <td>{{this.userBirthDay.split('T')[0]}}</td>
-                    </tr>
-                    <tr v-if="this.userGender!==null">
-                      <th scope="row">Genero</th>
-                      <td>{{this.userGender}}</td>
-                    </tr>
                     <tr v-if="this.userAddress!==null">
                       <th scope="row">Dirección</th>
                       <td>{{this.userAddress}}</td>
@@ -71,24 +50,12 @@
                       <th scope="row">Experiencia Laboral</th>
                       <td>{{this.doctorExperience}} años</td>
                     </tr>
-
-                    <tr v-if="this.authority==='PATIENT' && this.patientMaritalStatus!==null">
-                      <th scope="row">Estado Civil</th>
-                      <td>{{this.patientMaritalStatus}}</td>
-                    </tr>
                   </tbody>
                 </table>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-  <div v-else>
-    <div class="loading d-flex flex-column align-items-center m-5">
-      <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-        <span class="sr-only" color="#1F4567">Loading...</span>
       </div>
     </div>
   </div>
@@ -102,7 +69,7 @@ export default {
   name: 'Roles',
   data( ){
     let dataObject = {
-      authority: '',
+      authority: 'PATIENT',
       userFirstName:'',
       userLastName:'',
       userDocType:'',
@@ -118,22 +85,12 @@ export default {
       doctorProfessionalCard:'',
       doctorSpecialization:'',
       doctorUniversity: '',
-      loaded: false
       };
     const session = getAuthenticationToken( )
 
-    let requestPath;
+    let requestPath = '/patient';
 
-    if (session.authorities){
-      if (session.authorities[0].authority==='DOCTOR'){
-        requestPath = '/doctor';
-      }else{
-        requestPath = '/patient';
-      }
-      dataObject.authority = session.authorities[0].authority;
-    }
-
-    axios.get( this.$store.state.backURL + requestPath + '/' + session.userId, { params: { sessionToken: session.token } } )
+    axios.get( this.$store.state.backURL + requestPath + '/' + this.$route.params.id, { params: { sessionToken: session.token } } )
         .then( response => {
           if( response.status !== 200 ){
             alert( 'Error Obteniendo los datos de perfil' );
@@ -154,7 +111,6 @@ export default {
             dataObject.doctorProfessionalCard = data.doctorProfessionalCard;
             dataObject.doctorSpecialization = data.doctorSpecialization;
             dataObject.doctorUniversity = data.doctorUniversity;
-            dataObject.loaded = true;
           }
         } ).catch( error => {
           this.$store.state.testToken();

@@ -1,15 +1,15 @@
 <template>
-  <div class="container" v-if="this.authority==='PATIENT'">
+  <div class="container">
     <div class="row m-3 mt-5">
       <div class="col-lg-7 calendar p-3">
-        <div class="border-color-secondary-dark p-3">
-          <img src="../../../public/static/img/dashboardWelcomeIcon.jpg" alt="" id="absolute-img" width="120px" height="120px" class="rounded rounded-circle img-border">
-          <span class="text-color-secondary-dark h4">Hola, {{this.name}}</span><br>
+        <div class="p-3" :class="'border-color-'+this.authClass+'-dark'">
+          <img src="../../../public/static/img/dashboardWelcomeIcon.jpg" alt="" id="absolute-img" width="120px" height="120px" class="rounded rounded-circle" :class="'img-border-'+this.authClass">
+          <span class="h4" :class="'text-color-'+this.authClass+'-dark'">Hola, {{this.name}}</span><br>
           <span>Ten un buen dia y recurda siempre cuidar de tu salud</span>
         </div>
 
         <div class="title mt-4 text-white h6">Calendar</div>
-        <div class="calendar border-color-secondary-dark p-3 pl-5 pr-5">
+        <div class="calendar p-3 pl-5 pr-5" :class="'border-color-'+this.authClass+'-dark'">
           <h4 class="h5 text-color-main-dark text-center mb-3" style="font-weight: 600">Diciembre</h4>
           <div class="ml-5 mr-5 d-flex flex-row justify-content-between dates-label">
             <span>Mon</span>
@@ -40,17 +40,34 @@
         </div>
       </div>
       <div class="col-lg-5 sidebar p-3">
-        <div class="border-color-secondary-dark p-3">
-          <h3 class="text-color-secondary-dark h4 text-center mb-4" style="font-weight: 600">Mis Doctores</h3>
-          <div class="mb-4 result p-3 doctor-border d-flex flex-column" v-for="result in this.doctors" :key="result.name"> 
-            <div class="data flex-fill d-flex flex-row">
-              <img src="../../../public/static/svg/doctorIconSearching.svg" width="80px" height="80px">
-              <div class="text pl-3">
-                <b class="text-color-main-light doctor-name h4">{{result.firstName+' '+result.lastName}}</b><br>
-                <span style="font-weight: 600">{{result.specialization}}</span><br>
+        <div class="p-3" :class="'border-color-'+this.authClass+'-dark'">
+          <h3 v-if="this.authority==='PATIENT'" :class="'text-color-'+this.authClass+'-dark'" class="h4 text-center mb-4" style="font-weight: 600">Mis Doctores</h3>
+          <h3 v-else :class="'text-color-'+this.authClass+'-dark'" class="h4 text-center mb-4" style="font-weight: 600">Mis Pacientes</h3>
+          
+          <div v-if="this.authority==='DOCTOR'">
+            <div class="mb-4 result p-3 patient-border d-flex flex-column" v-for="result in this.doctors" :key="result.name"> 
+              <div class="data flex-fill d-flex flex-row">
+                <img src="../../../public/static/svg/doctorIconSearching.svg" width="80px" height="80px">
+                <div class="text pl-3">
+                  <b class="text-color-secondary-dark doctor-name h4">{{result.firstName+' '+result.lastName}}</b><br>
+                  <span style="font-weight: 600">Doc: {{result.doc}}</span><br>
+                  <button class="btn bg-color-secondary-dark text-white btn-profile" @click="toProfile(result.id)">Perfil</button>
+                </div>
               </div>
             </div>
           </div>
+          <div v-else>
+            <div class="mb-4 result p-3 doctor-border d-flex flex-column" v-for="result in this.doctors" :key="result.name"> 
+              <div class="data flex-fill d-flex flex-row">
+                <img src="../../../public/static/svg/doctorIconSearching.svg" width="80px" height="80px">
+                <div class="text pl-3">
+                  <b class="text-color-main-light doctor-name h4">{{result.firstName+' '+result.lastName}}</b><br>
+                  <span style="font-weight: 600">{{result.specialization}}</span><br>
+                </div>
+              </div>
+            </div>
+          </div>
+          
           <div class="else" v-if="this.doctors.length===0">
             <div class="empty text-center border-nice p-3">
               <h3 class="text-color-main-dark h4" style="font-weight: 600">Todavía no tienes doctores asociados</h3>
@@ -60,13 +77,6 @@
           </div>
         </div>
       </div>
-    </div>
-  </div>
-  <div class="h-100 d-flex flex-column" v-else>
-    <div class="message text-center mt-4 text-color-main-dark">
-      <h1>¡Estamos construyendo una mejor aplicación para ti, espéranos!!!</h1>
-    </div>
-    <div class="flex-fill d-flex justify-content-center align-items-end m-0 p-0 img-doc">
     </div>
   </div>
 </template>
@@ -79,7 +89,11 @@ export default {
   data(){
     const session = getAuthenticationToken();
 
-    let dataObject = {class:'', name: '', doctors:[], authority:session.authorities[0].authority}
+    let dataObject = {
+      class:'', name: '', 
+      doctors:[], authority:session.authorities[0].authority,
+      authClass:'main'
+    }
 
     let tempClass;
     let requestPath;
@@ -87,9 +101,11 @@ export default {
     if (session.authorities[0].authority==='DOCTOR'){
       tempClass = 'img-doc';
       requestPath = '/doctor';
+      dataObject.authClass = 'main'
     }else{
       tempClass = 'img-pat';
       requestPath = '/patient';
+      dataObject.authClass = 'secondary'
     }
 
     axios.get( this.$store.state.backURL + requestPath + '/' + session.userId, { params: { sessionToken: session.token } } )
@@ -110,7 +126,17 @@ export default {
   },
   beforeCreate(){
     const session =getAuthenticationToken();
-    const path = '/patient/prof='+session.userId+'/mydoctors';
+    let requestPath;
+    let request;
+    if (session.authorities[0].authority==='DOCTOR'){
+      requestPath = '/doctor';
+      request = '/mypatients'
+    }else{
+      requestPath = '/patient';
+      request = '/mydoctors'
+    }
+
+    const path = requestPath+'/prof='+session.userId+request;
 
     axios.get( this.$store.state.backURL + path, {})
     .then( response => {
@@ -127,6 +153,11 @@ export default {
         console.log( error );
     } );
   },
+  methods: {
+    toProfile(id){
+      this.$router.push( '/mis-pacientes/perfil/'+id );
+    }
+  }
 }
 </script>
 
@@ -186,8 +217,9 @@ export default {
 	border-color: #418ef2;
 }
 
-.border-color-main-dark{
-	border-color: #1F4567;
+.border-color-main-dark, .img-border-main{
+	border: solid 2px #1F4567;
+  border-radius: 25px;
 }
 
 .bg-color-main-light{
@@ -215,7 +247,12 @@ export default {
   border-radius: 25px;
 }
 
-.border-color-secondary-dark, .img-border{
+.patient-border{
+  border: solid 2px #FB7837;
+  border-radius: 25px;
+}
+
+.border-color-secondary-dark, .img-border-secondary{
   border: solid 2px #FB7837;
   border-radius: 25px;
 }
@@ -260,5 +297,9 @@ hr{
 
 .dates span.disable{
   color: rgb(183, 190,202);
+}
+
+.btn-profile{
+  border-radius: 30px;
 }
 </style>

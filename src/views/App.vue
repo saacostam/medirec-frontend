@@ -5,7 +5,7 @@
         <div class="row w-100 mb-2 mt-3">
           <div class="offset-lg-2 offset-3 col-lg-8 col-6 brand d-flex justify-content-center mb-0">
             <router-link class="navbar-brand" :to="{name: 'home'}">
-              <img src="../../public/static/img/heart-rate.png" width="48" height="48" class="d-inline-block align-top mr-2" alt=""><h1 class="d-inline h2 text-color-main-light font-weight-bold">MediRec</h1>
+              <img src="../../public/static/svg/MedirecLogo.svg" width="auto" height="60" class="d-inline-block align-top" alt="">
             </router-link>
           </div>
           <div class="logout col-lg-2 col-3 mb-0 d-flex flex-column align-items-end justify-content-center">
