@@ -15,7 +15,7 @@
                     </div>
                     <div class="col-lg-7 p-5">
                         <div class="d-block title text-white text-center">Antecedentes</div>
-                        <table class="table">
+                        <table class="table" v-if="this.personalRecords.length>0">
                             <thead>
                                 <tr class="bg-color-secondary-dark text-white">
                                     <th scope="col">Fecha</th>
@@ -29,6 +29,14 @@
                                 </tr>
                             </tbody>
                         </table>
+                        <div v-else>
+                            <div class="card message">
+                                <div class="card-body offset-lg-2 col-lg-8">
+                                    <h5 class="card-title text-center">Tiene <b class="text-color-main-dark">0</b> antecedentes registrados.</h5>
+                                    <p class="card-text mb-2 text-center">Presione <router-link style="white-space: nowrap;" class="text-color-main-dark" :to="{name: 'updateMedRecord'}" >aqui</router-link> si quiere añadir un nuevo antecedente.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -43,6 +43,18 @@ import ViewDoctorProfile from "./components/myDoctors/ViewProfile"
 
 import MyRequests from "./components/myRequests/MyRequests"
 
+import blankSymptoms from "./components/symptoms/blank"
+import navSymptoms from "./components/symptoms/nav"
+import addSymptoms from "./components/symptoms/add"
+import navViewSymptoms from "./components/symptoms/viewnav"
+import viewSymptoms from "./components/symptoms/viewsymptoms"
+import viewMeds from "./components/symptoms/viewmeds"
+
+import blankViewDoctor from "./components/viewDoctor/blank"
+import navViewDoctor from "./components/viewDoctor/nav"
+import profileViewDoctor from "./components/viewDoctor/profile"
+import rateDoctor from "./components/viewDoctor/rate"
+
 import BlankMyPatient from "./components/myPatients/BlankMyPatients"
 import MyPatients from "./components/myPatients/MyPatients"
 import SearchPatients from "./components/myPatients/SearchPatients"
@@ -51,220 +63,263 @@ import ViewPatientProfile from "./components/myPatients/ViewProfile"
 Vue.use(Router);
 
 export default new Router({
-  mode: 'history',
-  base: process.env.BASE_URL,
-  routes: [
-    {
-      path: "/registro",
-      name: "signup-pick",
-      component: SignUpPick
-    },
-    {
-      path: "/registro/paciente",
-      name: "signup-paciente",
-      component: SignUpPatient,
-      children: [
-        {
-          path: "1",
-          name: "signuppatient1",
-          component: SignUpPatient1
+    mode: 'history',
+    base: process.env.BASE_URL,
+    routes: [{
+            path: "/registro",
+            name: "signup-pick",
+            component: SignUpPick
         },
         {
-          path: "2",
-          name: "signuppatient2",
-          component: SignUpPatient2
-        },
-        {
-          path: "3",
-          name: "signuppatient3",
-          component: SignUpPatient3
-        }
-      ]
-    },
-    {
-      path: "/registro/doctor",
-      name: "signup-doctor",
-      component: SignUpDoctor,
-      children: [
-        {
-          path: "1",
-          name: "signupdoctor1",
-          component: SignUpDoctor1
-        },
-        {
-          path: "2",
-          name: "signupdoctor2",
-          component: SignUpDoctor2
-        },
-        {
-          path: "3",
-          name: "signupdoctor3",
-          component: SignUpDoctor3
-        }
-      ]
-    },
-    {
-      path: "/",
-      alias: "/iniciar-sesion",
-      name: "login",
-      component: Login
-    },
-    {
-      path: "/recuperacion-contrasena",
-      name: "blank-recu",
-      component: Blank,
-      children:[
-        {
-          path: "email",
-          name: "passwordRecovery",
-          component: PasswordRecovery
-        },
-        {
-          path: "paciente",
-          name:"patientPassword",
-          component: PatientPassword
-        },
-        {
-          path: "doctor",
-          name:"doctorPassword",
-          component: DoctorPassword
-        }
-      ]
-    },
-    {
-      path: "/app",
-      name: "app",
-      component: App,
-      children: [
-        {
-          path: "/home",
-          name: "home",
-          component: Home,
-        },
-        {
-          path: "/perfil",
-          name: "profile",
-          component: Profile,
-        },
-        {
-          path: "/actualiza-datos",
-          name: "dataUpdate",
-          component: DataUpdate,
-        },
-        {
-          path: "/mi-historia-clinica",
-          name: "blank-myMed",
-          component: BlankMedRecord,
-          children:[
-            {
-              path: "nav",
-              name: "myMedRecord",
-              component: MyMedRecord
-            },
-            {
-              path: "crear",
-              name: "createMedRecord",
-              component: CreateMedRecord
-            },
-            {
-              path: 'actualizar',
-              name: 'updateMedRecord',
-              component: UpdateMedRecord
-            },
-            {
-              path: "subir-archivo",
-              name: "uploadMedRecordFile",
-              component: UploadMedRecordFile
-            },
-            {
-              path: 'view',
-              name: 'blank-viewMyMed',
-              component: Blank,
-              children: [
-                {
-                  path: 'nav',
-                  name: 'viewMedRecord',
-                  component: ViewMedRecord
+            path: "/registro/paciente",
+            name: "signup-paciente",
+            component: SignUpPatient,
+            children: [{
+                    path: "1",
+                    name: "signuppatient1",
+                    component: SignUpPatient1
                 },
                 {
-                  path: 'alergias',
-                  name: 'viewAllergies',
-                  component: ViewAllergies
+                    path: "2",
+                    name: "signuppatient2",
+                    component: SignUpPatient2
                 },
                 {
-                  path: 'enfermedades',
-                  name: 'viewIllnesses',
-                  component: ViewIllnesses
-                },
-                {
-                  path: 'antecedentes',
-                  name: 'viewPersonalRecords',
-                  component: ViewPersonalRecords
-                },
-                {
-                  path: 'antecedentes-familiares',
-                  name: 'viewFamilyBackgrounds',
-                  component: ViewFamilyBackgrounds
-                },
-                {
-                  path: 'archivos',
-                  name: 'viewFiles',
-                  component: ViewFiles
+                    path: "3",
+                    name: "signuppatient3",
+                    component: SignUpPatient3
                 }
-              ]
-            }
-          ]
+            ]
         },
         {
-          path: '/mis-doctores',
-          name: 'blank-myDoc',
-          component: BlankMyDoctor,
-          children : [
-            {
-              path: 'nav',
-              name: 'myDoctors',
-              component: MyDoctors
-            },
-            {
-              path: 'buscar',
-              name: 'searchDoctors',
-              component: SearchDoctors
-            },
-            {
-              path: 'perfil/:id',
-              name: 'viewDoctorProfile',
-              component: ViewDoctorProfile
-            }
-          ]
+            path: "/registro/doctor",
+            name: "signup-doctor",
+            component: SignUpDoctor,
+            children: [{
+                    path: "1",
+                    name: "signupdoctor1",
+                    component: SignUpDoctor1
+                },
+                {
+                    path: "2",
+                    name: "signupdoctor2",
+                    component: SignUpDoctor2
+                },
+                {
+                    path: "3",
+                    name: "signupdoctor3",
+                    component: SignUpDoctor3
+                }
+            ]
         },
         {
-          path: '/mis-pacientes',
-          name: 'blank-myPat',
-          component: BlankMyPatient,
-          children : [
-            {
-              path: 'nav',
-              name: 'myPatients',
-              component: MyPatients
-            },
-            {
-              path: 'buscar',
-              name: 'searchPatients',
-              component: SearchPatients
-            },
-            {
-              path: 'perfil/:id',
-              name: 'viewPatientProfile',
-              component: ViewPatientProfile
-            }
-          ]
+            path: "/",
+            alias: "/iniciar-sesion",
+            name: "login",
+            component: Login
         },
         {
-          path: "/mis-solicitudes",
-          name: "myRequests",
-          component: MyRequests
+            path: "/recuperacion-contrasena",
+            name: "blank-recu",
+            component: Blank,
+            children: [{
+                    path: "email",
+                    name: "passwordRecovery",
+                    component: PasswordRecovery
+                },
+                {
+                    path: "paciente",
+                    name: "patientPassword",
+                    component: PatientPassword
+                },
+                {
+                    path: "doctor",
+                    name: "doctorPassword",
+                    component: DoctorPassword
+                }
+            ]
         },
-      ]
-    }
-  ]
+        {
+            path: "/app",
+            name: "app",
+            component: App,
+            children: [{
+                    path: "/home",
+                    name: "home",
+                    component: Home,
+                },
+                {
+                    path: "/perfil",
+                    name: "profile",
+                    component: Profile,
+                },
+                {
+                    path: "/actualiza-datos",
+                    name: "dataUpdate",
+                    component: DataUpdate,
+                },
+                {
+                    path: "/mi-historia-clinica",
+                    name: "blank-myMed",
+                    component: BlankMedRecord,
+                    children: [{
+                            path: "nav",
+                            name: "myMedRecord",
+                            component: MyMedRecord
+                        },
+                        {
+                            path: "crear",
+                            name: "createMedRecord",
+                            component: CreateMedRecord
+                        },
+                        {
+                            path: 'actualizar',
+                            name: 'updateMedRecord',
+                            component: UpdateMedRecord
+                        },
+                        {
+                            path: "subir-archivo",
+                            name: "uploadMedRecordFile",
+                            component: UploadMedRecordFile
+                        },
+                        {
+                            path: 'view',
+                            name: 'blank-viewMyMed',
+                            component: Blank,
+                            children: [{
+                                    path: 'nav',
+                                    name: 'viewMedRecord',
+                                    component: ViewMedRecord
+                                },
+                                {
+                                    path: 'alergias',
+                                    name: 'viewAllergies',
+                                    component: ViewAllergies
+                                },
+                                {
+                                    path: 'enfermedades',
+                                    name: 'viewIllnesses',
+                                    component: ViewIllnesses
+                                },
+                                {
+                                    path: 'antecedentes',
+                                    name: 'viewPersonalRecords',
+                                    component: ViewPersonalRecords
+                                },
+                                {
+                                    path: 'antecedentes-familiares',
+                                    name: 'viewFamilyBackgrounds',
+                                    component: ViewFamilyBackgrounds
+                                },
+                                {
+                                    path: 'archivos',
+                                    name: 'viewFiles',
+                                    component: ViewFiles
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    path: '/mis-doctores',
+                    name: 'blank-myDoc',
+                    component: BlankMyDoctor,
+                    children: [{
+                            path: 'nav',
+                            name: 'myDoctors',
+                            component: MyDoctors
+                        },
+                        {
+                            path: 'buscar',
+                            name: 'searchDoctors',
+                            component: SearchDoctors
+                        },
+                        {
+                            path: 'perfil/:id',
+                            name: 'viewDoctorProfile',
+                            component: ViewDoctorProfile
+                        }
+                    ]
+                },
+                {
+                    path: '/mis-pacientes',
+                    name: 'blank-myPat',
+                    component: BlankMyPatient,
+                    children: [{
+                            path: 'nav',
+                            name: 'myPatients',
+                            component: MyPatients
+                        },
+                        {
+                            path: 'buscar',
+                            name: 'searchPatients',
+                            component: SearchPatients
+                        },
+                        {
+                            path: 'perfil/:id',
+                            name: 'viewPatientProfile',
+                            component: ViewPatientProfile
+                        }
+                    ]
+                },
+                {
+                    path: "/mis-solicitudes",
+                    name: "myRequests",
+                    component: MyRequests
+                },
+                {
+                    path: "/mis-sintomas-y-medicamentos",
+                    name: "mySymptoms",
+                    component: blankSymptoms,
+                    children: [{
+                            path: "nav",
+                            name: "navSymptoms",
+                            component: navSymptoms
+                        },
+                        {
+                            path: "añadir",
+                            name: "addSymptoms",
+                            component: addSymptoms
+                        },
+                        {
+                            path: "nav-visualizacion",
+                            name: "navViewSymptoms",
+                            component: navViewSymptoms
+                        },
+                        {
+                            path: 'visualizacion-sintomas',
+                            name: "viewSymptoms",
+                            component: viewSymptoms
+                        },
+                        {
+                            path: 'visualizacion-medicamentos',
+                            name: "viewMeds",
+                            component: viewMeds
+                        }
+                    ]
+                },
+                {
+                    path: "/doctor/:id",
+                    name: "blankViewDoctor",
+                    component: blankViewDoctor,
+                    children: [{
+                            path: "nav",
+                            name: "navViewDoctor",
+                            component: navViewDoctor
+                        },
+                        {
+                            path: "perfil",
+                            name: "profileViewDoctor",
+                            component: profileViewDoctor
+                        },
+                        {
+                            path: "calificacion",
+                            name: "rateDoctor",
+                            component: rateDoctor
+                        }
+                    ]
+                },
+            ]
+        }
+    ]
 })

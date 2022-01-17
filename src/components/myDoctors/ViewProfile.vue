@@ -1,5 +1,8 @@
 <template>
   <div class="profile h-100 d-flex flex-column p-0 pt-3">
+    <button class="btn btn-back p-0 m-4" @click="back">
+      <img src="../../../public/static/svg/arrow-left-circle.svg">
+    </button>
     <div class="inform d-flex flex-column align-items-center flex-fill ml-5 mr-5">
       <div class="title text-white pl-5 pr-5">Perfil</div>
       <div class="flex-fill media p-0 row d-flex flex-row w-100 mb-3">
@@ -128,7 +131,10 @@ export default {
           splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);     
         }
       return splitStr.join(' '); 
-      }
+    },
+    back(){
+      this.$router.push( {name: 'searchDoctors'} );
+    }
   }
 }
 </script>
@@ -163,5 +169,31 @@ th, td{
 
 .profile-picture img{
   width: 100%;
+}
+
+.z-back{
+	z-index: -100;
+}
+
+.input-color input:focus{
+	background-color: #1F4567;
+}
+
+.btn-back{
+    width: 44px;
+    height: 44px;
+
+    border-radius: 22px;
+    position: absolute;   
+    z-index: 2;  
+}
+
+.btn-back:focus {
+    box-shadow:unset;
+}
+
+#btn-submit{
+    width: fit-content;
+
 }
 </style>

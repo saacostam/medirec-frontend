@@ -15,7 +15,7 @@
                     </div>
                     <div class="col-lg-7 p-5">
                         <div class="d-block title text-white text-center">Enfermedades</div>
-                        <table class="table">
+                        <table class="table" v-if="this.illnesses.length>0">
                             <thead>
                                 <tr class="bg-color-secondary-dark text-white">
                                     <th scope="col">Enfermedad</th>
@@ -31,6 +31,14 @@
                                 </tr>
                             </tbody>
                         </table>
+                        <div v-else>
+                            <div class="card message">
+                                <div class="card-body offset-lg-2 col-lg-8">
+                                    <h5 class="card-title text-center">Tiene <b class="text-color-main-dark">0</b> enfermedades registradas.</h5>
+                                    <p class="card-text mb-2 text-center">Presione <router-link style="white-space: nowrap;" class="text-color-main-dark" :to="{name: 'updateMedRecord'}" >aqui</router-link> si quiere añadir una nueva enfermedad.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -134,5 +142,9 @@ export default {
 
     .download:active{
         box-shadow:1px 1px 1px rgb(36, 36, 36);
+    }
+
+    a{
+        color:#418ef2 !important;
     }
 </style>

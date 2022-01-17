@@ -1,39 +1,39 @@
 <template>
     <div class="view-medRecord d-flex flex-column">
-        <div class="d-block title text-white text-center w-100">Mi Historia Clínica</div>
+        <div class="d-block title text-white text-center w-100">Mis Síntomas y Medicamentos</div>
         <div class="flex-fill">
             <button class="btn btn-back p-0 m-4" @click="back">
-                <img src="../../../../public/static/svg/arrow-left-circle.svg">
+                <img src="../../../public/static/svg/arrow-left-circle.svg">
             </button>
             <div class="container">
                 <div class="row  p-2">
                     <div class="col-lg-5 p-5">
-                        <img src="../../../../public/static/img/antecedentesFamiliaresIcon.png" class="img-fluid img-button">
+                        <img src="../../../public/static/img/alergiasIcon.png" class="img-fluid img-button">
                         <div>
-                            <h4 class="name bg-color-main-light text-white">Antecedentes Familiares</h4>
+                            <h4 class="name bg-color-main-light text-white">Medicamentos</h4>
                         </div>
                     </div>
                     <div class="col-lg-7 p-5">
-                        <div class="d-block title text-white text-center">Antecedentes Familiares</div>
-                        <table class="table" v-if="this.familyBackgrounds.length > 0">
+                        <div class="d-block title text-white text-center">Medicamentos</div>
+                        <table class="table" v-if="this.medicine.length>0">
+                            <!-- if  -->
                             <thead>
                                 <tr class="bg-color-secondary-dark text-white">
-                                    <th scope="col">Familiar</th>
-                                    <th scope="col">Descripción</th>
+                                    <th scope="col" class="text-center">Nombre de Medicamento</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr v-for="familyBackground in this.familyBackgrounds" :key="familyBackground.familyMember">
-                                    <th scope="row">{{familyBackground.familyMember}}</th>
-                                    <td>{{familyBackground.description}}</td>
+                                <tr v-for="med in this.medicine" :key="med.id">
+                                    <th class="text-center">{{med.medicine}}</th>
                                 </tr>
                             </tbody>
                         </table>
                         <div v-else>
+                            <!-- else -->
                             <div class="card message">
                                 <div class="card-body offset-lg-2 col-lg-8">
-                                    <h5 class="card-title text-center">Tiene <b class="text-color-main-dark">0</b> antecedentes familiares registrados.</h5>
-                                    <p class="card-text mb-2 text-center">Presione <router-link style="white-space: nowrap;" class="text-color-main-dark" :to="{name: 'updateMedRecord'}" >aqui</router-link> si quiere añadir un nuevo antecedente familiar.</p>
+                                    <h5 class="card-title text-center">Tiene <b class="text-color-main-dark">0</b> alergias registradas.</h5>
+                                    <p class="card-text mb-2 text-center">Presione <router-link style="white-space: nowrap;" class="text-color-main-dark" :to="{name: 'updateMedRecord'}" >aqui</router-link> si quiere añadir una nueva alergia.</p>
                                 </div>
                             </div>
                         </div>
@@ -50,13 +50,41 @@ import {getAuthenticationToken} from '@/dataStorage';
 const path = '/patient/documents/'
 
 export default {
-    data( ){
-        let dataObject = this.$store.state.medRecord;
-        return dataObject;
+    data(){
+        return {medicine:{}}
+    },
+    beforeCreate(){
+        const session = getAuthenticationToken();
+
+        const requestPath = "/patient/medicalHistory/";
+
+        axios.get( this.$store.state.backURL + requestPath + session.userId, { params: { sessionToken: session.token } } )
+        .then( response => {
+          if( response.status !== 200 ){
+            alert( 'Error Obteniendo los Sintomas' );
+          }else{
+            const data = response.data.data;
+
+            let medicine = []
+
+            for (let i = 0; i < data.symptoms.length; i++){
+                if (data.symptoms[i].medicine){
+                    medicine.push(data.symptoms[i])
+                }
+            }
+
+            console.log(medicine)
+            this.medicine = medicine;
+          }
+        } ).catch( error => {
+            this.$store.state.testToken();
+            alert( 'Error en la petición' );
+            console.log( error );
+        } );
     },
     methods:{
         back(){
-            this.$router.push( {name: 'viewMedRecord'} );
+            this.$router.push( {name: 'navViewSymptoms'} );
         }
     }
 
