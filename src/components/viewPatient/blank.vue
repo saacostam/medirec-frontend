@@ -10,7 +10,7 @@ export default {
     onCreate(){
         const session = getAuthenticationToken();
 
-        if (session.authorities[0].authority !== 'DOCTOR'){
+        if (session.authorities[0].authority !== 'PATIENT'){
             this.$router.push( {name: 'home'} );
         }
     }

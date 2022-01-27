@@ -8,7 +8,7 @@
             <div class="container mt-5">
                 <div class="row p-2 mt-5 pt-5">
                     <div class="col-lg-5 d-none d-lg-flex">
-                        <img src="https://via.placeholder.com/350" class="mx-auto img-fluid" style="width:100%; height: 100%; max-width:350px; max-height: 350px">
+                        <img src="../../../public/static/img/ratingPanel.png" class="mx-auto img-fluid" style="width:100%; height: 100%; max-width:350px; max-height: 350px">
                     </div>
                     <div class="col-lg-6">
                         <div class="review" v-if="this.done === false">

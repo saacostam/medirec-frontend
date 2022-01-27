@@ -31,8 +31,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="button d-flex align-items-center p-3">
+                                <div class="button d-flex flex-column align-items-center justify-content-center p-3">
                                     <input type="submit" value="Agregar" class="btn text-white bg-color-main-light add-button">
+                                    <button type="button" class="btn text-white bg-color-main-light check-button" @click="toAllergies">Consultar</button>
                                 </div>
                             </form>
                         </div>
@@ -68,8 +69,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="button d-flex align-items-center p-3">
+                                <div class="button d-flex flex-column align-items-center justify-content-center p-3">
                                     <input type="submit" value="Agregar" class="btn text-white bg-color-main-light add-button">
+                                    <button type="button" class="btn text-white bg-color-main-light check-button" @click="toIllnesses">Consultar</button>
                                 </div>
                             </form>
                         </div>
@@ -97,8 +99,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="button d-flex align-items-center p-3">
+                                <div class="button d-flex flex-column align-items-center justify-content-center p-3">
                                     <input type="submit" value="Agregar" class="btn text-white bg-color-main-light add-button">
+                                    <button type="button" class="btn text-white bg-color-main-light check-button" @click="toPersonal">Consultar</button>
                                 </div>
                             </form>
                         </div>
@@ -126,8 +129,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="button d-flex align-items-center p-3">
+                                <div class="button d-flex flex-column align-items-center justify-content-center p-3">
                                     <input type="submit" value="Agregar" class="btn text-white bg-color-main-light add-button">
+                                    <button type="button" class="btn text-white bg-color-main-light check-button" @click="toFamily">Consultar</button>
                                 </div>
                             </form>
                         </div>
@@ -138,7 +142,116 @@
                 </div>
             </div>
         </div>
-    </div>
+
+        <!-- MODAL THING -->
+        <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body m-0 p-0 bg-color-main-light">
+                        <button type="button" class="btn btn-back m-1" data-dismiss="modal">
+                            <img src="../../../public/static/svg/arrow-left-circle white.svg">
+                        </button>
+
+                        <img class="d-block mx-auto mt-5" src="../../../public/static/img/consultClinicalHistoryIcon.png" alt="" width="200px" height="200px" style="border-radius:50%">
+
+                        <h4 class="text-white text-center m-4" v-if="this.focus===1">Alergias</h4>
+                        <h4 class="text-white text-center m-4" v-if="this.focus===2">Enfermedades</h4>
+                        <h4 class="text-white text-center m-4" v-if="this.focus===3">Antecedentes Personales</h4>
+                        <h4 class="text-white text-center m-4" v-if="this.focus===4">Antecedentes Familiares</h4>
+                    </div>
+                    <div class="modal-body m-0 p-0">
+                        <div class="allergies" v-if="this.focus===1">
+                            <div class="nothing" v-if="this.illnesses.length===0">
+                                <p class="msg-nothing">No tienes alergias registradas.</p>
+                            </div>
+                            <div class="" v-else>
+                                <table class="table">
+                                    <thead>
+                                        <tr class="bg-color-main-light text-white">
+                                            <th scope="col">Alergia</th>
+                                            <th>Tipo</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr v-for="allergy in this.allergies" :key="allergy.alergyId">
+                                            <td>{{allergy.allergen}}</td>
+                                            <td>{{allergy.type}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="illnesses" v-if="this.focus===2">
+                            <div class="nothing" v-if="this.illnesses.length===0">
+                                <p class="msg-nothing">No tienes enfermedades registradas.</p>
+                            </div>
+                            <div class="" v-else>
+                                <table class="table">
+                                    <thead>
+                                        <tr class="bg-color-main-light text-white">
+                                            <th scope="col">Enfermedad</th>
+                                            <th>Fecha</th>
+                                            <th>Descripción</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr v-for="illness in this.illnesses" :key="illness.illnessId">
+                                            <td>{{illness.illnessName}}</td>
+                                            <td>{{illness.detectionDate}}</td>
+                                            <td>{{illness.illnessDescription}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="personalRecords" v-if="this.focus===3">
+                            <div class="nothing" v-if="this.personalRecords.length===0">
+                                <p class="msg-nothing">No tienes antecedentes personales registrados.</p>
+                            </div>
+                            <div class="" v-else>
+                                <table class="table">
+                                    <thead>
+                                        <tr class="bg-color-main-light text-white">
+                                            <th scope="col">Fecha</th>
+                                            <th>Descripción</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr v-for="record in this.personalRecords" :key="record.prId">
+                                            <td>{{record.date}}</td>
+                                            <td>{{record.prDescription}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="familyBackground" v-if="this.focus===4">
+                            <div class="nothing" v-if="this.familyBacks.length===0">
+                                <p class="msg-nothing">No tienes antecedentes familiares registrados.</p>
+                            </div>
+                            <div class="" v-else>
+                                <table class="table">
+                                    <thead>
+                                        <tr class="bg-color-main-light text-white">
+                                            <th scope="col">Familiar</th>
+                                            <th>Descripción</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr v-for="record in this.familyBacks" :key="record.familyBackgroundId">
+                                            <td>{{record.familyMember}}</td>
+                                            <td>{{record.description}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- </div> -->
     <div class="loading d-flex flex-column align-items-center m-5" v-else>
         <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
             <span class="sr-only" color="#1F4567">Loading...</span>
@@ -152,7 +265,9 @@ import {getAuthenticationToken} from '@/dataStorage';
 
 export default {
     data(){
-        return{
+        const medRecord = this.$store.state.medRecord;
+
+        let dataObject = {
             allergy:'',
             allergyType: '',
             illness: '',
@@ -162,9 +277,16 @@ export default {
             personalRecordDescription : '',
             familyMember: '',
             familyBackgroundDescription: '',
+            loading: false,
 
-            loading: false
+            allergies:medRecord.allergies,
+            illnesses:medRecord.illnesses,
+            personalRecords: medRecord.personalRecords,
+            familyBacks:medRecord.familyBackgrounds,
+            focus:1,
         }
+
+        return dataObject;
     },
     methods:{
         back(){
@@ -281,6 +403,24 @@ export default {
             this.$store.state.medRecord = dataObject;
             this.loading = false;
             location.reload();
+        },
+
+
+        toAllergies(){
+            $('#infoModal').modal('show');
+            this.focus = 1;
+        },
+        toIllnesses(){
+            $('#infoModal').modal('show');
+            this.focus = 2;
+        },
+        toPersonal(){
+            $('#infoModal').modal('show');
+            this.focus = 3;
+        },
+        toFamily(){
+            $('#infoModal').modal('show');
+            this.focus = 4;
         }
     }
 }
@@ -356,6 +496,28 @@ export default {
     }
 
     .add-button{
-        padding: 15px 10px;
+        padding: 5px 10px;
+        width: 100px;
     }
+
+.check-button{
+    padding: 5px 10px;
+    width: 100px;
+    margin-top: 5px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.table{
+    width: 60%;
+    margin: 30px auto;
+    border: solid 1px gray;
+}
+
+.msg-nothing{
+    margin: 30px auto;
+    font-size: 1.3em;
+    text-align: center;
+    color: #1F4567;
+}
 </style>

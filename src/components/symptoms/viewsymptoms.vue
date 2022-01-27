@@ -8,7 +8,7 @@
             <div class="container">
                 <div class="row  p-2">
                     <div class="col-lg-5 p-5">
-                        <img src="../../../public/static/img/alergiasIcon.png" class="img-fluid img-button">
+                        <img src="../../../public/static/img/syntomsIcon.png" class="img-fluid">
                         <div>
                             <h4 class="name bg-color-main-light text-white">Sintomas</h4>
                         </div>
@@ -20,11 +20,13 @@
                             <thead>
                                 <tr class="bg-color-secondary-dark text-white">
                                     <th scope="col" class="text-center">Descripción</th>
+                                    <th class="text-center">Fecha</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr v-for="symptom in this.symptoms" :key="symptom.id">
-                                    <th>{{symptom.description}}</th>
+                                    <th class="text-center">{{symptom.description}}</th>
+                                    <th class="text-center">{{symptom.date.split('T')[0]}}</th>
                                 </tr>
                             </tbody>
                         </table>

@@ -24,6 +24,8 @@ import Profile from "./components/app/Profile";
 import Home from "./components/app/Home";
 import DataUpdate from "./components/app/DataUpdate";
 
+import MyReviews from "./components/app/myReviews"
+
 import MyMedRecord from "./components/medRecord/MyMedRecord"
 import BlankMedRecord from "./components/medRecord/BlankMedRecord"
 import CreateMedRecord from "./components/medRecord/CreateMedRecord"
@@ -55,10 +57,30 @@ import navViewDoctor from "./components/viewDoctor/nav"
 import profileViewDoctor from "./components/viewDoctor/profile"
 import rateDoctor from "./components/viewDoctor/rate"
 
+import blankViewPatient from "./components/viewPatient/blank"
+import navViewPatient from "./components/viewPatient/nav"
+import profileViewPatient from "./components/viewPatient/profile"
+
+import blankViewMedRecordPatient from "./components/viewPatient/BlankMedRecord"
+import navViewMedRecordPatient from "./components/viewPatient/medRecord/ViewMedRecord"
+import allergyViewMedRecordPatient from "./components/viewPatient/medRecord/ViewAllergies"
+import illnessViewMedRecordPatient from "./components/viewPatient/medRecord/ViewIllnesses"
+import personalViewMedRecordPatient from "./components/viewPatient/medRecord/ViewPersonalRecords"
+import familyViewMedRecordPatient from "./components/viewPatient/medRecord/ViewFamilyBackgrounds"
+import filesViewMedRecordPatient from "./components/viewPatient/medRecord/ViewFiles"
+
+import blankViewSymptomsPatient from "./components/viewPatient/symptoms/blank"
+import navViewSymptomsPatient from "./components/viewPatient/symptoms/viewnav"
+import viewSymptomsPatient from "./components/viewPatient/symptoms/viewsymptoms"
+import viewMedsPatient from "./components/viewPatient/symptoms/viewmeds"
+
 import BlankMyPatient from "./components/myPatients/BlankMyPatients"
 import MyPatients from "./components/myPatients/MyPatients"
 import SearchPatients from "./components/myPatients/SearchPatients"
 import ViewPatientProfile from "./components/myPatients/ViewProfile"
+
+import patientChat from "./components/chat/patientChat"
+import doctorChat from "./components/chat/doctorChat"
 
 Vue.use(Router);
 
@@ -157,6 +179,11 @@ export default new Router({
                     path: "/actualiza-datos",
                     name: "dataUpdate",
                     component: DataUpdate,
+                },
+                {
+                    path: "/mis-reseñas",
+                    name: "MyReviews",
+                    component: MyReviews
                 },
                 {
                     path: "/mi-historia-clinica",
@@ -316,9 +343,92 @@ export default new Router({
                             path: "calificacion",
                             name: "rateDoctor",
                             component: rateDoctor
+                        },
+                        {
+                            path: "chat",
+                            name: "patientChat",
+                            component: patientChat
                         }
                     ]
                 },
+                {
+                    path: "/paciente/:id",
+                    name: "blankViewPatient",
+                    component: blankViewPatient,
+                    children: [{
+                            path: "nav",
+                            name: "navViewPatient",
+                            component: navViewPatient
+                        },
+                        {
+                            path: "perfil",
+                            name: "profileViewPatient",
+                            component: profileViewPatient
+                        },
+                        {
+                            path: "chat",
+                            name: "doctorChat",
+                            component: doctorChat
+                        },
+                        {
+                            path: "historia-medica",
+                            name: "blankViewMedRecordPatient",
+                            component: blankViewMedRecordPatient,
+                            children: [{
+                                    path: "nav",
+                                    name: "navViewMedRecordPatient",
+                                    component: navViewMedRecordPatient
+                                },
+                                {
+                                    path: "alergias",
+                                    name: "allergyViewMedRecordPatient",
+                                    component: allergyViewMedRecordPatient
+                                },
+                                {
+                                    path: "enfermedades",
+                                    name: "illnessViewMedRecordPatient",
+                                    component: illnessViewMedRecordPatient
+                                },
+                                {
+                                    path: "antecedentes-personales",
+                                    name: "personalViewMedRecordPatient",
+                                    component: personalViewMedRecordPatient
+                                },
+                                {
+                                    path: "antecedentes-familiares",
+                                    name: "familyViewMedRecordPatient",
+                                    component: familyViewMedRecordPatient
+                                },
+                                {
+                                    path: "archivos",
+                                    name: "filesViewMedRecordPatient",
+                                    component: filesViewMedRecordPatient
+                                }
+                            ]
+                        },
+                        {
+                            path: "sintomas-y-medicamentos",
+                            name: "blankViewSymptomsPatient",
+                            component: blankViewSymptomsPatient,
+                            children: [{
+                                    path: "visualizar-nav",
+                                    name: "navViewSymptomsPatient",
+                                    component: navViewSymptomsPatient
+                                },
+                                {
+                                    path: "sintomas",
+                                    name: "viewSymptomsPatient",
+                                    component: viewSymptomsPatient
+                                },
+                                {
+                                    path: "medicamentos",
+                                    name: "viewMedsPatient",
+                                    component: viewMedsPatient
+                                }
+                            ]
+                        }
+                    ]
+                }
             ]
         }
     ]

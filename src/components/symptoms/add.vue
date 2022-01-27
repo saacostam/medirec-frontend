@@ -5,7 +5,7 @@
         </button>
         <div class="row">
             <div class="col-lg-5 d-none d-lg-flex">
-                <img src="https://via.placeholder.com/350" alt="" class="mx-auto" style="margin-top: 100px; max-width:350px; max-height:350px">
+                <img src="../../../public/static/img/reportSympBanner.png" class="img-fluid" alt="" style="margin-top: 100px; margin-left:80px; max-width:350px; max-height:350px">
             </div>
             <div class="col-lg-7">
                 <div class="d-flex flex-column" v-if="this.step===1">

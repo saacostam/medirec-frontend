@@ -1,26 +1,36 @@
 <template>
     <div class="view-medRecord d-flex flex-column">
-        <div class="d-block title text-white text-center w-100">{{name}}</div>
         <div class="flex-fill">
             <button class="btn btn-back p-0 m-4" @click="back">
                 <img src="../../../public/static/svg/arrow-left-circle.svg">
             </button>
             <div class="container">
                 <div class="row p-2 mt-3">
-                    <div class="offset-lg-1 col-lg-3 offset-md-2 col-md-4 p-2 d-flex flex-column justify-content-end nav-group" @click="toProfile">
-                        <img src="../../../public/static/img/doctorProfileInformationIcon.png" alt="" class="mx-auto" width="120px" height="120px" style="border:solid 2px #418ef2; border-radius: 50%;">
-                        <div class="nav-option bg-color-main-light text-white h5">Perfil</div>
+                    <div class="col-lg-6 d-lg-block d-none pt-5">
+                        <img src="../../../public/static/img/consultPatientIcon.png" alt="" class="d-block mx-auto mt-3" width="400px" height="320px">
+                        <div class="bg-color-purple text-white d-flex mx-auto align-items-center justify-content-center" style="width:400px; height:80px;">
+                            <span style="font-size: 1.3em; font-weight: 600">Paciente: {{name}}</span>
+                        </div>
                     </div>
-                    <div class="col-lg-4 col-md-4 d-none d-lg-block d-lg-block p-2 d-lg-flex">
-                        <img src="../../../public/static/img/navBanner.png" alt="" class="mx-auto d-none d-lg-block" style="max-width:250px; max-height: 250px">
-                    </div>
-                    <div class="offset-lg-0 col-lg-3 col-md-4 p-2 d-flex flex-column justify-content-end nav-group" @click="toChat">
-                        <img src="../../../public/static/img/chatIcon.png" alt="" class="mx-auto" width="120px" height="120px" style="border:solid 2px #418ef2; border-radius: 50%;" >
-                        <div class="nav-option bg-color-main-light text-white h5">Chat</div>
-                    </div>
-                    <div class="offset-lg-4 col-lg-4 offset-md-4 col-md-4 p-2 d-flex flex-column justify-content-end mt-2 nav-group" @click="toRate">
-                        <img src="../../../public/static/img/qualifiedIcon.png" alt="" class="mx-auto" width="120px" height="120px" >
-                        <div class="nav-option bg-color-main-light text-white h5">Calificar</div>
+                    <div class="col-lg-6 offset-lg-0 col-md-8 offset-md-2 pt-5">
+                        <div class="row">
+                            <div class="col-sm-6 p-2 d-flex flex-column justify-content-end nav-group" @click="toProfile">
+                                <img src="../../../public/static/img/doctorProfileInformationIcon.png" alt="" class="mx-auto" width="140px" height="140px" style="border:2px solid #418ef2; border-radius:50%">
+                                <div class="nav-option bg-color-main-light text-white h5">Perfil</div>
+                            </div>
+                            <div class="col-sm-6 p-2 d-flex flex-column justify-content-end nav-group" @click="toChat">
+                                <img src="../../../public/static/img/chatIcon.png" alt="" class="mx-auto" width="140px" height="140px" style="border:2px solid #418ef2; border-radius:50%">
+                                <div class="nav-option bg-color-main-light text-white h5">Chat</div>
+                            </div>
+                            <div class="col-sm-6 p-2 d-flex flex-column justify-content-end nav-group" @click="toMedRecord">
+                                <img src="../../../public/static/img/medHeart.png" alt="" class="mx-auto" width="140px" height="140px" style="border:2px solid #418ef2; border-radius:50%">
+                                <div class="nav-option bg-color-main-light text-white h5">Historia<br>Clínica</div>
+                            </div>
+                            <div class="col-sm-6 p-2 d-flex flex-column justify-content-end nav-group" @click="toSymp">
+                                <img src="../../../public/static/img/sympOption.png" alt="" class="mx-auto" width="140px" height="140px" style="border:2px solid #418ef2; border-radius:50%">
+                                <div class="nav-option bg-color-main-light text-white h5">Sintomas y<br>Medicamentos</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -35,19 +45,19 @@ import {getAuthenticationToken} from '@/dataStorage';
 export default {
     data(){
         return {
-            name:'Doctor', 
+            name:'Patient', 
             done: false, 
             valid:true
         }
     },
     beforeCreate(){
         const session = getAuthenticationToken();
-        const requestPath = `/doctor/${this.$route.params.id}`;
+        const requestPath = `/patient/${this.$route.params.id}`;
         console.log(this.$route.params.id)
         axios.get( this.$store.state.backURL + requestPath, { params: { sessionToken: session.token } } )
         .then( response => {
           if( response.status !== 200 ){
-            alert( 'Error Obteniendo los Sintomas' );
+            alert( 'Error Obteniendo los datos de paciente' );
           }else{
             const data = response.data.data;
             this.name = data.userFirstName+' '+data.userLastName
@@ -67,13 +77,16 @@ export default {
             this.$router.push( {name: 'home'} );
         },
         toProfile(){
-            this.$router.push( {name: "profileViewDoctor"} )
-        },
-        toRate(){
-            this.$router.push( {name: "rateDoctor"} )
+            this.$router.push( {name: "profileViewPatient"} )
         },
         toChat(){
-            this.$router.push( {name: "patientChat"} )
+            this.$router.push( {name: "doctorChat"} )
+        },
+        toMedRecord(){
+            this.$router.push( {name: "navViewMedRecordPatient"} )
+        },
+        toSymp(){
+            this.$router.push( {name: "navViewSymptomsPatient"} )
         }
     }
 
@@ -166,9 +179,11 @@ export default {
 
     .nav-option{
         margin: 25px auto 10px;
-        padding: 4px 42px;
+        padding: 4px 12px;
         border: solid 1px gray;
         border-radius: 10px;
+        text-align: center;
+        width: 145px;
     }
 
     .nav-group:hover{

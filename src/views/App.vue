@@ -57,7 +57,7 @@
         </div>
         <hr class="bg-white m-0" v-if="this.authority==='DOCTOR'">
         <div class="menu-options p-3 d-flex align-items-center" v-if="this.authority==='DOCTOR'">
-          <router-link :to="{name: 'home'}"><img src="../../public/static/img/myReviewsIcon.png" width="40px" height="40px" class="mr-2"> Mis Reseñas</router-link>
+          <router-link :to="{name: 'MyReviews'}"><img src="../../public/static/img/myReviewsIcon.png" width="40px" height="40px" class="mr-2"> Mis Reseñas</router-link>
         </div>
         <hr class="bg-white m-0" v-if="this.authority==='DOCTOR'">
       </div>

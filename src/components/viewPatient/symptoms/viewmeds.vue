@@ -1,14 +1,14 @@
 <template>
     <div class="view-medRecord d-flex flex-column">
-        <div class="d-block title text-white text-center w-100">Mis Síntomas y Medicamentos</div>
+        <div class="d-block title-div text-white text-center w-100">Síntomas y Medicamentos</div>
         <div class="flex-fill">
             <button class="btn btn-back p-0 m-4" @click="back">
-                <img src="../../../public/static/svg/arrow-left-circle.svg">
+                <img src="../../../../public/static/svg/arrow-left-circle.svg">
             </button>
             <div class="container">
                 <div class="row  p-2">
                     <div class="col-lg-5 p-5">
-                        <img src="../../../public/static/img/checkSympBanner.png" class="img-fluid">
+                        <img src="../../../../public/static/img/checkSympBanner.png" class="img-fluid">
                         <div>
                             <h4 class="name bg-color-main-light text-white">Medicamentos</h4>
                         </div>
@@ -18,7 +18,7 @@
                         <table class="table" v-if="this.medicine.length>0">
                             <!-- if  -->
                             <thead>
-                                <tr class="bg-color-secondary-dark text-white">
+                                <tr class="bg-color-main-light text-white">
                                     <th class="text-center">Fecha</th>
                                     <th scope="col" class="text-center">Nombre de Medicamento</th>
                                 </tr>
@@ -34,8 +34,7 @@
                             <!-- else -->
                             <div class="card message">
                                 <div class="card-body offset-lg-2 col-lg-8">
-                                    <h5 class="card-title text-center">Tiene <b class="text-color-main-dark">0</b> alergias registradas.</h5>
-                                    <p class="card-text mb-2 text-center">Presione <router-link style="white-space: nowrap;" class="text-color-main-dark" :to="{name: 'updateMedRecord'}" >aqui</router-link> si quiere añadir una nueva alergia.</p>
+                                    <h5 class="card-title text-center">El paciente tiene <b class="text-color-main-dark">0</b> alergias registradas.</h5>
                                 </div>
                             </div>
                         </div>
@@ -60,7 +59,7 @@ export default {
 
         const requestPath = "/patient/medicalHistory/";
 
-        axios.get( this.$store.state.backURL + requestPath + session.userId, { params: { sessionToken: session.token } } )
+        axios.get( this.$store.state.backURL + requestPath +this.$route.params.id, { params: { sessionToken: session.token } } )
         .then( response => {
           if( response.status !== 200 ){
             alert( 'Error Obteniendo los Sintomas' );
@@ -86,7 +85,7 @@ export default {
     },
     methods:{
         back(){
-            this.$router.push( {name: 'navViewSymptoms'} );
+            this.$router.push( {name: 'navViewSymptomsPatient'} );
         }
     }
 
@@ -103,6 +102,13 @@ export default {
 
     .title{
         background-color:#1F4567;
+        padding: 10px;
+        font-weight: 700;
+        margin: 0 auto;
+    }
+
+    .title-div{
+        background-color:rgb(86, 81, 226);
         padding: 10px;
         font-weight: 700;
         margin: 0 auto;

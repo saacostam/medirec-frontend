@@ -1,15 +1,13 @@
 <template>
-    <router-view></router-view>
+  <router-view></router-view>
 </template>
 
 <script>
-import axios from 'axios';
 import {getAuthenticationToken} from '@/dataStorage';
-
 export default {
     onCreate(){
-        const session = getAuthenticationToken();
-
+        const session =getAuthenticationToken();
+        
         if (session.authorities[0].authority !== 'DOCTOR'){
             this.$router.push( {name: 'home'} );
         }
@@ -17,6 +15,6 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 
 </style>

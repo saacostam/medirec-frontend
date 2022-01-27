@@ -1,7 +1,7 @@
 <template>
     <div class="my-symptoms">
         <div class="container-fluid img mb-2 d-flex">
-            <img class="img-fluid mx-auto" src="https://via.placeholder.com/1200x200" alt="">
+            <img class="img-fluid mx-auto" src="../../../public/static/img/symp-banner.png" alt="" width="1200px" heigth="250px">
         </div>
         <button class="btn btn-back p-0 m-4" @click="back">
             <img src="../../../public/static/svg/arrow-left-circle.svg">
@@ -12,7 +12,7 @@
                     <div class="row" style="padding-top: 80px">
                         <div class="col-md-6" @click="toCreate">
                             <div class="w-100 d-flex justify-content-center">
-                                <img src="https://via.placeholder.com/150" class="mx-auto img-opt">
+                                <img src="../../../public/static/img/reportSymp.png" class="mx-auto img-opt" width="128px" height="128px">
                             </div>
                             <div class="nav-opt">
                                 Reportar<br>Síntomas y<br>Medicamentos
@@ -20,7 +20,7 @@
                         </div>
                         <div class="col-md-6" @click="toView">
                             <div class="w-100 d-flex justify-content-center">
-                                <img src="https://via.placeholder.com/150" class="mx-auto img-opt">
+                                <img src="../../../public/static/img/checkSymp.png" class="mx-auto img-opt" width="128px" height="128px">
                             </div>
                             <div class="nav-opt">
                                 Consultar<br>Síntomas y<br>Medicamentos

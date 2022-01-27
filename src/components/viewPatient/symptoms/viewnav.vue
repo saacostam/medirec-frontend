@@ -1,32 +1,29 @@
 <template>
     <div class="container-fluid">
         <button class="btn btn-back p-0 m-4" @click="back">
-            <img src="../../../public/static/svg/arrow-left-circle.svg">
+            <img src="../../../../public/static/svg/arrow-left-circle.svg">
         </button>
 
-        <div class="row">
-            <div class="col-lg-4 offset-lg-1">
-                <div class="bg-color-main-dark text-white title h5">
-                    Mis síntomas y<br>medicamentos
-                </div>
-                <div class="nav-div">
+        <div class="row" style="margin-top: 20px;">
+            <div class="col-lg-7 d-none d-lg-flex align-items-center justify-content-start pt-1">
+                <img src="../../../../public/static/img/consultSyntomsAndMedicineIcon.png" class="mt-4 img-fluid" height="480px" width="600px" style="padding: 50px">
+            </div>
+            <div class="col-lg-4">
+                <div class="nav-div" style="margin-top: 50px;">
                     <div class="nav-option d-flex flex-column" @click="toSymptoms">
-                        <img src="../../../public/static/img/syntomsIcon.png" class="mx-auto" width="120px" height="120px" style="border: solid 2px rgb(86, 81, 226); border-radius:50%;">
+                        <img src="../../../../public/static/img/syntomsIcon.png" class="mx-auto" width="120px" height="120px" style="border: solid 2px rgb(86, 81, 226); border-radius:50%;">
                         <div class="bg-color-main-light text-white text-center btn-option h5">
                             Síntomas
                         </div>
                     </div>
 
                     <div class="nav-option d-flex flex-column" @click="toMeds">
-                        <img src="../../../public/static/img/checkSympBanner.png" class="mx-auto" width="120px" height="120px" style="border: solid 2px rgb(86, 81, 226); border-radius:50%;">
+                        <img src="../../../../public/static/img/checkSympBanner.png" class="mx-auto" width="120px" height="120px" style="border: solid 2px rgb(86, 81, 226); border-radius:50%;">
                         <div class="bg-color-main-light text-white text-center btn-option h5">
                             Medicamentos
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-7 d-none d-lg-flex align-items-center justify-content-start pt-1">
-                <img src="../../../public/static/img/navSympBanner.png" class="mt-4 img-fluid" height="480px" width="600px">
             </div>
         </div>
     </div>
@@ -36,13 +33,13 @@
 export default {
     methods:{
         back(){
-            this.$router.push( {name: 'navSymptoms'} );
+            this.$router.push( {name: 'navViewPatient'} );
         },
         toSymptoms(){
-            this.$router.push( {name: 'viewSymptoms'} );
+            this.$router.push( {name: 'viewSymptomsPatient'} );
         },
         toMeds(){
-            this.$router.push( {name: 'viewMeds'} );
+            this.$router.push( {name: 'viewMedsPatient'} );
         }
     }
 }

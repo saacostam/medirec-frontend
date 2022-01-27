@@ -1,41 +1,38 @@
 <template>
     <div class="view-medRecord d-flex flex-column">
-        <div class="d-block title text-white text-center w-100">Mis Síntomas y Medicamentos</div>
+        <div class="d-block title-patient text-white text-center w-100">Historia Clinica</div>
         <div class="flex-fill">
             <button class="btn btn-back p-0 m-4" @click="back">
-                <img src="../../../public/static/svg/arrow-left-circle.svg">
+                <img src="../../../../public/static/svg/arrow-left-circle.svg">
             </button>
             <div class="container">
                 <div class="row  p-2">
                     <div class="col-lg-5 p-5">
-                        <img src="../../../public/static/img/checkSympBanner.png" class="img-fluid">
+                        <img src="../../../../public/static/img/alergiasIcon.png" class="img-fluid img-button">
                         <div>
-                            <h4 class="name bg-color-main-light text-white">Medicamentos</h4>
+                            <h4 class="name bg-color-main-light text-white">Alergias</h4>
                         </div>
                     </div>
                     <div class="col-lg-7 p-5">
-                        <div class="d-block title text-white text-center">Medicamentos</div>
-                        <table class="table" v-if="this.medicine.length>0">
-                            <!-- if  -->
+                        <div class="d-block title text-white text-center">Alergias</div>
+                        <table class="table" v-if="this.allergies.length>0">
                             <thead>
-                                <tr class="bg-color-secondary-dark text-white">
-                                    <th class="text-center">Fecha</th>
-                                    <th scope="col" class="text-center">Nombre de Medicamento</th>
+                                <tr class="bg-color-main-light text-white">
+                                    <th scope="col">Alergia</th>
+                                    <th scope="col">Tipo</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr v-for="med in this.medicine" :key="med.id">
-                                    <th class="text-center">{{med.date.split('T')[0]}}</th>
-                                    <th class="text-center">{{med.medicine}}</th>
+                                <tr v-for="allergy in this.allergies" :key="allergy.allergen">
+                                    <th scope="row">{{allergy.allergen}}</th>
+                                    <td>{{allergy.type}}</td>
                                 </tr>
                             </tbody>
                         </table>
                         <div v-else>
-                            <!-- else -->
                             <div class="card message">
                                 <div class="card-body offset-lg-2 col-lg-8">
-                                    <h5 class="card-title text-center">Tiene <b class="text-color-main-dark">0</b> alergias registradas.</h5>
-                                    <p class="card-text mb-2 text-center">Presione <router-link style="white-space: nowrap;" class="text-color-main-dark" :to="{name: 'updateMedRecord'}" >aqui</router-link> si quiere añadir una nueva alergia.</p>
+                                    <h5 class="card-title text-center">El paciente tiene <b class="text-color-main-dark">0</b> alergias registradas.</h5>
                                 </div>
                             </div>
                         </div>
@@ -49,44 +46,17 @@
 <script>
 import axios from 'axios';
 import {getAuthenticationToken} from '@/dataStorage';
-const path = '/patient/documents/'
 
 export default {
-    data(){
-        return {medicine:{}}
-    },
-    beforeCreate(){
-        const session = getAuthenticationToken();
-
-        const requestPath = "/patient/medicalHistory/";
-
-        axios.get( this.$store.state.backURL + requestPath + session.userId, { params: { sessionToken: session.token } } )
-        .then( response => {
-          if( response.status !== 200 ){
-            alert( 'Error Obteniendo los Sintomas' );
-          }else{
-            const data = response.data.data;
-
-            let medicine = []
-
-            for (let i = 0; i < data.symptoms.length; i++){
-                if (data.symptoms[i].medicine){
-                    medicine.push(data.symptoms[i])
-                }
-            }
-
-            console.log(medicine)
-            this.medicine = medicine;
-          }
-        } ).catch( error => {
-            this.$store.state.testToken();
-            alert( 'Error en la petición' );
-            console.log( error );
-        } );
+    data( ){
+        let dataObject = this.$store.state.medRecord;
+        dataObject.patientName = "Paciente";
+        console.log(dataObject)
+        return dataObject;
     },
     methods:{
         back(){
-            this.$router.push( {name: 'navViewSymptoms'} );
+            this.$router.push( {name: 'navViewMedRecordPatient'} );
         }
     }
 
@@ -103,6 +73,13 @@ export default {
 
     .title{
         background-color:#1F4567;
+        padding: 10px;
+        font-weight: 700;
+        margin: 0 auto;
+    }
+
+    .title-patient{
+        background-color:rgb(86, 81, 226);
         padding: 10px;
         font-weight: 700;
         margin: 0 auto;

@@ -65,7 +65,7 @@
 
         <div class="col-lg-4 nav-menu">
             <div class="d-flex flex-column justify-content-end">
-                <img src="https://via.placeholder.com/120" alt="" class="mx-auto">
+                <img src="../../../public/static/img/qualifiedIcon.png" alt="" class="mx-auto" width="120px" height="120px" >
                 <div class="text-color-purple text-center h5 font-weight-bold pt-3 pl-3 pr-3">Calificación</div>
                 <div class="rating mb-4 d-flex flex-row justify-content-center" v-if="$data.scoresAverage !== 'NaN'">
                     <img src="../../../public/static/svg/star-fill.svg" alt="" v-if="$data.scoresAverage>=1">
@@ -87,11 +87,78 @@
                     No Disponible
                 </div>
             </div>
-            <div class="d-flex flex-column justify-content-end nav-group">
-                <img src="https://via.placeholder.com/120" alt="" class="mx-auto">
+            <div class="d-flex flex-column justify-content-end nav-group" @click="toReviews">
+                <img src="../../../public/static/img/reviewInDoctorProfileIcon.png" alt="" class="mx-auto" width="120px" height="120px">
                 <div class="text-center text-white h5 font-weight-bold nav-option">Reseñas</div>
             </div>
         </div>
+
+      <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+              <!-- <div class="modal-header m-0 p-0">
+                  <h5 class="modal-title text-color-main-dark" id="termModalTitle"></h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                  </button>
+              </div> -->
+              <div class="modal-body m-0 p-0 bg-color-main-light">
+                <button type="button" class="btn btn-back m-1" data-dismiss="modal">
+                  <img src="../../../public/static/svg/arrow-left-circle white.svg">
+                </button>
+
+                <img class="d-block mx-auto m-4" src="../../../public/static/img/reviewBanner.png" alt="" width="200px" height="200px" style="border: 2px solid #1F4567; border-radius: 50%">
+                <div class="modal-rating mb-4 d-flex flex-row justify-content-center" v-if="$data.scoresAverage !== 'NaN'">
+                  <img src="../../../public/static/svg/star-fill.svg" alt="" v-if="$data.scoresAverage>=1">
+                  <img src="../../../public/static/svg/star.svg" alt="" v-else>
+
+                  <img src="../../../public/static/svg/star-fill.svg" alt="" v-if="$data.scoresAverage>=2">
+                  <img src="../../../public/static/svg/star.svg" alt="" v-else>
+
+                  <img src="../../../public/static/svg/star-fill.svg" alt="" v-if="$data.scoresAverage>=3">
+                  <img src="../../../public/static/svg/star.svg" alt="" v-else>
+
+                  <img src="../../../public/static/svg/star-fill.svg" alt="" v-if="$data.scoresAverage>=4">
+                  <img src="../../../public/static/svg/star.svg" alt="" v-else>
+
+                  <img src="../../../public/static/svg/star-fill.svg" alt="" v-if="$data.scoresAverage==5">
+                  <img src="../../../public/static/svg/star.svg" alt="" v-else>
+                </div>
+                <div class="name text-center text-white mb-3" style="font-size: 1.3em; font-weight:">
+                  {{this.userFirstName+' '+this.userLastName}}
+                </div>
+                <hr class="blue-division">
+
+                <div class="reviews">
+                  <div class="review bg-white m-3 p-3" v-for="opinion in this.opinions" :key="opinion.scoreId">
+                    <div class="rating mx-auto m-0 d-flex flex-row justify-content-center">
+                      <img src="../../../public/static/svg/star-fill.svg" alt="" v-if="opinion.score>=1">
+                      <img src="../../../public/static/svg/star.svg" alt="" v-else>
+
+                      <img src="../../../public/static/svg/star-fill.svg" alt="" v-if="opinion.score>=2">
+                      <img src="../../../public/static/svg/star.svg" alt="" v-else>
+
+                      <img src="../../../public/static/svg/star-fill.svg" alt="" v-if="opinion.score>=3">
+                      <img src="../../../public/static/svg/star.svg" alt="" v-else>
+
+                      <img src="../../../public/static/svg/star-fill.svg" alt="" v-if="opinion.score>=4">
+                      <img src="../../../public/static/svg/star.svg" alt="" v-else>
+
+                      <img src="../../../public/static/svg/star-fill.svg" alt="" v-if="opinion.score==5">
+                      <img src="../../../public/static/svg/star.svg" alt="" v-else>
+                    </div>
+                    <div class="msg mt-2">
+                      {{opinion.opinion}}
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <!-- <div class="modal-footer m-0">
+            </div> -->
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -120,6 +187,7 @@ export default {
       doctorProfessionalCard:'',
       doctorSpecialization:'',
       doctorUniversity: '',
+      opinions: ''
       };
     const session = getAuthenticationToken( )
 
@@ -149,6 +217,7 @@ export default {
             dataObject.doctorUniversity = data.doctorUniversity;
 
             dataObject.scoresAverage = data.scoresAverage;
+            dataObject.opinions = data.doctorScores;
           }
 
           console.log(dataObject)
@@ -157,9 +226,6 @@ export default {
           alert( 'Error en la petición' );
         } );
     return dataObject
-  },
-  beforeCreate(){
-    
   },
   methods:{
     capitalize(str) {
@@ -171,12 +237,23 @@ export default {
     },
     back(){
       this.$router.push( {name: 'navViewDoctor'} );
+    },
+    toReviews(){
+      $('#infoModal').modal('show')
     }
   }
 }
 </script>
 
 <style scoped>
+.bg-color-main-dark{
+  background-color: #1F4567;
+}
+
+.bg-color-main-light{
+  background-color: #418ef2;
+}
+
 .title{
   background-color:#1F4567;
   padding: 10px;
@@ -262,5 +339,20 @@ th, td{
 
 .rating img{
     margin: 2px;
+}
+
+.modal-rating img{
+  margin: 2px;
+  width: 25x;
+  height: 25px;
+}
+
+.blue-division{
+  background-color: #1F4567;
+  height: 1px;
+}
+
+.review{
+  border-radius: 25px;
 }
 </style>

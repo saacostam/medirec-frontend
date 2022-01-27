@@ -131,7 +131,7 @@
                     <div class="form-check form-check-inline d-flex justify-content-center mb-4">
                         <input class="form-check-input" type="checkbox" id="termCheckbox" value="" required>
                         <label class="form-check-label text-center" for="termCheckbox">
-                            Autorizo tratamiento de datos y <button type="button" class="text-color-main-light" id="term-and-conditions" data-toggle="modal" data-target="#termModal">Términos y condiciones</button>
+                            Autorizo tratamiento de datos y <button type="button" class="text-color-main-light" id="term-and-conditions">Términos y condiciones</button>
                         </label>
                     </div>
 
