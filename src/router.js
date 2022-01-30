@@ -82,6 +82,8 @@ import ViewPatientProfile from "./components/myPatients/ViewProfile"
 import patientChat from "./components/chat/patientChat"
 import doctorChat from "./components/chat/doctorChat"
 
+import donations from "./components/donations"
+
 Vue.use(Router);
 
 export default new Router({
@@ -169,6 +171,11 @@ export default new Router({
                     path: "/home",
                     name: "home",
                     component: Home,
+                },
+                {
+                    path: "/donaciones",
+                    name: "donations",
+                    component: donations
                 },
                 {
                     path: "/perfil",
