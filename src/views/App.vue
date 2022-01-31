@@ -3,7 +3,12 @@
     <nav class="navbar-light bg-white">
       <div class="container-fluid mb-0">
         <div class="row w-100 mb-2 mt-3">
-          <div class="offset-lg-2 offset-3 col-lg-8 col-6 brand d-flex justify-content-center mb-0">
+          <nav class="support col-lg-2 col-3">
+            <img src="../../public/static/img/tutorialIcon.png" class="support-option d-block" width="70px" height="70px" :style="[authority==='DOCTOR' ? {'border-color': '#1F4567'} : {'border-color': '#FB7837'}]">
+            <img src="../../public/static/img/donationsIcon.png" @click="toDonations" class="support-option d-block" width="70px" height="70px" :style="[authority==='DOCTOR' ? {'border-color': '#1F4567'} : {'border-color': '#FB7837'}]">
+          </nav>
+
+          <div class="col-lg-8 col-6 brand d-flex justify-content-center mb-0">
             <router-link class="navbar-brand" :to="{name: 'home'}">
               <img src="../../public/static/svg/MedirecLogo.svg" width="auto" height="60" class="d-inline-block align-top" alt="">
             </router-link>
@@ -96,6 +101,9 @@
         deleteAuthenticationToken();
         this.$store.state.medRecord = null;
         this.$router.push( {name: "login"} );
+      },
+      toDonations(){
+        this.$router.push({name:'donations'});
       }
     }
   }
@@ -175,4 +183,17 @@ hr{
   height: 1px;
   border: none;
 }
+
+.support{
+  display: flex;
+  flex-flow: row;
+}
+
+img.support-option{
+  border: solid 2px #FB7837;
+  border-radius: 50%;
+  margin: 0px 12px;
+  cursor: pointer;
+}
+
 </style>
