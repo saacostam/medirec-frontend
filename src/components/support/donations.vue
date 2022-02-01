@@ -1,24 +1,24 @@
 <template>
 <div class="donations p-4">
     <button class="btn btn-back p-0 m-2" @click="back" v-if="loaded">
-      <img src="../../public/static/svg/arrow-left-circle.svg">
+      <img src="../../../public/static/svg/arrow-left-circle.svg">
     </button>
 
-    <h3 class="text-center text-color-main-light mt-3" style="font-weight:700">Team MediRec</h3>
+    <h3 class="text-center text-color-main-light mt-3" style="font-weight:700" :style="[authority==='DOCTOR' ? {'color': '#5651e2'} : {'color': '#418ef2'}]">Team MediRec</h3>
     
-    <div class="message">
+    <div class="message" :style="[authority==='DOCTOR' ? {'background-color': '#5651e2'} : {'background-color': '#418ef2'}]">
         <p class="m-0">Gracias por usar MediRec, como estudiantes de la Universidad Nacional de Colombia nos alegra ver nuestro proyecto crecer cada día y como este ayuda constantemente a bastantes personas. Esperamos seguir dándole soporte y brindando a todos nuestros usuarios la mejor experiencia al momento de usarla. Si deseas realizar una donación lo podrás realizar aquí abajo, de esta manera nos permitirías que nuestro proyecto siga creciendo y de este modo el alcance de este sea aun mucho mayor. Estaremos totalmente agradecidos con cualquier aporte !!! Gracias totales !!!!!!! </p>
     </div>
 
     <div class="container">
         <div class="row">
             <div class="offset-lg-1 col-lg-5 d-none d-lg-block">
-                <img src="../../public/static/img/donationMessageIcon.png" class="img-fluid">
+                <img src="../../../public/static/img/donationMessageIcon.png" class="img-fluid">
             </div>
             <div class="col-lg-5">
                 <div class="thank text-center" v-if="paidFor">
                     <h3 class="thank-you" style="font-weight: 700">GRACIAS!</h3>
-                    <img src="../../public/static/img/comprobado-doctor.png" class="col-4 img-fluid">
+                    <img src="../../../public/static/img/comprobado-doctor.png" class="col-4 img-fluid">
                     <div class="confirmation m-3">
                         La donación se realizo <b style="color:#418ef2">satisfactoriamente</b>
                     </div>
@@ -32,12 +32,15 @@
 </template>
 
 <script>
+import {getAuthenticationToken, deleteAuthenticationToken} from '@/dataStorage';
+
 export default {
     data(){
-        console.log("Hey")
+        const session = getAuthenticationToken();
         return {
             loaded: false,
             paidFor: false,
+            authority: session.authorities[0].authority,
 
             donation:{
                 price:1,

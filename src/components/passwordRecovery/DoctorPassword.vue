@@ -225,7 +225,7 @@ export default {
     }
 
     .circle-active{
-        background-color: rgb(86, 81, 226);
+        background-color: #5651e2;
         color: white;
     }
 

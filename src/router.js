@@ -82,7 +82,8 @@ import ViewPatientProfile from "./components/myPatients/ViewProfile"
 import patientChat from "./components/chat/patientChat"
 import doctorChat from "./components/chat/doctorChat"
 
-import donations from "./components/donations"
+import donations from "./components/support/donations"
+import tutorial from "./components/support/tutorial"
 
 Vue.use(Router);
 
@@ -176,6 +177,11 @@ export default new Router({
                     path: "/donaciones",
                     name: "donations",
                     component: donations
+                },
+                {
+                    path: "/tutorial",
+                    name: "tutorial",
+                    component: tutorial
                 },
                 {
                     path: "/perfil",

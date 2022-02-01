@@ -4,7 +4,7 @@
       <div class="container-fluid mb-0">
         <div class="row w-100 mb-2 mt-3">
           <nav class="support col-lg-2 col-3">
-            <img src="../../public/static/img/tutorialIcon.png" class="support-option d-block" width="70px" height="70px" :style="[authority==='DOCTOR' ? {'border-color': '#1F4567'} : {'border-color': '#FB7837'}]">
+            <img src="../../public/static/img/tutorialIcon.png" @click="toTutorial" class="support-option d-block" width="70px" height="70px" :style="[authority==='DOCTOR' ? {'border-color': '#1F4567'} : {'border-color': '#FB7837'}]">
             <img src="../../public/static/img/donationsIcon.png" @click="toDonations" class="support-option d-block" width="70px" height="70px" :style="[authority==='DOCTOR' ? {'border-color': '#1F4567'} : {'border-color': '#FB7837'}]">
           </nav>
 
@@ -104,6 +104,9 @@
       },
       toDonations(){
         this.$router.push({name:'donations'});
+      },
+      toTutorial(){
+        this.$router.push({name:'tutorial'})
       }
     }
   }
@@ -195,5 +198,4 @@ img.support-option{
   margin: 0px 12px;
   cursor: pointer;
 }
-
 </style>
