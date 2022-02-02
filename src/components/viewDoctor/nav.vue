@@ -3,23 +3,23 @@
         <div class="d-block title text-white text-center w-100">{{name}}</div>
         <div class="flex-fill">
             <button class="btn btn-back p-0 m-4" @click="back">
-                <img src="../../../public/static/svg/arrow-left-circle.svg">
+                <img src="/static/svg/arrow-left-circle.svg">
             </button>
             <div class="container">
                 <div class="row p-2 mt-3">
                     <div class="offset-lg-1 col-lg-3 offset-md-2 col-md-4 p-2 d-flex flex-column justify-content-end nav-group" @click="toProfile">
-                        <img src="../../../public/static/img/doctorProfileInformationIcon.png" alt="" class="mx-auto" width="120px" height="120px" style="border:solid 2px #418ef2; border-radius: 50%;">
+                        <img src="/static/img/doctorProfileInformationIcon.png" alt="" class="mx-auto" width="120px" height="120px" style="border:solid 2px #418ef2; border-radius: 50%;">
                         <div class="nav-option bg-color-main-light text-white h5">Perfil</div>
                     </div>
                     <div class="col-lg-4 col-md-4 d-none d-lg-block d-lg-block p-2 d-lg-flex">
-                        <img src="../../../public/static/img/navBanner.png" alt="" class="mx-auto d-none d-lg-block" style="max-width:250px; max-height: 250px">
+                        <img src="/static/img/navBanner.png" alt="" class="mx-auto d-none d-lg-block" style="max-width:250px; max-height: 250px">
                     </div>
                     <div class="offset-lg-0 col-lg-3 col-md-4 p-2 d-flex flex-column justify-content-end nav-group" @click="toChat">
-                        <img src="../../../public/static/img/chatIcon.png" alt="" class="mx-auto" width="120px" height="120px" style="border:solid 2px #418ef2; border-radius: 50%;" >
+                        <img src="/static/img/chatIcon.png" alt="" class="mx-auto" width="120px" height="120px" style="border:solid 2px #418ef2; border-radius: 50%;" >
                         <div class="nav-option bg-color-main-light text-white h5">Chat</div>
                     </div>
                     <div class="offset-lg-4 col-lg-4 offset-md-4 col-md-4 p-2 d-flex flex-column justify-content-end mt-2 nav-group" @click="toRate">
-                        <img src="../../../public/static/img/qualifiedIcon.png" alt="" class="mx-auto" width="120px" height="120px" >
+                        <img src="/static/img/qualifiedIcon.png" alt="" class="mx-auto" width="120px" height="120px" >
                         <div class="nav-option bg-color-main-light text-white h5">Calificar</div>
                     </div>
                 </div>

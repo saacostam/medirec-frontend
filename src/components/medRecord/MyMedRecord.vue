@@ -4,23 +4,23 @@
             <div class="flex-fill container">
                 <div class="row h-100">
                     <div class="col-lg-7 col-md-4 img-med-record">
-                        <img src="../../../public/static/img/clinicalHistoryIcon.jpg" alt="" class="img-med-record img-fluid">
+                        <img src="/static/img/clinicalHistoryIcon.jpg" alt="" class="img-med-record img-fluid">
                     </div>
                     <div class="col-lg-5 col-md-8 flex-fill d-flex flex-column p-3" v-if="this.hasData">
                         <div class="flex-fill d-flex flex-row p-3 align-items-center">
-                            <img src="../../../public/static/img/viewMedicalHistoryIcon.png" width="125px" height="125px" @click="toView" class="img-button">
+                            <img src="/static/img/viewMedicalHistoryIcon.png" width="125px" height="125px" @click="toView" class="img-button">
                             <div class="body flex-fill d-flex justify-content-center align-content-center ml-4 p-2 border bg-color-main-light text-white text-center div-button" @click="toView">
                                 <h4>Consultar Historia Clínica</h4>
                             </div>
                         </div>
                         <div class="flex-fill d-flex flex-row p-3 align-items-center">
-                            <img src="../../../public/static/img/updateMedicalHistoryIcon.png" width="125px" height="125px" @click="toUpdate" class="img-button">
+                            <img src="/static/img/updateMedicalHistoryIcon.png" width="125px" height="125px" @click="toUpdate" class="img-button">
                             <div class="body flex-fill d-flex justify-content-center align-content-center ml-4 p-2 border bg-color-main-light text-white text-center div-button" @click="toUpdate">
                                 <h4>Actualizar Historia Clínica</h4>
                             </div>
                         </div>
                         <div class="flex-fill d-flex flex-row p-3 align-items-center">
-                            <img src="../../../public/static/img/uploadMedicalHistoryIcon.png" width="125px" height="125px" @click="toUpload" class="img-button">
+                            <img src="/static/img/uploadMedicalHistoryIcon.png" width="125px" height="125px" @click="toUpload" class="img-button">
                             <div class="body flex-fill d-flex justify-content-center align-content-center ml-4 p-2 border bg-color-main-light text-white text-center div-button" @click="toUpload">
                                 <h4>Subir archivos de su Historia Clínica</h4>
                             </div>
@@ -28,7 +28,7 @@
                     </div>
                     <div class="col-lg-5 col-md-8 flex-fill d-flex flex-column p-3" v-else>
                         <div class="flex-fill d-flex flex-column p-3 align-items-center justify-content-center">
-                            <img src="../../../public/static/img/createMedicalHistoryIcon.png" width="125px" height="125px" @click="toCreate" class="img-button mb-4">
+                            <img src="/static/img/createMedicalHistoryIcon.png" width="125px" height="125px" @click="toCreate" class="img-button mb-4">
                             <div class="body justify-content-center align-content-center p-2 pl-5 pr-5 mt-2 border bg-color-main-light text-white text-center div-button" @click="toCreate">
                                 <h4>Agregar Historia <br> Clínica</h4>
                             </div>

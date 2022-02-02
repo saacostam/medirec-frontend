@@ -1,6 +1,6 @@
 <template>
     <div class="flex-fill patient-3 d-flex flex-column">
-        <img src="../../../public/static/svg/MedirecLogo.svg" alt="logo" width="auto" height="65" viewBox="0 0 65 65" class="m-3">
+        <img src="/static/svg/MedirecLogo.svg" alt="logo" width="auto" height="65" viewBox="0 0 65 65" class="m-3">
         <div class="d-flex">
             <hr>
             <div class="col-4 text-center">
@@ -16,7 +16,7 @@
             </div>
         </div>
         <div class="flex-fill d-flex flex-column align-items-center justify-content-center">
-            <img src="../../../public/static/img/comprobado-patient.png" class="col-4 img-fluid">
+            <img src="/static/img/comprobado-patient.png" class="col-4 img-fluid">
             <div class="message row">
                 <p class="offset-2 col-8 text-center">Ha completado su perfil de forma satisfactoria. Bienvenido a <b class="text-color-main-light">MediRec</b></p>
             </div>

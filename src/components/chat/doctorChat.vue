@@ -2,11 +2,11 @@
     <div class="chat">
         <div class="container">
             <button class="btn btn-back p-0 m-4" @click="back">
-                <img src="../../../public/static/svg/arrow-left-circle.svg">
+                <img src="/static/svg/arrow-left-circle.svg">
             </button>
             <div class="row">
                 <div class="d-lg-block d-none col-lg-5 pt-5">
-                    <img src="../../../public/static/img/doctorChatIcon.png" alt="" class="img-fluid m-2 ml-4 mt-5 d-block mx-auto" width="350px" height="350px">
+                    <img src="/static/img/doctorChatIcon.png" alt="" class="img-fluid m-2 ml-4 mt-5 d-block mx-auto" width="350px" height="350px">
                     <div class="patient-name" v-if="this.name">Paciente: {{this.name}}</div>
                     <div class="patient-name" v-else>Paciente</div>
                 </div>
@@ -17,11 +17,11 @@
                                 <div class="chat-date text-center">{{day[0].date.split('T')[0]}}</div>
                                 <div class="messages m-2" v-for="message in day" :key="message.timestamp">
                                     <div class="patient-msg d-flex flex-row-reverse" v-if="message.sender[0]==='d'">
-                                        <img src="../../../public/static/svg/doctorIconSearching.svg" alt="" width="90px" height="90px">
+                                        <img src="/static/svg/doctorIconSearching.svg" alt="" width="90px" height="90px">
                                         <div class="patient-content">{{message.content}}</div>
                                     </div>
                                     <div class="doctor-msg d-flex flex-row" v-else>
-                                        <img src="../../../public/static/img/patientChat.png" alt="" width="90px" height="90px">
+                                        <img src="/static/img/patientChat.png" alt="" width="90px" height="90px">
                                         <div class="doctor-content">{{message.content}}</div>
                                     </div>
                                 </div>

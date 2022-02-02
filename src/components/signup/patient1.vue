@@ -1,9 +1,9 @@
 <template>
     <div class="flex-fill patient-1 d-flex flex-column">
         <button class="btn btn-back p-0 m-4" @click="back">
-          <img src="../../../public/static/svg/arrow-left-circle.svg">
+          <img src="/static/svg/arrow-left-circle.svg">
         </button>
-        <img src="../../../public/static/svg/MedirecLogo.svg" alt="logo" width="auto" height="65" viewBox="0 0 65 65" class="m-3">
+        <img src="/static/svg/MedirecLogo.svg" alt="logo" width="auto" height="65" viewBox="0 0 65 65" class="m-3">
         <div class="d-flex">
             <hr>
             <div class="col-4 text-center">
@@ -25,7 +25,7 @@
                       <div class="input-group">
                         <div class="input-group-prepend">
                           <div class="input-group-text bg-color-secondary-dark border-0 text-white">
-                            <img src="../../../public/static/svg/person-circle.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
+                            <img src="/static/svg/person-circle.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
                           </div>
                         </div>
                         <input v-model="firstName" type="text" class="form-control bg-color-secondary-light border-0" placeholder="Nombres" required>
@@ -36,7 +36,7 @@
                       <div class="input-group">
                         <div class="input-group-prepend">
                           <div class="input-group-text bg-color-secondary-dark border-0 text-white">
-                            <img src="../../../public/static/svg/person-circle.svg" class="password" width="16" height="16" viewBox="0 0 16 16">
+                            <img src="/static/svg/person-circle.svg" class="password" width="16" height="16" viewBox="0 0 16 16">
                           </div>
                         </div>
                         <input v-model="lastName" type="text" class="form-control bg-color-secondary-light border-0" placeholder="Apellidos" required>
@@ -47,7 +47,7 @@
                       <div class="input-group">
                       <div class="input-group-prepend">
                           <div class="input-group-text bg-color-secondary-dark border-0 text-white">
-                          <img src="../../../public/static/svg/envelope.svg" class="password" width="16" height="16" viewBox="0 0 16 16">
+                          <img src="/static/svg/envelope.svg" class="password" width="16" height="16" viewBox="0 0 16 16">
                           </div>
                       </div>
                       <input v-model="email" type="email" class="form-control bg-color-secondary-light border-0" placeholder="Correo Electronico" required>
@@ -58,7 +58,7 @@
                       <div class="input-group">
                         <div class="input-group-prepend">
                           <div class="input-group-text bg-color-secondary-dark border-0 text-white">
-                            <img src="../../../public/static/svg/person-badge.svg" class="password" width="16" height="16" viewBox="0 0 16 16">
+                            <img src="/static/svg/person-badge.svg" class="password" width="16" height="16" viewBox="0 0 16 16">
                           </div>
                         </div>
                         <input v-model="doc" type="number" class="form-control bg-color-secondary-light border-0" placeholder="Documento" required>
@@ -75,7 +75,7 @@
                       <div class="input-group">
                           <div class="input-group-prepend">
                               <div class="input-group-text bg-color-secondary-dark border-0 text-white">
-                              <img src="../../../public/static/svg/bandaid.svg" class="password" width="16" height="16" viewBox="0 0 16 16">
+                              <img src="/static/svg/bandaid.svg" class="password" width="16" height="16" viewBox="0 0 16 16">
                               </div>
                           </div>
                           <input v-model="eps" type="text" class="form-control bg-color-secondary-light border-0" placeholder="EPS" required>

@@ -3,7 +3,7 @@
     <div class="container flex-fill">
         <div class="row p-0 h-100">
             <button class="btn btn-back p-0 m-4" @click="toMedRecord">
-                <img src="../../../public/static/svg/arrow-left-circle.svg">
+                <img src="/static/svg/arrow-left-circle.svg">
             </button>
             <div class="col-lg-7 d-flex flex-column" v-if="this.step===1">
                 <div class="text-center"><h1 class="font-weight-bold text-color-green m-3">Historia Clinica</h1></div>
@@ -38,7 +38,7 @@
                             <div class="input-group m-2">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text border-0 bg-color-secondary-dark">
-                                        <img src="../../../public/static/svg/health.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
+                                        <img src="/static/svg/health.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
                                     </div>
                                 </div>
                                 <input v-model="allergy.allergen" type="text" class="form-control border-0 bg-color-secondary-light mr-3" placeholder="Alergia" required>
@@ -46,7 +46,7 @@
                             <div class="input-group m-2">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text border-0 bg-color-secondary-dark">
-                                        <img src="../../../public/static/svg/123.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
+                                        <img src="/static/svg/123.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
                                     </div>
                                 </div>
                                 <input v-model="allergy.type" type="number" class="form-control border-0 bg-color-secondary-light mr-3" placeholder="Tipo de Alergia" required min="1" max="4">
@@ -55,8 +55,8 @@
                     </div>
 
                     <div>
-                        <button type="button" class="btn btn-danger m-1" @click="removeAllergy"><img src="../../../public/static/svg/dash.svg"></button>
-                        <button type="button" class="btn bg-color-green text-white m-1" @click="addAllergy"><img src="../../../public/static/svg/plus.svg"></button>
+                        <button type="button" class="btn btn-danger m-1" @click="removeAllergy"><img src="/static/svg/dash.svg"></button>
+                        <button type="button" class="btn bg-color-green text-white m-1" @click="addAllergy"><img src="/static/svg/plus.svg"></button>
                     </div>
 
                     <div class="d-flex justify-content-center">
@@ -102,7 +102,7 @@
                             <div class="input-group m-2">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text border-0 bg-color-secondary-dark">
-                                        <img src="../../../public/static/svg/health.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
+                                        <img src="/static/svg/health.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
                                     </div>
                                 </div>
                                 <input v-model="illness.illnessName" type="text" class="form-control border-0 bg-color-secondary-light mr-3" placeholder="Enfermedad" required>
@@ -110,7 +110,7 @@
                             <div class="input-group m-2">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text border-0 bg-color-secondary-dark">
-                                        <img src="../../../public/static/svg/calendar-check.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
+                                        <img src="/static/svg/calendar-check.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
                                     </div>
                                 </div>
                                 <input v-model="illness.detectionDate" type="date" class="form-control border-0 bg-color-secondary-light mr-3" placeholder="Fecha de Descubrimiento" required v-bind:max="new Date().toISOString().split('T')[0]">
@@ -118,7 +118,7 @@
                             <div class="input-group m-2">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text border-0 bg-color-secondary-dark">
-                                        <img src="../../../public/static/svg/body-text.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
+                                        <img src="/static/svg/body-text.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
                                     </div>
                                 </div>
                                 <textarea v-model="illness.illnessDescription" type="long" class="form-control border-0 bg-color-secondary-light mr-3" placeholder="Descripción" required></textarea>
@@ -127,8 +127,8 @@
                     </div>
 
                     <div>
-                        <button type="button" class="btn btn-danger m-1" @click="removeIlness"><img src="../../../public/static/svg/dash.svg"></button>
-                        <button type="button" class="btn bg-color-green text-white m-1" @click="addIlness"><img src="../../../public/static/svg/plus.svg"></button>
+                        <button type="button" class="btn btn-danger m-1" @click="removeIlness"><img src="/public/static/svg/dash.svg"></button>
+                        <button type="button" class="btn bg-color-green text-white m-1" @click="addIlness"><img src="/public/static/svg/plus.svg"></button>
                     </div>
 
                     <div class="d-flex justify-content-center">
@@ -173,7 +173,7 @@
                             <div class="input-group m-2">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text border-0 bg-color-secondary-dark">
-                                        <img src="../../../public/static/svg/calendar-check.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
+                                        <img src="/static/svg/calendar-check.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
                                     </div>
                                 </div>
                                 <input v-model="personalRecord.date" type="date" class="form-control border-0 bg-color-secondary-light mr-3" placeholder="Fecha de Descubrimiento" required v-bind:max="new Date().toISOString().split('T')[0]">
@@ -181,7 +181,7 @@
                             <div class="input-group m-2">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text border-0 bg-color-secondary-dark">
-                                        <img src="../../../public/static/svg/body-text.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
+                                        <img src="/static/svg/body-text.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
                                     </div>
                                 </div>
                                 <textarea v-model="personalRecord.description" type="long" class="form-control border-0 bg-color-secondary-light mr-3" placeholder="Descripción" required></textarea>
@@ -190,8 +190,8 @@
                     </div>
 
                     <div>
-                        <button type="button" class="btn btn-danger m-1" @click="removePersonalRecord"><img src="../../../public/static/svg/dash.svg"></button>
-                        <button type="button" class="btn bg-color-green text-white m-1" @click="addPersonalRecord"><img src="../../../public/static/svg/plus.svg"></button>
+                        <button type="button" class="btn btn-danger m-1" @click="removePersonalRecord"><img src="/static/svg/dash.svg"></button>
+                        <button type="button" class="btn bg-color-green text-white m-1" @click="addPersonalRecord"><img src="/static/svg/plus.svg"></button>
                     </div>
 
                     <div class="d-flex justify-content-center">
@@ -236,7 +236,7 @@
                             <div class="input-group m-2">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text border-0 bg-color-secondary-dark">
-                                        <img src="../../../public/static/svg/person-circle.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
+                                        <img src="/static/svg/person-circle.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
                                     </div>
                                 </div>
                                 <input v-model="familyBackground.familyMember" type="text" class="form-control border-0 bg-color-secondary-light mr-3" placeholder="Familiar" required>
@@ -244,7 +244,7 @@
                             <div class="input-group m-2">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text border-0 bg-color-secondary-dark">
-                                        <img src="../../../public/static/svg/body-text.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
+                                        <img src="/static/svg/body-text.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
                                     </div>
                                 </div>
                                 <textarea v-model="familyBackground.description" type="long" class="form-control border-0 bg-color-secondary-light mr-3" placeholder="Descripción" required></textarea>
@@ -252,8 +252,8 @@
                         </div>
                     </div>
                     <div>
-                        <button type="button" class="btn btn-danger m-1" @click="removeFamilyBackground"><img src="../../../public/static/svg/dash.svg"></button>
-                        <button type="button" class="btn bg-color-green text-white m-1" @click="addFamilyBackground"><img src="../../../public/static/svg/plus.svg"></button>
+                        <button type="button" class="btn btn-danger m-1" @click="removeFamilyBackground"><img src="/static/svg/dash.svg"></button>
+                        <button type="button" class="btn bg-color-green text-white m-1" @click="addFamilyBackground"><img src="/static/svg/plus.svg"></button>
                     </div>
 
                     <div class="d-flex justify-content-center">
@@ -289,7 +289,7 @@
                     <!---->
                     <div class="flex-fill d-flex justify-content-center align-content-center">
                         <div class="col-6">
-                            <img src="../../../public/static/img/warningIcon.jpg" class="img-fluid">
+                            <img src="/static/img/warningIcon.jpg" class="img-fluid">
                         </div>
                     </div>
 
@@ -363,7 +363,7 @@
                 </div>
                 <div class="bg-white p-5 form-group">
                     <div class="flex-fill d-flex flex-column align-items-center justify-content-center">
-                        <img src="../../../public/static/img/comprobado-patient.png" class="col-4 img-fluid">
+                        <img src="/static/img/comprobado-patient.png" class="col-4 img-fluid">
                         <div class="message row">
                             <p class="offset-2 col-8 text-center">Ha ingresado su historia medica de manera <b class="text-color-green">satisfactoria</b></p>
                         </div>
@@ -375,7 +375,7 @@
             </div>
 
             <div class="col-lg-5 pt-5 pr-5">
-                <img src="../../../public/static/img/addMedicalHistoryIcon.jpeg" id="doctor-image" class="img-fluid rounded-circle border border-success">
+                <img src="/static/img/addMedicalHistoryIcon.jpeg" id="doctor-image" class="img-fluid rounded-circle border border-success">
             </div>
         </div>
     </div>
@@ -672,9 +672,5 @@ export default {
     #term-and-conditions:focus{
         border: none;
         outline: none;
-    }
-
-    #doctor-image{
-
     }
 </style>

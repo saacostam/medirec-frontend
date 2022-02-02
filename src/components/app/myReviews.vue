@@ -9,20 +9,20 @@
                             <div class="for-reviews">
                                 <div class="review m-4 p-3" v-for="review in this.opinions" :key="review.scoreId">
                                     <div class="rating mb-2 d-flex flex-row justify-content-center">
-                                        <img src="../../../public/static/svg/star-fill.svg" alt="" v-if="review.score>=1">
-                                        <img src="../../../public/static/svg/star.svg" alt="" v-else>
+                                        <img src="/static/svg/star-fill.svg" alt="" v-if="review.score>=1">
+                                        <img src="/static/svg/star.svg" alt="" v-else>
 
-                                        <img src="../../../public/static/svg/star-fill.svg" alt="" v-if="review.score>=2">
-                                        <img src="../../../public/static/svg/star.svg" alt="" v-else>
+                                        <img src="/static/svg/star-fill.svg" alt="" v-if="review.score>=2">
+                                        <img src="/static/svg/star.svg" alt="" v-else>
 
-                                        <img src="../../../public/static/svg/star-fill.svg" alt="" v-if="review.score>=3">
-                                        <img src="../../../public/static/svg/star.svg" alt="" v-else>
+                                        <img src="/static/svg/star-fill.svg" alt="" v-if="review.score>=3">
+                                        <img src="/static/svg/star.svg" alt="" v-else>
 
-                                        <img src="../../../public/static/svg/star-fill.svg" alt="" v-if="review.score>=4">
-                                        <img src="../../../public/static/svg/star.svg" alt="" v-else>
+                                        <img src="/static/svg/star-fill.svg" alt="" v-if="review.score>=4">
+                                        <img src="/static/svg/star.svg" alt="" v-else>
 
-                                        <img src="../../../public/static/svg/star-fill.svg" alt="" v-if="review.score==5">
-                                        <img src="../../../public/static/svg/star.svg" alt="" v-else>
+                                        <img src="/static/svg/star-fill.svg" alt="" v-if="review.score==5">
+                                        <img src="/static/svg/star.svg" alt="" v-else>
                                     </div>
                                     <div class="message">
                                         {{review.opinion}}
@@ -33,25 +33,25 @@
                     </div>
                     <div class="col-lg-6 d-none d-lg-block mt-4">
                         <div class="rating-avarage mb-4 d-flex flex-row justify-content-center" v-if="$data.scoresAverage !== 'NaN'">
-                            <img src="../../../public/static/svg/star-fill.svg" alt="" v-if="$data.scoresAverage>=1">
-                            <img src="../../../public/static/svg/star.svg" alt="" v-else>
+                            <img src="/static/svg/star-fill.svg" alt="" v-if="$data.scoresAverage>=1">
+                            <img src="/static/svg/star.svg" alt="" v-else>
 
-                            <img src="../../../public/static/svg/star-fill.svg" alt="" v-if="$data.scoresAverage>=2">
-                            <img src="../../../public/static/svg/star.svg" alt="" v-else>
+                            <img src="/static/svg/star-fill.svg" alt="" v-if="$data.scoresAverage>=2">
+                            <img src="/static/svg/star.svg" alt="" v-else>
 
-                            <img src="../../../public/static/svg/star-fill.svg" alt="" v-if="$data.scoresAverage>=3">
-                            <img src="../../../public/static/svg/star.svg" alt="" v-else>
+                            <img src="/static/svg/star-fill.svg" alt="" v-if="$data.scoresAverage>=3">
+                            <img src="/static/svg/star.svg" alt="" v-else>
 
-                            <img src="../../../public/static/svg/star-fill.svg" alt="" v-if="$data.scoresAverage>=4">
-                            <img src="../../../public/static/svg/star.svg" alt="" v-else>
+                            <img src="/static/svg/star-fill.svg" alt="" v-if="$data.scoresAverage>=4">
+                            <img src="/static/svg/star.svg" alt="" v-else>
 
-                            <img src="../../../public/static/svg/star-fill.svg" alt="" v-if="$data.scoresAverage==5">
-                            <img src="../../../public/static/svg/star.svg" alt="" v-else>
+                            <img src="/static/svg/star-fill.svg" alt="" v-if="$data.scoresAverage==5">
+                            <img src="/static/svg/star.svg" alt="" v-else>
                         </div>
                         <div v-else class="text-center mb-4" style="font-size: 1.3em; color:#1F4567; margin-top:15px; font-weight:600;">
                             Puntuación no Disponible
                         </div>
-                        <img src="../../../public/static/img/myReviewsIcon2.png" alt="" class="d-block mx-auto">
+                        <img src="/static/img/myReviewsIcon2.png" alt="" class="d-block mx-auto">
                     </div>
                 </div>
             </div>

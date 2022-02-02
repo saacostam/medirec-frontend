@@ -93,7 +93,7 @@ a{
 }
 
 #img-patients{
-	background-image: url("../../public/static/img/registro-paciente.jpg");
+	background-image: url("/static/img/registro-paciente.jpg");
 	background-position: center;
 	background-size:cover;
 }

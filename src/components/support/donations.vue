@@ -1,7 +1,7 @@
 <template>
 <div class="donations p-4">
     <button class="btn btn-back p-0 m-2" @click="back" v-if="loaded">
-      <img src="../../../public/static/svg/arrow-left-circle.svg">
+      <img src="/static/svg/arrow-left-circle.svg">
     </button>
 
     <h3 class="text-center text-color-main-light mt-3" style="font-weight:700" :style="[authority==='DOCTOR' ? {'color': '#5651e2'} : {'color': '#418ef2'}]">Team MediRec</h3>
@@ -13,12 +13,12 @@
     <div class="container">
         <div class="row">
             <div class="offset-lg-1 col-lg-5 d-none d-lg-block">
-                <img src="../../../public/static/img/donationMessageIcon.png" class="img-fluid">
+                <img src="/static/img/donationMessageIcon.png" class="img-fluid">
             </div>
             <div class="col-lg-5">
                 <div class="thank text-center" v-if="paidFor">
                     <h3 class="thank-you" style="font-weight: 700">GRACIAS!</h3>
-                    <img src="../../../public/static/img/comprobado-doctor.png" class="col-4 img-fluid">
+                    <img src="/static/img/comprobado-doctor.png" class="col-4 img-fluid">
                     <div class="confirmation m-3">
                         La donación se realizo <b style="color:#418ef2">satisfactoriamente</b>
                     </div>

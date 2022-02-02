@@ -3,12 +3,12 @@
         <div class="d-block title text-white text-center w-100">Mi Historia Clínica</div>
         <div class="flex-fill">
             <button class="btn btn-back p-0 m-4" @click="back">
-                <img src="../../../../public/static/svg/arrow-left-circle.svg">
+                <img src="/static/svg/arrow-left-circle.svg">
             </button>
             <div class="container">
                 <div class="row  p-2">
                     <div class="col-lg-5 p-5">
-                        <img src="../../../../public/static/img/antecedentesPersonalesIcon.png" class="img-fluid img-button">
+                        <img src="/static/img/antecedentesPersonalesIcon.png" class="img-fluid img-button">
                         <div>
                             <h4 class="name bg-color-main-light text-white">Antecedentes</h4>
                         </div>

@@ -8,8 +8,8 @@
             <div class="offset-lg-3 col-lg-6 offset-md-2 col-md-8 info">
               <div class="col-12 profile-picture mt-3 mb-3">
                 <div class="offset-xl-3 col-xl-6 offset-lg-2 col-lg-8 offset-md-2 col-md-8 offset-sm-1 col-sm-10">
-                  <img src="..\..\..\public\static\img\userChatIcon.png" class="img-fluid rounded-circle bg-white"  v-if="this.authority==='PATIENT'">
-                  <img src="..\..\..\public\static\svg/doctorIconSearching.svg" class="img-fluid rounded-circle" v-else>
+                  <img src="\static\img\userChatIcon.png" class="img-fluid rounded-circle bg-white"  v-if="this.authority==='PATIENT'">
+                  <img src="\static\svg/doctorIconSearching.svg" class="img-fluid rounded-circle" v-else>
                 </div>
               </div>
               <div class="col-12">

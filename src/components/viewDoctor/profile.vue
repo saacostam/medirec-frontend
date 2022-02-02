@@ -1,7 +1,7 @@
 <template>
   <div class="profile container">
     <button class="btn btn-back p-0 m-4" @click="back">
-      <img src="../../../public/static/svg/arrow-left-circle.svg">
+      <img src="/static/svg/arrow-left-circle.svg">
     </button>
     <div class="row">
         <div class="offset-sm-1 col-sm-10 offset-lg-1 col-lg-7">
@@ -65,30 +65,30 @@
 
         <div class="col-lg-4 nav-menu">
             <div class="d-flex flex-column justify-content-end">
-                <img src="../../../public/static/img/qualifiedIcon.png" alt="" class="mx-auto" width="120px" height="120px" >
+                <img src="/static/img/qualifiedIcon.png" alt="" class="mx-auto" width="120px" height="120px" >
                 <div class="text-color-purple text-center h5 font-weight-bold pt-3 pl-3 pr-3">Calificación</div>
                 <div class="rating mb-4 d-flex flex-row justify-content-center" v-if="$data.scoresAverage !== 'NaN'">
-                    <img src="../../../public/static/svg/star-fill.svg" alt="" v-if="$data.scoresAverage>=1">
-                    <img src="../../../public/static/svg/star.svg" alt="" v-else>
+                    <img src="/static/svg/star-fill.svg" alt="" v-if="$data.scoresAverage>=1">
+                    <img src="/static/svg/star.svg" alt="" v-else>
 
-                    <img src="../../../public/static/svg/star-fill.svg" alt="" v-if="$data.scoresAverage>=2">
-                    <img src="../../../public/static/svg/star.svg" alt="" v-else>
+                    <img src="/static/svg/star-fill.svg" alt="" v-if="$data.scoresAverage>=2">
+                    <img src="/static/svg/star.svg" alt="" v-else>
 
-                    <img src="../../../public/static/svg/star-fill.svg" alt="" v-if="$data.scoresAverage>=3">
-                    <img src="../../../public/static/svg/star.svg" alt="" v-else>
+                    <img src="/static/svg/star-fill.svg" alt="" v-if="$data.scoresAverage>=3">
+                    <img src="/static/svg/star.svg" alt="" v-else>
 
-                    <img src="../../../public/static/svg/star-fill.svg" alt="" v-if="$data.scoresAverage>=4">
-                    <img src="../../../public/static/svg/star.svg" alt="" v-else>
+                    <img src="/static/svg/star-fill.svg" alt="" v-if="$data.scoresAverage>=4">
+                    <img src="/static/svg/star.svg" alt="" v-else>
 
-                    <img src="../../../public/static/svg/star-fill.svg" alt="" v-if="$data.scoresAverage==5">
-                    <img src="../../../public/static/svg/star.svg" alt="" v-else>
+                    <img src="/static/svg/star-fill.svg" alt="" v-if="$data.scoresAverage==5">
+                    <img src="/static/svg/star.svg" alt="" v-else>
                 </div>
                 <div v-else class="text-center mb-4">
                     No Disponible
                 </div>
             </div>
             <div class="d-flex flex-column justify-content-end nav-group" @click="toReviews">
-                <img src="../../../public/static/img/reviewInDoctorProfileIcon.png" alt="" class="mx-auto" width="120px" height="120px">
+                <img src="/static/img/reviewInDoctorProfileIcon.png" alt="" class="mx-auto" width="120px" height="120px">
                 <div class="text-center text-white h5 font-weight-bold nav-option">Reseñas</div>
             </div>
         </div>
@@ -104,25 +104,25 @@
               </div> -->
               <div class="modal-body m-0 p-0 bg-color-main-light">
                 <button type="button" class="btn btn-back m-1" data-dismiss="modal">
-                  <img src="../../../public/static/svg/arrow-left-circle white.svg">
+                  <img src="/static/svg/arrow-left-circle white.svg">
                 </button>
 
-                <img class="d-block mx-auto m-4" src="../../../public/static/img/reviewBanner.png" alt="" width="200px" height="200px" style="border: 2px solid #1F4567; border-radius: 50%">
+                <img class="d-block mx-auto m-4" src="/static/img/reviewBanner.png" alt="" width="200px" height="200px" style="border: 2px solid #1F4567; border-radius: 50%">
                 <div class="modal-rating mb-4 d-flex flex-row justify-content-center" v-if="$data.scoresAverage !== 'NaN'">
-                  <img src="../../../public/static/svg/star-fill.svg" alt="" v-if="$data.scoresAverage>=1">
-                  <img src="../../../public/static/svg/star.svg" alt="" v-else>
+                  <img src="/static/svg/star-fill.svg" alt="" v-if="$data.scoresAverage>=1">
+                  <img src="/static/svg/star.svg" alt="" v-else>
 
-                  <img src="../../../public/static/svg/star-fill.svg" alt="" v-if="$data.scoresAverage>=2">
-                  <img src="../../../public/static/svg/star.svg" alt="" v-else>
+                  <img src="/static/svg/star-fill.svg" alt="" v-if="$data.scoresAverage>=2">
+                  <img src="/static/svg/star.svg" alt="" v-else>
 
-                  <img src="../../../public/static/svg/star-fill.svg" alt="" v-if="$data.scoresAverage>=3">
-                  <img src="../../../public/static/svg/star.svg" alt="" v-else>
+                  <img src="/static/svg/star-fill.svg" alt="" v-if="$data.scoresAverage>=3">
+                  <img src="/static/svg/star.svg" alt="" v-else>
 
-                  <img src="../../../public/static/svg/star-fill.svg" alt="" v-if="$data.scoresAverage>=4">
-                  <img src="../../../public/static/svg/star.svg" alt="" v-else>
+                  <img src="/static/svg/star-fill.svg" alt="" v-if="$data.scoresAverage>=4">
+                  <img src="/static/svg/star.svg" alt="" v-else>
 
-                  <img src="../../../public/static/svg/star-fill.svg" alt="" v-if="$data.scoresAverage==5">
-                  <img src="../../../public/static/svg/star.svg" alt="" v-else>
+                  <img src="/static/svg/star-fill.svg" alt="" v-if="$data.scoresAverage==5">
+                  <img src="/static/svg/star.svg" alt="" v-else>
                 </div>
                 <div class="name text-center text-white mb-3" style="font-size: 1.3em; font-weight:">
                   {{this.userFirstName+' '+this.userLastName}}
@@ -132,20 +132,20 @@
                 <div class="reviews">
                   <div class="review bg-white m-3 p-3" v-for="opinion in this.opinions" :key="opinion.scoreId">
                     <div class="rating mx-auto m-0 d-flex flex-row justify-content-center">
-                      <img src="../../../public/static/svg/star-fill.svg" alt="" v-if="opinion.score>=1">
-                      <img src="../../../public/static/svg/star.svg" alt="" v-else>
+                      <img src="/static/svg/star-fill.svg" alt="" v-if="opinion.score>=1">
+                      <img src="/static/svg/star.svg" alt="" v-else>
 
-                      <img src="../../../public/static/svg/star-fill.svg" alt="" v-if="opinion.score>=2">
-                      <img src="../../../public/static/svg/star.svg" alt="" v-else>
+                      <img src="/static/svg/star-fill.svg" alt="" v-if="opinion.score>=2">
+                      <img src="/static/svg/star.svg" alt="" v-else>
 
-                      <img src="../../../public/static/svg/star-fill.svg" alt="" v-if="opinion.score>=3">
-                      <img src="../../../public/static/svg/star.svg" alt="" v-else>
+                      <img src="/static/svg/star-fill.svg" alt="" v-if="opinion.score>=3">
+                      <img src="/static/svg/star.svg" alt="" v-else>
 
-                      <img src="../../../public/static/svg/star-fill.svg" alt="" v-if="opinion.score>=4">
-                      <img src="../../../public/static/svg/star.svg" alt="" v-else>
+                      <img src="/static/svg/star-fill.svg" alt="" v-if="opinion.score>=4">
+                      <img src="/static/svg/star.svg" alt="" v-else>
 
-                      <img src="../../../public/static/svg/star-fill.svg" alt="" v-if="opinion.score==5">
-                      <img src="../../../public/static/svg/star.svg" alt="" v-else>
+                      <img src="/static/svg/star-fill.svg" alt="" v-if="opinion.score==5">
+                      <img src="/static/svg/star.svg" alt="" v-else>
                     </div>
                     <div class="msg mt-2">
                       {{opinion.opinion}}

@@ -3,12 +3,12 @@
         <div class="d-block title text-white text-center w-100">{{name}}</div>
         <div class="flex-fill">
             <button class="btn btn-back p-0 m-4" @click="back">
-                <img src="../../../public/static/svg/arrow-left-circle.svg">
+                <img src="/static/svg/arrow-left-circle.svg">
             </button>
             <div class="container mt-5">
                 <div class="row p-2 mt-5 pt-5">
                     <div class="col-lg-5 d-none d-lg-flex">
-                        <img src="../../../public/static/img/ratingPanel.png" class="mx-auto img-fluid" style="width:100%; height: 100%; max-width:350px; max-height: 350px">
+                        <img src="/static/img/ratingPanel.png" class="mx-auto img-fluid" style="width:100%; height: 100%; max-width:350px; max-height: 350px">
                     </div>
                     <div class="col-lg-6">
                         <div class="review" v-if="this.done === false">
@@ -16,28 +16,28 @@
                                 <!---->
                                 <div class="rate-ui d-flex flex-row justify-content-center m-3">
                                     <div class="rate-option flex-fill d-flex justify-content-center" @click="rate(1)">
-                                        <img src="../../../public/static/svg/star-fill.svg" alt="" v-if="this.score>=1">
-                                        <img src="../../../public/static/svg/star.svg" alt="" v-else>
+                                        <img src="/static/svg/star-fill.svg" alt="" v-if="this.score>=1">
+                                        <img src="/static/svg/star.svg" alt="" v-else>
                                     </div>
 
                                     <div class="rate-option flex-fill d-flex justify-content-center" @click="rate(2)">
-                                        <img src="../../../public/static/svg/star-fill.svg" alt="" v-if="this.score>=2">
-                                        <img src="../../../public/static/svg/star.svg" alt="" v-else>
+                                        <img src="/static/svg/star-fill.svg" alt="" v-if="this.score>=2">
+                                        <img src="/static/svg/star.svg" alt="" v-else>
                                     </div>
 
                                     <div class="rate-option flex-fill d-flex justify-content-center" @click="rate(3)">
-                                        <img src="../../../public/static/svg/star-fill.svg" alt="" v-if="this.score>=3">
-                                        <img src="../../../public/static/svg/star.svg" alt="" v-else>
+                                        <img src="/static/svg/star-fill.svg" alt="" v-if="this.score>=3">
+                                        <img src="/static/svg/star.svg" alt="" v-else>
                                     </div>
 
                                     <div class="rate-option flex-fill d-flex justify-content-center" @click="rate(4)">
-                                        <img src="../../../public/static/svg/star-fill.svg" alt="" v-if="this.score>=4">
-                                        <img src="../../../public/static/svg/star.svg" alt="" v-else>
+                                        <img src="/static/svg/star-fill.svg" alt="" v-if="this.score>=4">
+                                        <img src="/static/svg/star.svg" alt="" v-else>
                                     </div>
 
                                     <div class="rate-option flex-fill d-flex justify-content-center" @click="rate(5)">
-                                        <img src="../../../public/static/svg/star-fill.svg" alt="" v-if="this.score>=5">
-                                        <img src="../../../public/static/svg/star.svg" alt="" v-else>
+                                        <img src="/static/svg/star-fill.svg" alt="" v-if="this.score>=5">
+                                        <img src="/static/svg/star.svg" alt="" v-else>
                                     </div>
                                 </div>
                                 <input v-model="this.score" type="number" required id="score-input">
@@ -50,7 +50,7 @@
                                         <div class="input-group">
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text border-0 bg-color-main-light">
-                                                    <img src="../../../public/static/svg/asterisk.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
+                                                    <img src="static/svg/asterisk.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
                                                 </div>
                                             </div>
                                             <textarea v-model="comment" type="text" class="form-control border-0 bg-color-main-lighter" placeholder="Reseña" required style="height:80px">
@@ -67,7 +67,7 @@
                         <div v-else>
                             <div class="bg-white p-1">
                                 <div class="flex-fill d-flex flex-column align-items-center justify-content-center">
-                                    <img src="../../../public/static/img/comprobado-patient.png" class="col-4 img-fluid">
+                                    <img src="/static/img/comprobado-patient.png" class="col-4 img-fluid">
                                     <div class="message row">
                                         <p class="offset-2 col-8 text-center text-msg">Se ha enviado tu reseña de manera satisfactoria</p>
                                     </div>

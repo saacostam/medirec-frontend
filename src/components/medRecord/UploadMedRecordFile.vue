@@ -2,11 +2,11 @@
     <div class="container-fluid p-0">
         <div class="d-block title text-white text-center">Mi Historia Clínica</div>
         <button class="btn btn-back p-0 m-4" @click="back">
-            <img src="../../../public/static/svg/arrow-left-circle.svg">
+            <img src="/static/svg/arrow-left-circle.svg">
         </button>
         <div class="row">
             <div class="col-lg-6 p-4">
-                <img src="../../../public/static/img/uploadFilesImage.jpg" class="img-fluid img-doc">
+                <img src="/static/img/uploadFilesImage.jpg" class="img-fluid img-doc">
             </div>
             <div class="col-lg-6 p-4" v-if="this.petitionSent===false">
                 <div class="d-flex justify-content-center">
@@ -24,7 +24,7 @@
             <div class="col-lg-6 p-4" v-else>
                 <div class="d-flex align-items-center flex-column">
                     <div class="flex-fill d-flex flex-column align-items-center justify-content-center">
-                        <img src="../../../public/static/img/comprobado-patient.png" class="col-4 img-fluid">
+                        <img src="/static/img/comprobado-patient.png" class="col-4 img-fluid">
                         <div class="message row m-3 p-0">
                             <p class="offset-2 col-8 text-center">Archivos guardados <b class="text-color-main-light">satisfactoriamente</b></p>
                         </div>

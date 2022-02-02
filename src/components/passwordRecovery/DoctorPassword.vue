@@ -9,9 +9,9 @@
             <div class="col-lg-6 h-100 d-flex" v-if="this.step===1">
                 <div class="flex-fill d-flex flex-column">
                     <button class="btn btn-back p-0 m-4" @click="back">
-                        <img src="../../../public/static/svg/arrow-left-circle.svg">
+                        <img src="/static/svg/arrow-left-circle.svg">
                     </button>
-                    <div class="text-center"><img src="../../../public/static/svg/MedirecLogo.svg" alt="logo" width="auto" height="80" viewBox="0 0 65 65" class="m-4"></div>
+                    <div class="text-center"><img src="/static/svg/MedirecLogo.svg" alt="logo" width="auto" height="80" viewBox="0 0 65 65" class="m-4"></div>
                     <div class="d-flex m-2 pl-5 pr-5">
                         <hr>
                         <div class="col-6 text-center">
@@ -30,7 +30,7 @@
                                     <div class="input-group m-2">
                                         <div class="input-group-prepend">
                                             <div class="input-group-text border-0 bg-color-secondary-dark">
-                                                <img src="../../../public/static/svg/envelope.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
+                                                <img src="/static/svg/envelope.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
                                             </div>
                                         </div>
                                         <input v-model="email" type="text" class="form-control border-0 bg-color-secondary-light" placeholder="Correo Electrónico" required>
@@ -40,7 +40,7 @@
                                     <div class="input-group m-2">
                                         <div class="input-group-prepend">
                                             <div class="input-group-text border-0 bg-color-secondary-dark">
-                                                <img src="../../../public/static/svg/shield-lock.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
+                                                <img src="/static/svg/shield-lock.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
                                             </div>
                                         </div>
                                         <input v-model="password" type="password" class="form-control border-0 bg-color-secondary-light" placeholder="Contraseña" required>
@@ -50,7 +50,7 @@
                                     <div class="input-group m-2">
                                         <div class="input-group-prepend">
                                             <div class="input-group-text border-0 bg-color-secondary-dark">
-                                                <img src="../../../public/static/svg/check-circle.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
+                                                <img src="/static/svg/check-circle.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
                                             </div>
                                         </div>
                                         <input class="form-control border-0 bg-color-secondary-light" type="password"
@@ -113,9 +113,9 @@
             <div class="col-lg-6 h-100 d-flex" v-if="this.step===2">
                 <div class="flex-fill d-flex flex-column">
                     <button class="btn btn-back p-0 m-4" @click="back">
-                        <img src="../../../public/static/svg/arrow-left-circle.svg">
+                        <img src="/static/svg/arrow-left-circle.svg">
                     </button>
-                    <div class="text-center"><img src="../../../public/static/svg/MedirecLogo.svg" alt="logo" width="auto" height="80" viewBox="0 0 65 65" class="m-4"></div>
+                    <div class="text-center"><img src="/static/svg/MedirecLogo.svg" alt="logo" width="auto" height="80" viewBox="0 0 65 65" class="m-4"></div>
                     <div class="d-flex m-2 pl-5 pr-5">
                         <hr>
                         <div class="col-6 text-center">
@@ -130,7 +130,7 @@
                     <form @submit="toLogin" class="pl-5 pr-5 form-group flex-fill d-flex flex-column">
                             <!---->
                             <div class="flex-fill d-flex flex-column justify-content-center align-items-center pl-5 pr-5">
-                                <img src="../../../public/static/img/comprobado-doctor.png" class="col-6 img-fluid">
+                                <img src="/static/img/comprobado-doctor.png" class="col-6 img-fluid">
                                 <div class="message row">
                                     <p class="offset-2 col-8 text-center">Ha completado su perfil de forma satisfactoria. Bienvenido a <b class="text-color-main-light">MediRec</b></p>
                                 </div>
@@ -301,7 +301,7 @@ export default {
     }
 
     #img{
-        background-image: url("../../../public/static/img/changeKeyIcon.jpg");
+        background-image: url("/static/img/changeKeyIcon.jpg");
         background-position: top center;
 	    background-size:cover;
     }

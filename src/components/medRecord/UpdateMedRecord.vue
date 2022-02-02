@@ -3,7 +3,7 @@
         <div class="d-block title text-white text-center w-100">Mi Historia Clínica</div>
         <div class="flex-fill">
             <button class="btn btn-back p-0 m-4" @click="back">
-                <img src="../../../public/static/svg/arrow-left-circle.svg">
+                <img src="/static/svg/arrow-left-circle.svg">
             </button>
             <div class="container">
                 <div class="row  p-2 mt-3">
@@ -16,7 +16,7 @@
                                         <div class="input-group m-2">
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text border-0 bg-color-secondary-dark">
-                                                    <img src="../../../public/static/svg/health.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
+                                                    <img src="/static/svg/health.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
                                                 </div>
                                             </div>
                                             <input v-model="allergy" type="text" class="form-control border-0 bg-color-secondary-light mr-3" placeholder="Alergia" required>
@@ -24,7 +24,7 @@
                                         <div class="input-group m-2">
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text border-0 bg-color-secondary-dark">
-                                                    <img src="../../../public/static/svg/123.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
+                                                    <img src="/static/svg/123.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
                                                 </div>
                                             </div>
                                             <input v-model="allergyType" type="number" class="form-control border-0 bg-color-secondary-light mr-3" placeholder="Tipo de Alergia" required min="1" max="4">
@@ -46,7 +46,7 @@
                                         <div class="input-group m-2">
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text border-0 bg-color-secondary-dark">
-                                                    <img src="../../../public/static/svg/health.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
+                                                    <img src="/static/svg/health.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
                                                 </div>
                                             </div>
                                             <input v-model="illness" type="text" class="form-control border-0 bg-color-secondary-light mr-3" placeholder="Enfermedad" required>
@@ -54,7 +54,7 @@
                                         <div class="input-group m-2">
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text border-0 bg-color-secondary-dark">
-                                                    <img src="../../../public/static/svg/calendar-check.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
+                                                    <img src="/static/svg/calendar-check.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
                                                 </div>
                                             </div>
                                             <input v-model="illnessDetectionDate" type="date" class="form-control border-0 bg-color-secondary-light mr-3" placeholder="Fecha de Descubrimiento" required v-bind:max="new Date().toISOString().split('T')[0]">
@@ -62,7 +62,7 @@
                                         <div class="input-group m-2">
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text border-0 bg-color-secondary-dark">
-                                                    <img src="../../../public/static/svg/body-text.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
+                                                    <img src="/static/svg/body-text.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
                                                 </div>
                                             </div>
                                             <textarea v-model="illnessDescription" type="long" class="form-control border-0 bg-color-secondary-light mr-3" placeholder="Descripción" required></textarea>
@@ -84,7 +84,7 @@
                                         <div class="input-group m-2">
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text border-0 bg-color-secondary-dark">
-                                                    <img src="../../../public/static/svg/calendar-check.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
+                                                    <img src="/static/svg/calendar-check.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
                                                 </div>
                                             </div>
                                             <input v-model="personalRecordDate" type="date" class="form-control border-0 bg-color-secondary-light mr-3" placeholder="Fecha de Descubrimiento" required v-bind:max="new Date().toISOString().split('T')[0]">
@@ -92,7 +92,7 @@
                                         <div class="input-group m-2">
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text border-0 bg-color-secondary-dark">
-                                                    <img src="../../../public/static/svg/body-text.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
+                                                    <img src="/static/svg/body-text.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
                                                 </div>
                                             </div>
                                             <textarea v-model="personalRecordDescription" type="long" class="form-control border-0 bg-color-secondary-light mr-3" placeholder="Descripción" required></textarea>
@@ -114,7 +114,7 @@
                                         <div class="input-group m-2">
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text border-0 bg-color-secondary-dark">
-                                                    <img src="../../../public/static/svg/person-circle.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
+                                                    <img src="/static/svg/person-circle.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
                                                 </div>
                                             </div>
                                             <input v-model="familyMember" type="text" class="form-control border-0 bg-color-secondary-light mr-3" placeholder="Familiar" required>
@@ -122,7 +122,7 @@
                                         <div class="input-group m-2">
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text border-0 bg-color-secondary-dark">
-                                                    <img src="../../../public/static/svg/body-text.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
+                                                    <img src="/static/svg/body-text.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
                                                 </div>
                                             </div>
                                             <textarea v-model="familyBackgroundDescription" type="long" class="form-control border-0 bg-color-secondary-light mr-3" placeholder="Descripción" required></textarea>
@@ -137,7 +137,7 @@
                         </div>
                     </div>
                     <div class="col-lg-5">
-                        <img src="../../../public/static/img/updateClinicHistoryIcon.jpg" class="mt-5 img-fluid">
+                        <img src="/static/img/updateClinicHistoryIcon.jpg" class="mt-5 img-fluid">
                     </div>
                 </div>
             </div>
@@ -149,10 +149,10 @@
                 <div class="modal-content">
                     <div class="modal-body m-0 p-0 bg-color-main-light">
                         <button type="button" class="btn btn-back m-1" data-dismiss="modal">
-                            <img src="../../../public/static/svg/arrow-left-circle white.svg">
+                            <img src="/static/svg/arrow-left-circle white.svg">
                         </button>
 
-                        <img class="d-block mx-auto mt-5" src="../../../public/static/img/consultClinicalHistoryIcon.png" alt="" width="200px" height="200px" style="border-radius:50%">
+                        <img class="d-block mx-auto mt-5" src="/static/img/consultClinicalHistoryIcon.png" alt="" width="200px" height="200px" style="border-radius:50%">
 
                         <h4 class="text-white text-center m-4" v-if="this.focus===1">Alergias</h4>
                         <h4 class="text-white text-center m-4" v-if="this.focus===2">Enfermedades</h4>

@@ -3,8 +3,8 @@
     <div class="row m-2 mt-4">
       <div class="col-lg-7 calendar-div p-3">
         <div class="p-3" :class="'border-color-'+this.authClass+'-dark'">
-          <img src="../../../public/static/img/dashboardWelcomeIcon2.jpg" alt="" id="absolute-img" width="120px" height="120px" class="rounded rounded-circle" :class="'img-border-'+this.authClass" v-if="this.authority==='DOCTOR'">
-          <img src="../../../public/static/img/dashboardWelcomeIcon.jpg" alt="" id="absolute-img" width="120px" height="120px" class="rounded rounded-circle" :class="'img-border-'+this.authClass" v-else>
+          <img src="/static/img/dashboardWelcomeIcon2.jpg" alt="" id="absolute-img" width="120px" height="120px" class="rounded rounded-circle" :class="'img-border-'+this.authClass" v-if="this.authority==='DOCTOR'">
+          <img src="/static/img/dashboardWelcomeIcon.jpg" alt="" id="absolute-img" width="120px" height="120px" class="rounded rounded-circle" :class="'img-border-'+this.authClass" v-else>
           <div v-if="this.authority==='DOCTOR'">
             <span class="h4" :class="'text-color-purple'" style="font-weight: 600;">Hola, Doctor/a {{this.name}}</span><br>
             <span>Ten un buen dia y recuerda siempre cuidar de tus pacientes</span>
@@ -50,12 +50,12 @@
                 <div class="modal-body m-0 p-0">
                   <div class="conditional" v-if="this.authority==='PATIENT'">
                     <button type="button" class="btn btn-back m-1" data-dismiss="modal">
-                      <img src="../../../public/static/svg/arrow-left-circle.svg">
+                      <img src="/static/svg/arrow-left-circle.svg">
                     </button>
                     <h5 class="text-color-main-dark pt-4 text-center">{{this.makeDate(this.currDate.date)}}</h5>
 
                     <div v-if="this.currDate.data">
-                      <img src="../../../public/static/img/syntomsInCalendarIcon.png" alt="" class="mx-auto d-block mt-4" width="200px" height="240px" style="border: solid 2px rgb(129, 125, 233); border-radius: 15px">
+                      <img src="/static/img/syntomsInCalendarIcon.png" alt="" class="mx-auto d-block mt-4" width="200px" height="240px" style="border: solid 2px rgb(129, 125, 233); border-radius: 15px">
                       <h5 class="text-color-purple text-center m-4" style="font-weight:700">{{this.name}}</h5>
 
                       <div class="tables d-flex flex-row justify-content-center">
@@ -92,7 +92,7 @@
                       </div>
                     </div>
                     <div v-else>
-                      <img src="../../../public/static/img/notificationCalendarIcon.png" alt="" class="mt-4 mx-auto d-block" width="300px" height="300px" style="border-radius:50%">
+                      <img src="/static/img/notificationCalendarIcon.png" alt="" class="mt-4 mx-auto d-block" width="300px" height="300px" style="border-radius:50%">
                       <p class="no-data-msg"><b class="text-color-purple">{{this.name}}</b> no tienes ningun síntoma o medicamento reportado este día, nos alegra que te sientas bien !!</p>
                     </div>
                   </div>
@@ -100,12 +100,12 @@
                   <!-- DOCTOR DOCTOR -->
                   <div class="else" v-else>
                     <button type="button" class="btn btn-back m-1" data-dismiss="modal">
-                      <img src="../../../public/static/svg/arrow-left-circle.svg">
+                      <img src="/static/svg/arrow-left-circle.svg">
                     </button>
                     <h5 class="text-color-main-dark pt-4 text-center">{{this.makeDate(this.currDate.date)}}</h5>
 
                     <div v-if="this.currDate.data">
-                      <img src="../../../public/static/img/consultDoctorPatientsIcon.png" alt="" class="mx-auto d-block" width="200px" height="240px" style="margin: 16px auto; border: solid 2px #418ef2; border-radius: 15px;">
+                      <img src="/static/img/consultDoctorPatientsIcon.png" alt="" class="mx-auto d-block" width="200px" height="240px" style="margin: 16px auto; border: solid 2px #418ef2; border-radius: 15px;">
 
                       <div v-for="patient in this.currDate.data" :key="patient.name">
                         <hr class="purple-division">
@@ -145,7 +145,7 @@
                       </div>
                     </div>
                     <div v-else>
-                      <img src="../../../public/static/img/notificationInDoctorCalendarIcon.png" alt="" class="mt-4 mx-auto d-block" width="300px" height="300px" style="border-radius:50%">
+                      <img src="/static/img/notificationInDoctorCalendarIcon.png" alt="" class="mt-4 mx-auto d-block" width="300px" height="300px" style="border-radius:50%">
                       <p class="no-data-msg"><b class="text-color-purple">Doctor/a {{this.name}}</b> ninguno de tus pacientes ha reportado algún medicamento o síntoma en este dia.</p>
                     </div>
                   </div>
@@ -167,7 +167,7 @@
               <div v-if="this.authority==='DOCTOR'">
                 <div class="mb-3 result p-3 patient-border d-flex flex-column" v-for="result in this.doctors" :key="result.name"> 
                   <div class="data flex-fill d-flex flex-row">
-                    <img src="../../../public/static/img/userChatIcon.png" width="80px" height="80px" style="border: solid 2px gray; border-radius:50%">
+                    <img src="/static/img/userChatIcon.png" width="80px" height="80px" style="border: solid 2px gray; border-radius:50%">
                     <div class="text pl-3">
                       <b class="text-color-purple doctor-name h4">{{result.firstName+' '+result.lastName}}</b><br>
                       <span style="font-weight: 600">Doc: {{result.doc}}</span><br>
@@ -182,7 +182,7 @@
               <div v-else>
                 <div class="mb-3 result p-3 doctor-border d-flex flex-column" v-for="result in this.doctors" :key="result.name"> 
                   <div class="data flex-fill d-flex flex-row">
-                    <img src="../../../public/static/svg/doctorIconSearching.svg" width="80px" height="80px">
+                    <img src="/static/svg/doctorIconSearching.svg" width="80px" height="80px">
                     <div class="text pl-3 flex-fill">
                       <b class="text-color-main-light doctor-name h4">{{result.firstName+' '+result.lastName}}</b><br>
                       <span style="font-weight: 600">{{result.specialization}}</span><br>
@@ -198,12 +198,12 @@
               <div class="else" v-if="this.doctors.length===0">
                 <div class="empty text-center border-nice p-1" v-if="this.authority==='DOCTOR'">
                   <h3 class="text-color-main-dark h4" style="font-weight: 600">Todavía no tienes pacientes asociados</h3>
-                  <img src="../../../public/static/svg/searchDoctorIcon.svg" width="150px" height="150px" class="m-3 img-search">
+                  <img src="/static/svg/searchDoctorIcon.svg" width="150px" height="150px" class="m-3 img-search">
                   <p>Aquí aparecerán tus pacientes.</p>
                 </div>
                 <div class="empty text-center border-nice p-1" v-else>
                   <h3 class="text-color-main-dark h4" style="font-weight: 600">Todavía no tienes doctores asociados</h3>
-                  <img src="../../../public/static/svg/searchDoctorIcon.svg" width="150px" height="150px" class="m-3 img-search">
+                  <img src="/static/svg/searchDoctorIcon.svg" width="150px" height="150px" class="m-3 img-search">
                   <p>Aquí aparecerán tus doctores.</p>
                 </div>
               </div>
@@ -211,7 +211,7 @@
           </div>
 
           <div class="mt-3 flex-fill d-flex flex-row" id="nav-symptoms" @click="toSymptoms" v-if="this.authority==='PATIENT'">
-            <img class="my-auto m-4" src="../../../public/static/img/pill.png" width="100px" height="100px" style="border: white; border-radius: 50%;">
+            <img class="my-auto m-4" src="/static/img/pill.png" width="100px" height="100px" style="border: white; border-radius: 50%;">
             <div class="text-white d-flex align-items-center p-3">
               <span class="h4">Reportar<br>Sintomas y<br>Medicamentos</span>
             </div>
@@ -498,11 +498,11 @@ export default {
   opacity: 0.9;
 }
 .img-pat{
-  background-image: url("../../../public/static/img/patientDashboard.jpeg");
+  background-image: url("/static/img/patientDashboard.jpeg");
   background-size: cover;
 }
 .img-doc{
-  background-image: url("../../../public/static/img/doctorDashboard.jpg");
+  background-image: url("/static/img/doctorDashboard.jpg");
   background-size: cover;
 }
 .menu{

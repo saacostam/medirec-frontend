@@ -3,7 +3,7 @@
     <div class="d-block title-doc text-white text-center w-100">{{this.name}}</div>
     <div class="container">
       <button class="btn btn-back p-0 m-4" @click="back">
-        <img src="../../../public/static/svg/arrow-left-circle.svg">
+        <img src="/static/svg/arrow-left-circle.svg">
       </button>
       <div class="row">
           <div class="col-12 offset-sm-1 col-sm-10 offset-md-2 col-md-8 offset-lg-3 col-lg-6">
@@ -14,8 +14,8 @@
                       <div class="col-12 info">
                       <div class="col-12 profile-picture mt-3 mb-3">
                           <div class="offset-xl-3 col-xl-6 offset-lg-2 col-lg-8 offset-md-2 col-md-8 offset-sm-1 col-sm-10">
-                          <img src="..\..\..\public\static\img\userChatIcon.png" class="img-fluid rounded-circle abs" v-if="this.authority==='PATIENT'" style="background-color: white;">
-                          <img src="..\..\..\public\static\img\profileDoctorIcon.png" class="img-fluid rounded-circle abs" v-else>
+                          <img src="\static\img\userChatIcon.png" class="img-fluid rounded-circle abs" v-if="this.authority==='PATIENT'" style="background-color: white;">
+                          <img src="\static\img\profileDoctorIcon.png" class="img-fluid rounded-circle abs" v-else>
                           </div>
                       </div>
                       <div class="col-lg-12">

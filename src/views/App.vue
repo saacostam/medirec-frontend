@@ -4,13 +4,13 @@
       <div class="container-fluid mb-0">
         <div class="row w-100 mb-2 mt-3">
           <nav class="support col-lg-2 col-3">
-            <img src="../../public/static/img/tutorialIcon.png" @click="toTutorial" class="support-option d-block" width="70px" height="70px" :style="[authority==='DOCTOR' ? {'border-color': '#1F4567'} : {'border-color': '#FB7837'}]">
-            <img src="../../public/static/img/donationsIcon.png" @click="toDonations" class="support-option d-block" width="70px" height="70px" :style="[authority==='DOCTOR' ? {'border-color': '#1F4567'} : {'border-color': '#FB7837'}]">
+            <img src="/static/img/tutorialIcon.png" @click="toTutorial" class="support-option d-block" width="70px" height="70px" :style="[authority==='DOCTOR' ? {'border-color': '#1F4567'} : {'border-color': '#FB7837'}]">
+            <img src="/static/img/donationsIcon.png" @click="toDonations" class="support-option d-block" width="70px" height="70px" :style="[authority==='DOCTOR' ? {'border-color': '#1F4567'} : {'border-color': '#FB7837'}]">
           </nav>
 
           <div class="col-lg-8 col-6 brand d-flex justify-content-center mb-0">
             <router-link class="navbar-brand" :to="{name: 'home'}">
-              <img src="../../public/static/svg/MedirecLogo.svg" width="auto" height="60" class="d-inline-block align-top" alt="">
+              <img src="/static/svg/MedirecLogo.svg" width="auto" height="60" class="d-inline-block align-top" alt="">
             </router-link>
           </div>
           <div class="logout col-lg-2 col-3 mb-0 d-flex flex-column align-items-end justify-content-center">
@@ -23,7 +23,7 @@
     <div class="flex-fill d-flex flex-row">
       <div id="menu" class="menu d-flex flex-column p-0">
         <!-- <div class="profile d-flex justify-content-center align-items-center flex-column text-center mb-4">
-          <img src="../../public/static/svg/person-circle.svg" width="150px" height="150px" class="d-block mb-2">
+          <img src="/static/svg/person-circle.svg" width="150px" height="150px" class="d-block mb-2">
           <span class="d-block h6 text-white mb-0">{{this.email}}</span>
           <span class="text-white">{{this.authority}}</span>
         </div> -->
@@ -32,37 +32,37 @@
         </div>
         <hr class="bg-white m-0">
         <div class="menu-options p-3 d-flex align-items-center">
-          <router-link :to="{name: 'home'}"><img src="../../public/static/img/homeIcon.png" width="40px" height="40px" class="mr-2"> Inicio</router-link>
+          <router-link :to="{name: 'home'}"><img src="/static/img/homeIcon.png" width="40px" height="40px" class="mr-2"> Inicio</router-link>
         </div>
         <hr class="bg-white m-0">
         <div class="menu-options p-3 d-flex align-items-center">
-          <router-link :to="{name: 'profile'}"><img src="../../public/static/img/profileIcon.png" width="40px" height="40px" class="mr-2"> Mi Perfil</router-link>
+          <router-link :to="{name: 'profile'}"><img src="/static/img/profileIcon.png" width="40px" height="40px" class="mr-2"> Mi Perfil</router-link>
         </div>
         <hr class="bg-white m-0">
         <div class="menu-options p-3 d-flex align-items-center">
-          <router-link :to="{name: 'dataUpdate'}"><img src="../../public/static/img/updateDataIcon.png" width="40px" height="40px" class="mr-2" v-if="this.authority==='PATIENT'"><img src="../../public/static/img/updateDataDoctorIcon.png" width="40px" height="40px" class="mr-2" v-else> Actualización de Datos</router-link>
+          <router-link :to="{name: 'dataUpdate'}"><img src="/static/img/updateDataIcon.png" width="40px" height="40px" class="mr-2" v-if="this.authority==='PATIENT'"><img src="/static/img/updateDataDoctorIcon.png" width="40px" height="40px" class="mr-2" v-else> Actualización de Datos</router-link>
         </div>
         <hr class="bg-white m-0">
         <div class="menu-options p-3 d-flex align-items-center" v-if="this.authority==='PATIENT'">
-          <router-link :to="{name: 'myMedRecord'}"><img src="../../public/static/img/medicalHistoryIcon.png" width="40px" height="40px" class="mr-2"> Mi Historia Clinica</router-link>
+          <router-link :to="{name: 'myMedRecord'}"><img src="/static/img/medicalHistoryIcon.png" width="40px" height="40px" class="mr-2"> Mi Historia Clinica</router-link>
         </div>
         <hr class="bg-white m-0" v-if="this.authority==='PATIENT'">
         <!---->
         <div class="menu-options p-3 d-flex align-items-center" v-if="this.authority==='PATIENT'">
-          <router-link :to="{name: 'myDoctors'}"><img src="../../public/static/svg/myDoctorsIcon.svg" width="40px" height="40px" class="mr-2"> Busqueda de Doctores</router-link>
+          <router-link :to="{name: 'myDoctors'}"><img src="/static/svg/myDoctorsIcon.svg" width="40px" height="40px" class="mr-2"> Busqueda de Doctores</router-link>
         </div>
         <hr class="bg-white m-0" v-if="this.authority==='PATIENT'">
         <div class="menu-options p-3 d-flex align-items-center" v-if="this.authority==='PATIENT'">
-          <router-link :to="{name: 'myRequests'}"><img src="../../public/static/img/misSolicitudesIcon.png" width="40px" height="40px" class="mr-2"> Mis Solicitudes</router-link>
+          <router-link :to="{name: 'myRequests'}"><img src="/static/img/misSolicitudesIcon.png" width="40px" height="40px" class="mr-2"> Mis Solicitudes</router-link>
         </div>
         <hr class="bg-white m-0" v-if="this.authority==='PATIENT'">
         <!---->
         <div class="menu-options p-3 d-flex align-items-center" v-if="this.authority==='DOCTOR'">
-          <router-link :to="{name: 'myPatients'}"><img src="../../public/static/img/myPatientsIcon.png" width="40px" height="40px" class="mr-2"> Busqueda de Pacientes</router-link>
+          <router-link :to="{name: 'myPatients'}"><img src="/static/img/myPatientsIcon.png" width="40px" height="40px" class="mr-2"> Busqueda de Pacientes</router-link>
         </div>
         <hr class="bg-white m-0" v-if="this.authority==='DOCTOR'">
         <div class="menu-options p-3 d-flex align-items-center" v-if="this.authority==='DOCTOR'">
-          <router-link :to="{name: 'MyReviews'}"><img src="../../public/static/img/myReviewsIcon.png" width="40px" height="40px" class="mr-2"> Mis Reseñas</router-link>
+          <router-link :to="{name: 'MyReviews'}"><img src="/static/img/myReviewsIcon.png" width="40px" height="40px" class="mr-2"> Mis Reseñas</router-link>
         </div>
         <hr class="bg-white m-0" v-if="this.authority==='DOCTOR'">
       </div>

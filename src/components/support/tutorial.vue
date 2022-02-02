@@ -1,13 +1,13 @@
 <template>
   <div class="tutorial">
     <button class="btn btn-back p-0 m-4" @click="back">
-      <img src="../../../public/static/svg/arrow-left-circle.svg">
+      <img src="/static/svg/arrow-left-circle.svg">
     </button>
 
     <div class="container">
         <div class="row  p-2">
             <div class="col-lg-5 p-5">
-                <img src="../../../public/static/img/tutorialIconBig.png" class="mt-3 img-fluid img-button" :style="[authority==='DOCTOR' ? {'border-color': '#5651e2'} : {'border-color': '#FB7837'}]">
+                <img src="/static/img/tutorialIconBig.png" class="mt-3 img-fluid img-button" :style="[authority==='DOCTOR' ? {'border-color': '#5651e2'} : {'border-color': '#FB7837'}]">
                 <div>
                     <h4 class="mt-4 name bg-color-main-light text-white" :style="[authority==='DOCTOR' ? {'background-color': '#5651e2'} : {'background-color': '#FB7837'}]">Tutorial</h4>
                 </div>
@@ -23,7 +23,7 @@
                                 <span v-else>Medirec - Tutorial Paciente</span>
                             </div>
                             <div class="download p-2" @click="downloadPDF">
-                                <img src="../../../public/static/img/descargarIcon.png" width="30px" height="30px">
+                                <img src="/static/img/descargarIcon.png" width="30px" height="30px">
                             </div>
                         </div>
                     </div>

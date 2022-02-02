@@ -2,7 +2,7 @@
     <div class="container-fluid h-100">
         <div class="row h-100">
             <button class="btn btn-back p-0 m-4" @click="back">
-                <img src="../../../public/static/svg/arrow-left-circle.svg">
+                <img src="/static/svg/arrow-left-circle.svg">
             </button>
 
             <div class="col-md-7 h-100" v-if="!this.sent">
@@ -16,7 +16,7 @@
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text bg-color-main-dark border-0 text-white">
-                                            <img src="../../../public/static/svg/envelope.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
+                                            <img src="/static/svg/envelope.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
                                         </div>
                                     </div>
                                     <input v-model="email" type="email" class="form-control bg-color-main-dark border-0 text-white spec-input" placeholder="Correo Electrónico" required>
@@ -26,7 +26,7 @@
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text bg-color-main-dark border-0 text-white">
-                                            <img src="../../../public/static/svg/person-circle.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
+                                            <img src="/static/svg/person-circle.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
                                         </div>
                                     </div>
                                     <select v-model="role" type="email" class="form-control bg-color-main-dark border-0 text-white spec-input" placeholder="Correo Electrónico" required>
@@ -55,9 +55,9 @@
             </div>
             <div class="col-md-5 h-100">
                 <div class="d-flex h-100 flex-column justify-content-center align-items-center mr-5 pr-5">
-                    <img src="../../../public/static/svg/MedirecLogo.svg" class="">
+                    <img src="/static/svg/MedirecLogo.svg" class="">
                     <div>
-                        <img src="../../../public/static/img/passwordRecovery.jpg">
+                        <img src="/static/img/passwordRecovery.jpg">
                     </div>
                 </div>
             </div>

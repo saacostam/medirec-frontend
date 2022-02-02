@@ -3,12 +3,12 @@
         <div class="d-block title-div text-white text-center w-100">Síntomas y Medicamentos</div>
         <div class="flex-fill">
             <button class="btn btn-back p-0 m-4" @click="back">
-                <img src="../../../../public/static/svg/arrow-left-circle.svg">
+                <img src="/static/svg/arrow-left-circle.svg">
             </button>
             <div class="container">
                 <div class="row  p-2">
                     <div class="col-lg-5 p-5">
-                        <img src="../../../../public/static/img/syntomsIcon.png" class="img-fluid">
+                        <img src="/static/img/syntomsIcon.png" class="img-fluid">
                         <div>
                             <h4 class="name bg-color-main-light text-white">Sintomas</h4>
                         </div>

@@ -1,17 +1,17 @@
 <template>
   <div class="singup-pick h-100 container-fluid d-flex m-0 p-0 flex-column">
     <button class="btn btn-back p-0 m-4" @click="back">
-      <img src="../../public/static/svg/arrow-left-circle.svg">
+      <img src="/static/svg/arrow-left-circle.svg">
     </button>
     <div class="title text-center m-3 align-items-center justify-content-center">
-      <img src="../../public/static/svg/MedirecLogo.svg" alt="logo" width="auto" height="96" viewBox="0 0 96 96">
+      <img src="/static/svg/MedirecLogo.svg" alt="logo" width="auto" height="96" viewBox="0 0 96 96">
     </div>
     <div class="options flex-fill d-flex flex-row">
       <div @click="pickPaciente()" class="pick-option bg-color-secondary-dark flex-fill text-center text-white d-flex flex-column">
         <div class="flex-fill d-flex align-items-center justify-content-center flex-column">
           <h2 class="mt-3 mb-2">Paciente</h2>
           <div class="flex-fill pl-5 pr-5 d-flex align-items-center justify-content-center">
-            <img src="../../public/static/img/opcion-paciente.png" height="400" width="400" class="option-image img-fluid">
+            <img src="/static/img/opcion-paciente.png" height="400" width="400" class="option-image img-fluid">
           </div>
         </div>
       </div>
@@ -19,7 +19,7 @@
         <div class="flex-fill d-flex flex-column">
           <h2 class="mt-3 mb-2">Doctor</h2>
           <div class="flex-fill pl-5 pr-5 d-flex align-items-center justify-content-center">
-            <img src="../../public/static/img/opcion-doctor.png" height="400" width="400" class="option-image img-fluid">
+            <img src="/static/img/opcion-doctor.png" height="400" width="400" class="option-image img-fluid">
           </div>
         </div>
       </div>
@@ -27,7 +27,7 @@
     <!-- <div class="container-fluid text-center h-100">
       <div class="row">
         <div class="col-12 logo text-center d-flex align-items-center justify-content-center m-3">
-          <img src="../../public/static/img/heart-rate.png" alt="logo" width="96" height="96" viewBox="0 0 96 96">
+          <img src="/static/img/heart-rate.png" alt="logo" width="96" height="96" viewBox="0 0 96 96">
           <h1 class="text-color-main-light d-inline ml-2">MediRec</h1>
         </div>
         <div class="col-sm-6 d-flex align-items-center justify-content-center bg-color-secondary-dark">

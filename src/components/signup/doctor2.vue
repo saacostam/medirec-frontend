@@ -1,9 +1,9 @@
 <template>
     <div class="flex-fill patient-2 d-flex flex-column">
         <button class="btn btn-back p-0 m-4" @click="back">
-            <img src="../../../public/static/svg/arrow-left-circle.svg">
+            <img src="/static/svg/arrow-left-circle.svg">
         </button>
-        <img src="../../../public/static/svg/MedirecLogo.svg" alt="logo" width="auto" height="65" viewBox="0 0 65 65" class="m-3">
+        <img src="/static/svg/MedirecLogo.svg" alt="logo" width="auto" height="65" viewBox="0 0 65 65" class="m-3">
         <div class="d-flex">
             <hr>
             <div class="col-4 text-center">
@@ -25,7 +25,7 @@
                         <div class="input-group">
                         <div class="input-group-prepend">
                             <div class="input-group-text bg-color-main-dark border-0">
-                            <img src="../../../public/static/svg/shield-lock.svg" class="password" width="16" height="16" viewBox="0 0 16 16">
+                            <img src="/static/svg/shield-lock.svg" class="password" width="16" height="16" viewBox="0 0 16 16">
                             </div>
                         </div>
                         <input v-model="password" type="password" class="form-control bg-color-main-lighter border-0" placeholder="Contraseña" required>
@@ -35,7 +35,7 @@
                         <div class="input-group">
                         <div class="input-group-prepend">
                             <div class="input-group-text bg-color-main-dark border-0 text-light">
-                            <img src="../../../public/static/svg/check-circle.svg" class="password" width="16" height="16" viewBox="0 0 16 16">
+                            <img src="/static/svg/check-circle.svg" class="password" width="16" height="16" viewBox="0 0 16 16">
                             </div>
                         </div>
                         <input class="form-control bg-color-main-lighter border-0" type="password"

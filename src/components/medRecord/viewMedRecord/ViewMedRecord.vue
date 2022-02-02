@@ -1,7 +1,7 @@
 <template>
     <div class="view-medRecord container-fluid">
         <button class="btn btn-back p-0 m-4" @click="back">
-            <img src="../../../../public/static/svg/arrow-left-circle.svg">
+            <img src="/static/svg/arrow-left-circle.svg">
         </button>
         <div class="row">
             <div class="col-lg-8 offset-lg-2 p-4">
@@ -10,19 +10,19 @@
                     <div class="flex-fill border-color-purple">
                         <div class="d-flex flex-row p-3">
                             <div class="flex-fill d-flex flex-column align-items-center">
-                                <img src="../../../../public/static/img/alergiasIcon.png" width="125px" height="125px" @click="toAllergies" class="img-button mb-4">
+                                <img src="/static/img/alergiasIcon.png" width="125px" height="125px" @click="toAllergies" class="img-button mb-4">
                                 <div class="body justify-content-center align-content-center border bg-color-main-light text-white text-center div-button" @click="toAllergies">
                                     <h4>Alergias</h4>
                                 </div>
                             </div>
                             <div class="flex-fill d-flex flex-column align-items-center">
-                                <img src="../../../../public/static/img/enfermedadesIcon.png" width="125px" height="125px" @click="toIllnesses" class="img-button mb-4">
+                                <img src="/static/img/enfermedadesIcon.png" width="125px" height="125px" @click="toIllnesses" class="img-button mb-4">
                                 <div class="body justify-content-center align-content-center border bg-color-main-light text-white text-center div-button" @click="toIllnesses">
                                     <h4>Enfermedades</h4>
                                 </div>
                             </div>
                             <div class="flex-fill d-flex flex-column align-items-center">
-                                <img src="../../../../public/static/img/antecedentesPersonalesIcon.png" width="125px" height="125px" @click="toPersonalRecords" class="img-button mb-4">
+                                <img src="/static/img/antecedentesPersonalesIcon.png" width="125px" height="125px" @click="toPersonalRecords" class="img-button mb-4">
                                 <div class="body justify-content-center align-content-center border bg-color-main-light text-white text-center div-button" @click="toPersonalRecords">
                                     <h4>Antecedentes</h4>
                                 </div>
@@ -30,13 +30,13 @@
                         </div>
                         <div class="offset-2 col-8 d-flex flex-row justify-content-around mb-3">
                             <div class="d-flex flex-column align-items-center">
-                                <img src="../../../../public/static/img/antecedentesFamiliaresIcon.png" width="125px" height="125px" @click="toFamilyBackgrounds" class="img-button mb-4">
+                                <img src="/static/img/antecedentesFamiliaresIcon.png" width="125px" height="125px" @click="toFamilyBackgrounds" class="img-button mb-4">
                                 <div class="body justify-content-center align-content-center border bg-color-main-light text-white text-center div-button" @click="toFamilyBackgrounds">
                                     <h4>Antecedentes<br>Familiares</h4>
                                 </div>
                             </div>
                             <div class="d-flex flex-column align-items-center">
-                                <img src="../../../../public/static/img/archivosIcon.png" width="125px" height="125px" @click="toFiles" class="img-button mb-4">
+                                <img src="/static/img/archivosIcon.png" width="125px" height="125px" @click="toFiles" class="img-button mb-4">
                                 <div class="body justify-content-center align-content-center border bg-color-main-light text-white text-center div-button" @click="toFiles">
                                     <h4>Archivos<br></h4>
                                 </div>

@@ -2,12 +2,12 @@
     <div class="view-medRecord d-flex flex-column">
         <div class="flex-fill">
             <button class="btn btn-back p-0 m-4" @click="back">
-                <img src="../../../public/static/svg/arrow-left-circle.svg">
+                <img src="/static/svg/arrow-left-circle.svg">
             </button>
             <div class="container">
                 <div class="row p-2 mt-3">
                     <div class="col-lg-6 d-lg-block d-none pt-5">
-                        <img src="../../../public/static/img/consultPatientIcon.png" alt="" class="d-block mx-auto mt-3" width="400px" height="320px">
+                        <img src="/static/img/consultPatientIcon.png" alt="" class="d-block mx-auto mt-3" width="400px" height="320px">
                         <div class="bg-color-purple text-white d-flex mx-auto align-items-center justify-content-center" style="width:400px; height:80px;">
                             <span style="font-size: 1.3em; font-weight: 600">Paciente: {{name}}</span>
                         </div>
@@ -15,19 +15,19 @@
                     <div class="col-lg-6 offset-lg-0 col-md-8 offset-md-2 pt-5">
                         <div class="row">
                             <div class="col-sm-6 p-2 d-flex flex-column justify-content-end nav-group" @click="toProfile">
-                                <img src="../../../public/static/img/doctorProfileInformationIcon.png" alt="" class="mx-auto" width="140px" height="140px" style="border:2px solid #418ef2; border-radius:50%">
+                                <img src="/static/img/doctorProfileInformationIcon.png" alt="" class="mx-auto" width="140px" height="140px" style="border:2px solid #418ef2; border-radius:50%">
                                 <div class="nav-option bg-color-main-light text-white h5">Perfil</div>
                             </div>
                             <div class="col-sm-6 p-2 d-flex flex-column justify-content-end nav-group" @click="toChat">
-                                <img src="../../../public/static/img/chatIcon.png" alt="" class="mx-auto" width="140px" height="140px" style="border:2px solid #418ef2; border-radius:50%">
+                                <img src="/static/img/chatIcon.png" alt="" class="mx-auto" width="140px" height="140px" style="border:2px solid #418ef2; border-radius:50%">
                                 <div class="nav-option bg-color-main-light text-white h5">Chat</div>
                             </div>
                             <div class="col-sm-6 p-2 d-flex flex-column justify-content-end nav-group" @click="toMedRecord">
-                                <img src="../../../public/static/img/medHeart.png" alt="" class="mx-auto" width="140px" height="140px" style="border:2px solid #418ef2; border-radius:50%">
+                                <img src="/static/img/medHeart.png" alt="" class="mx-auto" width="140px" height="140px" style="border:2px solid #418ef2; border-radius:50%">
                                 <div class="nav-option bg-color-main-light text-white h5">Historia<br>Clínica</div>
                             </div>
                             <div class="col-sm-6 p-2 d-flex flex-column justify-content-end nav-group" @click="toSymp">
-                                <img src="../../../public/static/img/sympOption.png" alt="" class="mx-auto" width="140px" height="140px" style="border:2px solid #418ef2; border-radius:50%">
+                                <img src="/static/img/sympOption.png" alt="" class="mx-auto" width="140px" height="140px" style="border:2px solid #418ef2; border-radius:50%">
                                 <div class="nav-option bg-color-main-light text-white h5">Sintomas y<br>Medicamentos</div>
                             </div>
                         </div>

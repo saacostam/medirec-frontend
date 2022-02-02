@@ -1,11 +1,11 @@
 <template>
     <div class="container-fluid">
         <button class="btn btn-back p-0 m-4" @click="back">
-            <img src="../../../public/static/svg/arrow-left-circle.svg">
+            <img src="/static/svg/arrow-left-circle.svg">
         </button>
         <div class="row">
             <div class="col-lg-5 d-none d-lg-flex">
-                <img src="../../../public/static/img/reportSympBanner.png" class="img-fluid" alt="" style="margin-top: 100px; margin-left:80px; max-width:350px; max-height:350px">
+                <img src="/static/img/reportSympBanner.png" class="img-fluid" alt="" style="margin-top: 100px; margin-left:80px; max-width:350px; max-height:350px">
             </div>
             <div class="col-lg-7">
                 <div class="d-flex flex-column" v-if="this.step===1">
@@ -28,7 +28,7 @@
                                 <div class="input-group m-2">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text border-0 bg-color-main-light">
-                                            <img src="../../../public/static/svg/asterisk.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
+                                            <img src="/static/svg/asterisk.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
                                         </div>
                                     </div>
                                     <textarea v-model="description" type="text" class="form-control border-0 bg-color-secondary-light mr-3" placeholder="Descripción Sintoma">
@@ -37,7 +37,7 @@
                                 <div class="input-group m-2 mb-4">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text border-0 bg-color-main-light">
-                                            <img src="../../../public/static/svg/health.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
+                                            <img src="/static/svg/health.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
                                         </div>
                                     </div>
                                     <input v-model="medicine" type="text" class="form-control border-0 bg-color-secondary-light mr-3" placeholder="Nombre de Medicamento">
@@ -70,7 +70,7 @@
                     </div>
                     <div class="bg-white p-1 form-group">
                         <div class="flex-fill d-flex flex-column align-items-center justify-content-center">
-                            <img src="../../../public/static/img/comprobado-patient.png" class="col-4 img-fluid">
+                            <img src="/static/img/comprobado-patient.png" class="col-4 img-fluid">
                             <div class="message row">
                                 <p class="offset-2 col-8 text-center">Ha ingresado nuevos sintomas y medicamentos de manera <b class="text-color-green">satisfactoria</b></p>
                             </div>

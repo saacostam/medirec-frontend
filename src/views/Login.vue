@@ -17,7 +17,7 @@
         <div class="col-md-6 d-flex align-items-center justify-content-center">
           <div class="col-8 col-sm-8 col-md-10 col-lg-8">
             <div class="logo text-center d-flex align-items-center justify-content-center mb-3">
-              <img src="../../public/static/svg/MedirecLogo.svg" alt="logo" width="auto" height="96" viewBox="0 0 96 96">
+              <img src="/static/svg/MedirecLogo.svg" alt="logo" width="auto" height="96" viewBox="0 0 96 96">
             </div>
 
             <form @submit="login" class="bg-color-main-light pt-4 pb-4 pl-4 pr-4 input-color form-group">
@@ -26,7 +26,7 @@
                 <div class="input-group">
                   <div class="input-group-prepend">
                     <div class="input-group-text bg-color-main-dark border-0 text-white">
-                      <img src="../../public/static/svg/envelope.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
+                      <img src="/static/svg/envelope.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
                     </div>
                   </div>
                   <input v-model="email" type="email" class="form-control bg-color-main-dark border-0 text-white" placeholder="Correo Electronico" required>
@@ -36,7 +36,7 @@
                 <div class="input-group">
                   <div class="input-group-prepend">
                     <div class="input-group-text bg-color-main-dark border-0 text-white">
-                      <img src="../../public/static/svg/shield-lock.svg" class="password" width="16" height="16" viewBox="0 0 16 16">
+                      <img src="/static/svg/shield-lock.svg" class="password" width="16" height="16" viewBox="0 0 16 16">
                     </div>
                   </div>
                   <input v-model="password" type="password" class="form-control bg-color-main-dark border-0 text-white" placeholder="Contraseña" required>
@@ -46,7 +46,7 @@
                 <div class="input-group">
                   <div class="input-group-prepend">
                     <div class="input-group-text bg-color-main-dark border-0 text-white">
-                      <img src="../../public/static/svg/person-badge.svg" class="password" width="16" height="16" viewBox="0 0 16 16">
+                      <img src="/static/svg/person-badge.svg" class="password" width="16" height="16" viewBox="0 0 16 16">
                     </div>
                   </div>
                   <select v-model="role" class="form-control bg-color-main-dark border-0 text-white" required>
@@ -190,7 +190,7 @@ a{
 }
 
 #img-doctor{
-	background-image: url("../../public/static/img/login-image.jpeg");
+	background-image: url("/static/img/login-image.jpeg");
 	background-position: top right;
 	background-size:cover;
 }

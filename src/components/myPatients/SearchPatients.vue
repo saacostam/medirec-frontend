@@ -2,18 +2,18 @@
     <div class="search-patient container h-100">
         <div class="row h-100">
             <button class="btn btn-back p-0 m-4" @click="back">
-                <img src="../../../public/static/svg/arrow-left-circle.svg">
+                <img src="/static/svg/arrow-left-circle.svg">
             </button>
 
             <div class="col-lg-6 h-100" id="form-div">
                 <div class="p-4 d-flex h-100 w-100 align-items-center flex-column">
-                    <img src="../../../public/static/img/searchPatientFilter.png" width="200px" height="200px" class="mb-5 mt-5">
+                    <img src="/static/img/searchPatientFilter.png" width="200px" height="200px" class="mb-5 mt-5">
                     <form @submit="submit"  class="form w-100 p-4 border-form d-flex flex-column">
                         <div class="form-group mb-4 flex-fill">
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text bg-color-main-dark border-0 text-white">
-                                        <img src="../../../public/static/svg/search.svg" class="password" width="16" height="16" viewBox="0 0 16 16">
+                                        <img src="/static/svg/search.svg" class="password" width="16" height="16" viewBox="0 0 16 16">
                                     </div>
                                     <select v-model="queryType" class="input-group-text form-control bg-color-main-dark text-white border-0" required>
                                         <option value="N">Nombre</option>
@@ -32,7 +32,7 @@
                 <div class="search-results p-5" v-if="this.searchResults !== null">
                     <div class="mb-4 result p-3 doctor-border d-flex flex-column" v-for="result in this.searchResults" :key="result.name"> 
                         <div class="data flex-fill d-flex flex-row">
-                            <img src="../../../public/static/img/profileCardPatientIcon.png" width="100px" height="100px">
+                            <img src="/static/img/profileCardPatientIcon.png" width="100px" height="100px">
                             <div class="text pl-3">
                                 <b class="text-color-secondary-dark doctor-name">{{result.userFirstName+' '+result.userLastName}}</b><br>
                                 <span>{{result.patientEps}}</span><br>
@@ -46,7 +46,7 @@
                     <div class="else" v-if="this.searchResults.length===0">
                         <div class="empty text-center border-nice p-3">
                             <h3 class="text-color-main-dark h4" style="font-weight: 600">No se han encontrado resultados.</h3>
-                            <img src="../../../public/static/svg/searchDoctorIcon.svg" width="150px" height="150px" class="m-3 img-search">
+                            <img src="/static/svg/searchDoctorIcon.svg" width="150px" height="150px" class="m-3 img-search">
                             <p>Prueba cambiando los valores de búsqueda.</p>
                         </div>
                     </div>

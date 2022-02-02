@@ -1,7 +1,7 @@
 <template>
   <div class="profile h-100 d-flex flex-column p-0 pt-3">
     <button class="btn btn-back p-0 m-4" @click="back">
-      <img src="../../../public/static/svg/arrow-left-circle.svg">
+      <img src="/static/svg/arrow-left-circle.svg">
     </button>
     <div class="inform d-flex flex-column align-items-center flex-fill ml-5 mr-5">
       <div class="title text-white pl-5 pr-5">Perfil</div>

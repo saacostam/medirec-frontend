@@ -93,7 +93,7 @@ a{
 }
 
 #img-doctors{
-	background-image: url("../../public/static/img/registro-doctor.png");
+	background-image: url("/static/img/registro-doctor.png");
 	background-position: top center;
 	background-size:cover;
 }

@@ -1,7 +1,7 @@
 <template>
     <div class="container-fluid">
         <button class="btn btn-back p-0 m-4" @click="back">
-            <img src="../../../public/static/svg/arrow-left-circle.svg">
+            <img src="/static/svg/arrow-left-circle.svg">
         </button>
 
         <div class="row">
@@ -11,14 +11,14 @@
                 </div>
                 <div class="nav-div">
                     <div class="nav-option d-flex flex-column" @click="toSymptoms">
-                        <img src="../../../public/static/img/syntomsIcon.png" class="mx-auto" width="120px" height="120px" style="border: solid 2px rgb(86, 81, 226); border-radius:50%;">
+                        <img src="/static/img/syntomsIcon.png" class="mx-auto" width="120px" height="120px" style="border: solid 2px rgb(86, 81, 226); border-radius:50%;">
                         <div class="bg-color-main-light text-white text-center btn-option h5">
                             Síntomas
                         </div>
                     </div>
 
                     <div class="nav-option d-flex flex-column" @click="toMeds">
-                        <img src="../../../public/static/img/checkSympBanner.png" class="mx-auto" width="120px" height="120px" style="border: solid 2px rgb(86, 81, 226); border-radius:50%;">
+                        <img src="/static/img/checkSympBanner.png" class="mx-auto" width="120px" height="120px" style="border: solid 2px rgb(86, 81, 226); border-radius:50%;">
                         <div class="bg-color-main-light text-white text-center btn-option h5">
                             Medicamentos
                         </div>
@@ -26,7 +26,7 @@
                 </div>
             </div>
             <div class="col-lg-7 d-none d-lg-flex align-items-center justify-content-start pt-1">
-                <img src="../../../public/static/img/navSympBanner.png" class="mt-4 img-fluid" height="480px" width="600px">
+                <img src="/static/img/navSympBanner.png" class="mt-4 img-fluid" height="480px" width="600px">
             </div>
         </div>
     </div>

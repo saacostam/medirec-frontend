@@ -10,7 +10,7 @@
                         <div class="input-group">
                         <div class="input-group-prepend">
                             <div class="input-group-text border-0" v-bind:class="this.bgClass">
-                                <img src="../../../public/static/svg/calendar-check.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
+                                <img src="/static/svg/calendar-check.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
                             </div>
                         </div>
                         <input v-model="userBirthDay" type="date" class="form-control border-0" placeholder="Fecha de Nacimiento" required v-bind:class="this.bgFormClass" v-bind:max="new Date().toISOString().split('T')[0]">
@@ -20,7 +20,7 @@
                         <div class="input-group">
                         <div class="input-group-prepend">
                             <div class="input-group-text border-0" v-bind:class="this.bgClass">
-                                <img src="../../../public/static/svg/person-circle.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
+                                <img src="/static/svg/person-circle.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
                             </div>
                         </div>
                         <select v-model="userGender" type="date" class="form-control border-0" placeholder="Genero" required v-bind:class="this.bgFormClass">
@@ -34,7 +34,7 @@
                         <div class="input-group">
                         <div class="input-group-prepend">
                             <div class="input-group-text border-0" v-bind:class="this.bgClass">
-                                <img src="../../../public/static/svg/shop-window.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
+                                <img src="/static/svg/shop-window.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
                             </div>
                         </div>
                         <input v-model="userAddress" type="text" class="form-control border-0" placeholder="Direccción" required v-bind:class="this.bgFormClass">
@@ -47,7 +47,7 @@
                         <div class="input-group">
                         <div class="input-group-prepend">
                             <div class="input-group-text border-0" v-bind:class="this.bgClass">
-                                <img src="../../../public/static/svg/people-fill.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
+                                <img src="/static/svg/people-fill.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
                             </div>
                         </div>
                         <select v-model="patientMaritalStatus" type="text" class="form-control border-0" placeholder="Estado Civil" required v-bind:class="this.bgFormClass">
@@ -66,7 +66,7 @@
                         <div class="input-group">
                         <div class="input-group-prepend">
                             <div class="input-group-text border-0" v-bind:class="this.bgClass">
-                                <img src="../../../public/static/svg/building.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
+                                <img src="/static/svg/building.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
                             </div>
                         </div>
                         <input v-model="doctorConsultory" type="text" class="form-control border-0" placeholder="Consultorio" required v-bind:class="this.bgFormClass">
@@ -76,7 +76,7 @@
                         <div class="input-group">
                         <div class="input-group-prepend">
                             <div class="input-group-text border-0" v-bind:class="this.bgClass">
-                                <img src="../../../public/static/svg/book.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
+                                <img src="/static/svg/book.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
                             </div>
                         </div>
                         <input v-model="doctorUniversity" type="text" class="form-control border-0" placeholder="Universidad" required v-bind:class="this.bgFormClass">
@@ -86,7 +86,7 @@
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <div class="input-group-text border-0" v-bind:class="this.bgClass">
-                                    <img src="../../../public/static/svg/award.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
+                                    <img src="/static/svg/award.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
                                 </div>
                             </div>
                             <input v-model="doctorExperience" type="number" class="form-control border-0" placeholder="Experiencia" required v-bind:class="this.bgFormClass">
@@ -144,8 +144,8 @@
                 <div class="d-inline title text-white pl-5 pr-5">Actualización de Datos</div>
                 <div class="bg-white p-5 form-group border">
                     <div class="flex-fill d-flex flex-column align-items-center justify-content-center">
-                        <img v-if="this.authority=='PATIENT'" src="../../../public/static/img/comprobado-patient.png" class="col-4 img-fluid">
-                        <img v-else src="../../../public/static/img/comprobado-doctor.png" class="col-4 img-fluid">
+                        <img v-if="this.authority=='PATIENT'" src="/static/img/comprobado-patient.png" class="col-4 img-fluid">
+                        <img v-else src="/static/img/comprobado-doctor.png" class="col-4 img-fluid">
                         <div class="message row">
                             <p class="offset-2 col-8 text-center">Actualización de datos <b class="text-color-main-light">satisfactoria</b></p>
                         </div>
@@ -156,8 +156,8 @@
                 </div>
             </div>
             <div class="col-lg-6 p-4">
-                <img src="../../../public/static/img/updatePatientInfoIcon.jpg" class="img-fluid rounded-circle border border-danger" v-if="this.authority==='PATIENT'">
-                <img src="../../../public/static/img/updateDoctorInfoIcon.png" class="img-fluid rounded-circle border border-primary" v-else>
+                <img src="/static/img/updatePatientInfoIcon.jpg" class="img-fluid rounded-circle border border-danger" v-if="this.authority==='PATIENT'">
+                <img src="/static/img/updateDoctorInfoIcon.png" class="img-fluid rounded-circle border border-primary" v-else>
             </div>
         </div>
     </div>
