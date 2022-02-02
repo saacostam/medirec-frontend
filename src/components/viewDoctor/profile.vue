@@ -12,8 +12,8 @@
                     <div class="col-12 info">
                     <div class="col-12 profile-picture mt-3 mb-3">
                         <div class="offset-xl-3 col-xl-6 offset-lg-2 col-lg-8 offset-md-2 col-md-8 offset-sm-1 col-sm-10">
-                        <img src="..\..\..\public\static\img\patientIcon.jpg" class="img-fluid rounded-circle abs" v-if="this.authority==='PATIENT'">
-                        <img src="..\..\..\public\static\img\profileDoctorIcon.png" class="img-fluid rounded-circle abs" v-else>
+                        <img src="\static\img\patientIcon.jpg" class="img-fluid rounded-circle abs" v-if="this.authority==='PATIENT'">
+                        <img src="\static\img\profileDoctorIcon.png" class="img-fluid rounded-circle abs" v-else>
                         </div>
                     </div>
                     <div class="col-lg-12">
