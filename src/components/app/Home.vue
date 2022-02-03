@@ -466,8 +466,10 @@ export default {
       console.log(this.calendar);
     },
     getInfo(date){
-      this.currDate = date;
-      $('#infoModal').modal('show')
+      if (!(date.date.getTime() === 0)){
+        this.currDate = date;
+        $('#infoModal').modal('show')
+      }
     },
     makeDate(iDate){
       const date = new Date(iDate);
