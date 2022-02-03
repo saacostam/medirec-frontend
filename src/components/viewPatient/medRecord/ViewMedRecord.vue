@@ -30,7 +30,7 @@
                         </div>
                         <div class="offset-2 col-8 d-flex flex-row justify-content-around mb-3">
                             <div class="d-flex flex-column align-items-center">
-                                <img src="static/img/antecedentesFamiliaresIcon.png" width="125px" height="125px" @click="toFamilyBackgrounds" class="img-button mb-4">
+                                <img src="/static/img/antecedentesFamiliaresIcon.png" width="125px" height="125px" @click="toFamilyBackgrounds" class="img-button mb-4">
                                 <div class="body justify-content-center align-content-center border bg-color-main-light text-white text-center div-button" @click="toFamilyBackgrounds">
                                     <h4>Antecedentes<br>Familiares</h4>
                                 </div>
