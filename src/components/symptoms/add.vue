@@ -277,10 +277,10 @@ export default {
         border: solid 5px #418ef2;
     }
 
-    .form-control::placeholder{
+    /* .form-control::placeholder{
         color: black;
         opacity: 50%;
-    }
+    } */
 
     .form-group{
         border-radius: 20px;

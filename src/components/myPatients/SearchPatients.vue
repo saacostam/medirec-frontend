@@ -20,7 +20,7 @@
                                         <option value="D">Documento</option>
                                     </select>
                                 </div>
-                                <input v-model="query" v-bind:type="this.TtoT[this.queryType]" class="form-control bg-color-main-light border-0 text-white" placeholder="Busqueda" required>
+                                <input v-model="query" v-bind:type="this.TtoT[this.queryType]" class="form-control border-0 text-white" placeholder="Busqueda" required style="background-color: #dae1e6;">
                             </div>
                         </div>
                         <input type="submit" value="Buscar" class="btn btn-primary align-self-center" id="btn-submit">

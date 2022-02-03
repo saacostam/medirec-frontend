@@ -226,7 +226,7 @@
     }
 
     .bg-color-main-lighter{
-        background-color: rgb(218, 225, 230);
+        background-color: #dae1e6;
     }
 
     .bg-color-main-light{
