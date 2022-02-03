@@ -135,35 +135,7 @@ export default {
         onMessageReceived(){
             console.log("message received by doctor!")
 
-            const session = getAuthenticationToken();
-            const path = `/messages/p${this.$route.params.id}/d${session.userId}/new`
-
-            axios.get(this.$store.state.backURL+path)
-                .then( (response) => {
-                    const message = response.data.data[0];
-                    
-                    if (message){
-                        console.log('Data', message)
-
-                        let tempChat = this.chat
-                        let today  = new Date()
-                        today = String(today.getFullYear())+'-'+String(today.getMonth()+1).padStart(2, "0")+'-'+String(today.getDate()).padStart(2, "0")
-                        tempChat[today.split('T')[0]].push({
-                            content: message.content,
-                            date: (new Date()).toUTCString(),
-                            recipient: message.recipientId,
-                            sender: message.senderId
-                        })
-
-                        this.chat = Object.assign({}, tempChat)  
-                        console.log(this.chat)
-                        }
-                })
-                .catch(error => {
-                    this.$store.state.testToken();
-                    alert( 'Error en la petición' );
-                    console.log( error );
-                })
+            this.updateChat();
         },
         sendMessage(){
             event.preventDefault()
@@ -179,24 +151,46 @@ export default {
             
                 this.stompClient.send("/app/chat", {}, JSON.stringify(message));
 
-                let tempChat = this.chat
-                let today  = new Date()
-                today = String(today.getFullYear())+'-'+String(today.getMonth()+1).padStart(2, "0")+'-'+String(today.getDate()).padStart(2, "0")
-                tempChat[today.split('T')[0]].push({
-                    content: this.message,
-                    date: (new Date()).toUTCString(),
-                    recipient: message.recipientId,
-                    sender: message.senderId
-                })
-
-                this.chat = Object.assign({}, tempChat)  
-                console.log(this.chat)
-
-                this.message = ''
+                location.reload();
             }
         },
         back(){
             this.$router.push( {name:'navViewPatient'} );
+        },
+        updateChat(){
+            const session = getAuthenticationToken();
+
+            const path = `/messages/p${this.$route.params.id}/d${session.userId}/all`
+
+            axios.get(this.$store.state.backURL+path)
+                .then( (response) => {
+                    const data = response.data.data;
+                    console.log(data)
+
+                    let tempChat = {}
+
+                    for (let i=0; i<data.length; i++){
+                        if (!Array.isArray(tempChat[data[i].timestamp.split('T')[0]])){
+                            tempChat[data[i].timestamp.split('T')[0]] = []
+                        }
+                        tempChat[data[i].timestamp.split('T')[0]].push({
+                            recipient: data[i].recipientId,
+                            sender: data[i].senderId,
+                            content: data[i].content,
+                            date: data[i].timestamp
+                        })
+                    }
+
+                    console.log(tempChat)
+                    this.chat = Object.assign({}, tempChat)  
+                })
+                .catch(error => {
+                    if (error.response.data.message !== "No se pudo encontrar el chat asociado a los id's de los usuarios"){
+                        this.$store.state.testToken();
+                        alert( 'Error en la petición' );
+                        console.log( error );
+                    }
+                })
         }
     }
 }
