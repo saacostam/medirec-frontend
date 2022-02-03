@@ -29,7 +29,7 @@
                       <img src="/static/svg/envelope.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
                     </div>
                   </div>
-                  <input v-model="email" type="email" class="form-control bg-color-main-dark border-0 text-white" placeholder="Correo Electronico" required>
+                  <input v-model="email" type="email" class="form-control border-0 text-white" placeholder="Correo Electronico" required style="background-color: #dae1e6">
                 </div>
               </div>
               <div class="form-group mb-4">
@@ -39,7 +39,7 @@
                       <img src="/static/svg/shield-lock.svg" class="password" width="16" height="16" viewBox="0 0 16 16">
                     </div>
                   </div>
-                  <input v-model="password" type="password" class="form-control bg-color-main-dark border-0 text-white" placeholder="Contraseña" required>
+                  <input v-model="password" type="password" class="form-control border-0 text-white" placeholder="Contraseña" required style="background-color: #dae1e6">
                 </div>
               </div>
               <div class="form-group mb-4">
@@ -49,7 +49,7 @@
                       <img src="/static/svg/person-badge.svg" class="password" width="16" height="16" viewBox="0 0 16 16">
                     </div>
                   </div>
-                  <select v-model="role" class="form-control bg-color-main-dark border-0 text-white" required>
+                  <select v-model="role" class="form-control border-0" required style="background-color: #dae1e6">
                     <option value="PATIENT">Paciente</option>
                     <option value="DOCTOR">Doctor</option>
                   </select>
