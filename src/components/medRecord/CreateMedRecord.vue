@@ -34,7 +34,7 @@
                                 <p class="card-text mb-2 text-center">Si quiere añadir una entrada presione <span id="add-button">+</span><br> o <span id="next-button">Siguiente</span> en caso contrario.</p>
                             </div>
                         </div>
-                        <div class="form-group border border-success p-3" v-for="allergy in this.allergies">
+                        <div class="form-group border border-success p-3" v-for="allergy in this.allergies" :key="allergy">
                             <div class="input-group m-2">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text border-0 bg-color-secondary-dark">
@@ -98,7 +98,7 @@
                                 <p class="card-text mb-2 text-center">Si quiere añadir una entrada presione <span id="add-button">+</span><br> o <span id="next-button">Siguiente</span> en caso contrario.</p>
                             </div>
                         </div>
-                        <div class="form-group border border-success p-3" v-for="illness in this.illnesses">
+                        <div class="form-group border border-success p-3" v-for="illness in this.illnesses" :key="illness">
                             <div class="input-group m-2">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text border-0 bg-color-secondary-dark">
@@ -169,7 +169,7 @@
                                 <p class="card-text mb-2 text-center">Si quiere añadir una entrada presione <span id="add-button">+</span><br> o <span id="next-button">Siguiente</span> en caso contrario.</p>
                             </div>
                         </div>
-                        <div class="form-group border border-success p-3" v-for="personalRecord in this.personalRecords">
+                        <div class="form-group border border-success p-3" v-for="personalRecord in this.personalRecords" :key="personalRecord">
                             <div class="input-group m-2">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text border-0 bg-color-secondary-dark">
@@ -232,7 +232,7 @@
                                 <p class="card-text mb-2 text-center">Si quiere añadir una entrada presione <span id="add-button">+</span><br> o <span id="next-button">Siguiente</span> en caso contrario.</p>
                             </div>
                         </div>
-                        <div class="form-group border border-success p-3" v-for="familyBackground in this.familyBackgrounds" >
+                        <div class="form-group border border-success p-3" v-for="familyBackground in this.familyBackgrounds" :key="familyBackground">
                             <div class="input-group m-2">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text border-0 bg-color-secondary-dark">
@@ -606,10 +606,10 @@ export default {
         border: solid 5px rgb(166, 203, 38);
     }
 
-    .form-control::placeholder{
+    /* .form-control::placeholder{
         color: black;
         opacity: 50%;
-    }
+    } */
 
     .form-group{
         border-radius: 20px;

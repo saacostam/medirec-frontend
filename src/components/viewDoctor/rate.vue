@@ -285,10 +285,10 @@ a{
     line-height: 24px;
 }
 
-.form-control::placeholder{
+/* .form-control::placeholder{
     color: #1F4567;
     opacity: 50%;
-}
+} */
 
 .form-group{
     border-radius: 20px;
