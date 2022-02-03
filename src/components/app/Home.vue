@@ -167,11 +167,10 @@
                 <div class="mb-3 result p-3 patient-border d-flex flex-column" v-for="result in this.doctors" :key="result.name"> 
                   <div class="data flex-fill d-flex flex-row">
                     <img src="/static/img/userChatIcon.png" width="80px" height="80px" style="border: solid 2px gray; border-radius:50%">
-                    <div class="text pl-3">
+                    <div class="text pl-3 flex-fill">
                       <b class="text-color-purple doctor-name h4">{{result.firstName+' '+result.lastName}}</b><br>
                       <span style="font-weight: 600">Doc: {{result.doc}}</span><br>
-                      <div class="d-flex flex-row">
-                        <div class="flex-fill"></div>
+                      <div class="d-flex flex-row-reverse">
                         <button class="btn bg-color-purple text-white btn-profile" @click="toProfile(result.id)">Consultar</button>
                       </div>
                     </div>
@@ -233,7 +232,7 @@ export default {
     if (session.authorities[0].authority === 'PATIENT'){
       divHeight = "height:325px;"
     }else{
-      divHeight = "height:100%;"
+      divHeight = "height:495px;"
     }
 
     // Date Handling
