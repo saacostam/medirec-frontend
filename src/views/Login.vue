@@ -49,7 +49,7 @@
                       <img src="/static/svg/person-badge.svg" class="password" width="16" height="16" viewBox="0 0 16 16">
                     </div>
                   </div>
-                  <select v-model="role" class="form-control bg-color-main-dark border-0 white-placeholder" required>
+                  <select v-model="role" class="form-control bg-color-main-dark border-0 text-white white-placeholder" required>
                     <option value="PATIENT">Paciente</option>
                     <option value="DOCTOR">Doctor</option>
                   </select>
@@ -137,7 +137,7 @@
 
 <style scoped>
 .white-placeholder::placeholder{
-  color: white;
+  color: #ffffffaa;
 }
 
 /* .form-control::placeholder{
