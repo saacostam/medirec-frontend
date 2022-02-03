@@ -50,7 +50,7 @@
                                         <div class="input-group">
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text border-0 bg-color-main-light">
-                                                    <img src="static/svg/asterisk.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
+                                                    <img src="/static/svg/asterisk.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
                                                 </div>
                                             </div>
                                             <textarea v-model="comment" type="text" class="form-control border-0 bg-color-main-lighter" placeholder="Reseña" required style="height:80px">
