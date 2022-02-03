@@ -29,7 +29,7 @@
                       <img src="/static/svg/envelope.svg" class="user" width="16" height="16" viewBox="0 0 16 16">
                     </div>
                   </div>
-                  <input v-model="email" type="email" class="form-control border-0 text-white" placeholder="Correo Electronico" required style="background-color: #dae1e6">
+                  <input v-model="email" type="email" class="form-control bg-color-main-dark border-0 text-white white-placeholder" placeholder="Correo Electronico" required>
                 </div>
               </div>
               <div class="form-group mb-4">
@@ -39,7 +39,7 @@
                       <img src="/static/svg/shield-lock.svg" class="password" width="16" height="16" viewBox="0 0 16 16">
                     </div>
                   </div>
-                  <input v-model="password" type="password" class="form-control border-0 text-white" placeholder="Contraseña" required style="background-color: #dae1e6">
+                  <input v-model="password" type="password" class="form-control bg-color-main-dark border-0 text-white white-placeholder" placeholder="Contraseña" required>
                 </div>
               </div>
               <div class="form-group mb-4">
@@ -49,7 +49,7 @@
                       <img src="/static/svg/person-badge.svg" class="password" width="16" height="16" viewBox="0 0 16 16">
                     </div>
                   </div>
-                  <select v-model="role" class="form-control border-0" required style="background-color: #dae1e6">
+                  <select v-model="role" class="form-control bg-color-main-dark border-0 white-placeholder" required>
                     <option value="PATIENT">Paciente</option>
                     <option value="DOCTOR">Doctor</option>
                   </select>
@@ -136,6 +136,10 @@
 
 
 <style scoped>
+.white-placeholder::placeholder{
+  color: white;
+}
+
 /* .form-control::placeholder{
   color: white;
   opacity: 50%;
@@ -151,6 +155,7 @@
 
 .text-color-main-light{
 	color: #418ef2;
+  /* color: #6cacff; */
 }
 
 .border-color-main-light{
