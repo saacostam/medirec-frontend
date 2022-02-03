@@ -55,8 +55,7 @@
                     <h5 class="text-color-main-dark pt-4 text-center">{{this.makeDate(this.currDate.date)}}</h5>
 
                     <div v-if="this.currDate.data">
-                      <img src="/static/img/syntomsInCalendarIcon.png" alt="" class="mx-auto d-block mt-4" width="200px" height="240px" style="border: solid 2px rgb(129, 125, 233); border-radius: 15px">
-                      <h5 class="text-color-purple text-center m-4" style="font-weight:700">{{this.name}}</h5>
+                      <img src="/static/img/syntomsInCalendarIcon.png" alt="" class="mx-auto d-block mt-4 mb-3" width="200px" height="240px" style="border: solid 2px rgb(129, 125, 233); border-radius: 15px">
 
                       <div class="tables d-flex flex-row justify-content-center">
                         <div class="w-50 pb-4 pl-4 pr-4" v-if="this.currDate.data.symptoms.length>0">

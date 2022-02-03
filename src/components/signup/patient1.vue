@@ -61,7 +61,7 @@
                             <img src="/static/svg/person-badge.svg" class="password" width="16" height="16" viewBox="0 0 16 16">
                           </div>
                         </div>
-                        <input v-model="doc" type="number" class="form-control bg-color-secondary-light border-0" placeholder="Documento" required>
+                        <input v-model="doc" type="number" class="form-control bg-color-secondary-light border-0" placeholder="Documento" required min="10000" max="9999999999">
                         <div class="input-group-append">
                           <select v-model="docType" class="form-control bg-color-secondary-light border-0" required>
                             <option value="CC">CC</option>
