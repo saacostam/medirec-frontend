@@ -200,10 +200,10 @@
         border: solid 5px #1F4567;
     }
 
-    .form-control::placeholder{
+    /* .form-control::placeholder{
         color: black;
         opacity: 50%;
-    }
+    } */
 
     .form-group{
         border-radius: 20px;

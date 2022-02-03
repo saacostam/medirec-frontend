@@ -39,10 +39,10 @@
 </script>
 
 <style scoped>
-.form-control::placeholder{
+/* .form-control::placeholder{
   color: white;
   opacity: 50%;
-}
+} */
 
 .form-group{
 	border-radius: 20px;
