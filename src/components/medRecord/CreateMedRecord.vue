@@ -127,8 +127,8 @@
                     </div>
 
                     <div>
-                        <button type="button" class="btn btn-danger m-1" @click="removeIlness"><img src="/public/static/svg/dash.svg"></button>
-                        <button type="button" class="btn bg-color-green text-white m-1" @click="addIlness"><img src="/public/static/svg/plus.svg"></button>
+                        <button type="button" class="btn btn-danger m-1" @click="removeIlness"><img src="/static/svg/dash.svg"></button>
+                        <button type="button" class="btn bg-color-green text-white m-1" @click="addIlness"><img src="/static/svg/plus.svg"></button>
                     </div>
 
                     <div class="d-flex justify-content-center">
